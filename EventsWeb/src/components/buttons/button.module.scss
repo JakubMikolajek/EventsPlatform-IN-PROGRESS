@@ -1,0 +1,33 @@
+.btn {
+  width: 150px;
+  height: 30px;
+  background-color: greenyellow;
+  border-radius: 8px;
+  border-color: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  color: black;
+  transition: .25s;
+
+  &:hover {
+    background-color: lawngreen;
+  }
+
+}
+
+.btnAlt {
+  width: 150px;
+  height: 30px;
+  background-color: transparent;
+  border-radius: 8px;
+  border: 2px solid greenyellow;
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+  transition: .25s;
+
+  &:hover {
+    border-color: lawngreen;
+  }
+
+}

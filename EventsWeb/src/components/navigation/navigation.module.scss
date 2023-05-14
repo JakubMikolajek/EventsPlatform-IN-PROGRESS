@@ -1,0 +1,33 @@
+.navbar {
+  position: sticky;
+  height: 6vh;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .left {
+    margin-left: 25px;
+
+    .logo {
+      text-decoration: none;
+      color: black;
+    }
+
+    .active {
+      text-decoration: none;
+      color: greenyellow;
+    }
+  }
+
+  .right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    button:first-child {
+      margin-right: 25px;
+    }
+  }
+}
