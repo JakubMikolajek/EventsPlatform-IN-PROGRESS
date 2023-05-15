@@ -1,9 +1,11 @@
 import React from "react";
+import LoginForm from "../components/forms/LoginForm.tsx";
+import classes from "./login.module.scss";
 
 const Login: React.FC = () => {
   return (
-    <div>
-      <h1>Login</h1>
+    <div className={classes.main}>
+      <LoginForm />
     </div>
   );
 };
