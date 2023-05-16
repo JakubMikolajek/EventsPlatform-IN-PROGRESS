@@ -7,6 +7,8 @@ import { setIsAuth, setIsLoggedIn } from "../../store/reducers/authSlice.ts";
 import { useDispatch } from "react-redux";
 import classes from "./loginForm.module.scss";
 import { useNavigate } from "react-router-dom";
+import FormInput from "../inputs/FormInput.tsx";
+import SubmitInput from "../inputs/SubmitInput.tsx";
 
 const LoginForm: React.FC = () => {
   const dispatch = useDispatch();
@@ -37,18 +39,31 @@ const LoginForm: React.FC = () => {
   };
 
   return (
-    <form
-      className={classes.form}
-      onClick={handleSubmit((values: FieldValues) =>
-        loginUser(values.email, values.password)
-      )}
-    >
-      <input {...register("email")} type="email" placeholder="Email" />
-      <p>{errors.email?.message}</p>
-      <input {...register("password")} type="password" placeholder="Hasło" />
-      <p>{errors.password?.message}</p>
-      <input type="submit" value="Zaloguj się" />
-    </form>
+    <div className={classes.main}>
+      <h1>Zaloguj się</h1>
+      <form
+        className={classes.form}
+        onSubmit={handleSubmit((values: FieldValues) =>
+          loginUser(values.email, values.password)
+        )}
+      >
+        <FormInput
+          register={register}
+          type="email"
+          placeholder="Email"
+          name="email"
+          errors={errors.email?.message}
+        />
+        <FormInput
+          register={register}
+          type="password"
+          placeholder="Hasło"
+          name="password"
+          errors={errors.password?.message}
+        />
+        <SubmitInput type="submit" value="Zaloguj się" />
+      </form>
+    </div>
   );
 };
 

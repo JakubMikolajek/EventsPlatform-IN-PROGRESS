@@ -4,6 +4,8 @@ import { supabasClient } from "../../supabase/supabase.ts";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerValidation } from "../../utils/validation/validation.ts";
 import classes from "./registerForm.module.scss";
+import FormInput from "../inputs/FormInput.tsx";
+import SubmitInput from "../inputs/SubmitInput.tsx";
 
 const RegisterForm: React.FC = () => {
   const {
@@ -40,33 +42,57 @@ const RegisterForm: React.FC = () => {
   };
 
   return (
-    <form
-      className={classes.form}
-      onClick={handleSubmit((values: FieldValues) =>
-        registerUser(
-          values.email,
-          values.password,
-          values.firstName,
-          values.lastName
-        )
-      )}
-    >
-      <input {...register("email")} type="email" placeholder="Email" />
-      <p>{errors.email?.message}</p>
-      <input {...register("password")} type="password" placeholder="Hasło" />
-      <p>{errors.password?.message}</p>
-      <input
-        {...register("confirmPassword")}
-        type="password"
-        placeholder="Potwierdź hasło"
-      />
-      <p>{errors.confirmPassword?.message}</p>
-      <input {...register("firstName")} type="text" placeholder="Imię" />
-      <p>{errors.firstName?.message}</p>
-      <input {...register("lastName")} type="text" placeholder="Nazwisko" />
-      <p>{errors.lastName?.message}</p>
-      <input type="submit" value="Zarejestruj się" />
-    </form>
+    <div className={classes.main}>
+      <h1>Zarejestruj się</h1>
+      <form
+        className={classes.form}
+        onSubmit={handleSubmit((values: FieldValues) =>
+          registerUser(
+            values.email,
+            values.password,
+            values.firstName,
+            values.lastName
+          )
+        )}
+      >
+        <FormInput
+          register={register}
+          type="email"
+          placeholder="Email"
+          name="email"
+          errors={errors.email?.message}
+        />
+        <FormInput
+          register={register}
+          type="password"
+          placeholder="Hasło"
+          name="password"
+          errors={errors.password?.message}
+        />
+        <FormInput
+          register={register}
+          type="password"
+          placeholder="Potwierdź hasło"
+          name="confirmPassword"
+          errors={errors.confirmPassword?.message}
+        />
+        <FormInput
+          register={register}
+          type="text"
+          placeholder="Imię"
+          name="firstName"
+          errors={errors.firstName?.message}
+        />
+        <FormInput
+          register={register}
+          type="text"
+          placeholder="Nazwisko"
+          name="lastName"
+          errors={errors.lastName?.message}
+        />
+        <SubmitInput type="submit" value="Zarejestruj się" />
+      </form>
+    </div>
   );
 };
 

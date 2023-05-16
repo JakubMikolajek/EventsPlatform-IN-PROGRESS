@@ -10,6 +10,7 @@ import { setIsAuth, setIsLoggedIn } from "../../store/reducers/authSlice.ts";
 const Navigation: React.FC = () => {
   const dispatch = useDispatch();
   const isAuth: boolean = useSelector((state: any) => state.auth.isAuth);
+  const ownId: string = useSelector((state: any) => state.auth.loggedUserId);
 
   const logoutUser = async () => {
     return await supabasClient.auth.signOut().then(() => {
@@ -38,7 +39,10 @@ const Navigation: React.FC = () => {
             <NavButton isAlt={false} title="Zarejestruj się" path="/register" />
           </>
         ) : (
-          <Button title="Wyloguj się" isAlt={true} onClick={logoutUser} />
+          <>
+            <p>{ownId}</p>
+            <Button title="Wyloguj się" isAlt={true} onClick={logoutUser} />
+          </>
         )}
       </div>
     </nav>

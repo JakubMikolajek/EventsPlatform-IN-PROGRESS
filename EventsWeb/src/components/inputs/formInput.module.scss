@@ -1,0 +1,23 @@
+.main{
+  width: 300px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.formInput{
+  width: 300px;
+  height: 40px;
+  border-radius: 8px;
+  border: 2px solid white;
+  padding: 0 10px 0 10px;
+  color: white;
+}
+
+.error{
+  margin: 2px 0 2px 0;
+  color: white;
+  font-size: 16px;
+}
