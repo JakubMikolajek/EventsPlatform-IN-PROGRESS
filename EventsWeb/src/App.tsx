@@ -6,6 +6,8 @@ import Login from "./pages/Login.tsx";
 import Register from "./pages/Register.tsx";
 import Profile from "./pages/Profile.tsx";
 import React from "react";
+import AddEvent from "./pages/AddEvent.tsx";
+import ProtectedRoute from "./components/navigation/ProtectedRoute.tsx";
 
 const router = createBrowserRouter([
   {
@@ -13,10 +15,25 @@ const router = createBrowserRouter([
     element: <Root />,
     children: [
       { index: true, element: <Events /> },
-      { path: "event-detail/:eventId", element: <EventDetail /> },
+      { path: ":eventId", element: <EventDetail /> },
       { path: "login", element: <Login /> },
       { path: "register", element: <Register /> },
-      { path: "profile", element: <Profile /> },
+      {
+        path: "profile",
+        element: (
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "add-event",
+        element: (
+          <ProtectedRoute>
+            <AddEvent />
+          </ProtectedRoute>
+        ),
+      },
     ],
   },
 ]);

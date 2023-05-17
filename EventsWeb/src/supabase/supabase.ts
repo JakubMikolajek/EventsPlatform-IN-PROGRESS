@@ -5,7 +5,7 @@ const supabase_url: string = "";
 const supabase_key: string =
   "";
 
-export const supabasClient: SupabaseClient<Database> = createClient<Database>(
+export const supabaseClient: SupabaseClient<Database> = createClient<Database>(
   supabase_url,
   supabase_key
 );

@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import classes from "./button.module.scss";
+import classes from "./buttons.module.scss";
 
 interface ButtonProps {
   title: string;

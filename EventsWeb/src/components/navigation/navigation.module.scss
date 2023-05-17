@@ -26,8 +26,21 @@
     justify-content: center;
     align-items: center;
 
-    button:first-child {
+    button {
       margin-right: 25px;
+    }
+
+    .profile{
+      margin-right: 25px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      p{
+        margin-left: 10px;
+        color: white;
+        text-decoration: none;
+      }
     }
   }
 }

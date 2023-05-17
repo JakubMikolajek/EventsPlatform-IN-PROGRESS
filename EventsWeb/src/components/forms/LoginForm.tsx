@@ -2,10 +2,10 @@ import React from "react";
 import { FieldValues, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginValidation } from "../../utils/validation/validation.ts";
-import { supabasClient } from "../../supabase/supabase.ts";
+import { supabaseClient } from "../../supabase/supabase.ts";
 import { setIsAuth, setIsLoggedIn } from "../../store/reducers/authSlice.ts";
 import { useDispatch } from "react-redux";
-import classes from "./loginForm.module.scss";
+import classes from "./forms.module.scss";
 import { useNavigate } from "react-router-dom";
 import FormInput from "../inputs/FormInput.tsx";
 import SubmitInput from "../inputs/SubmitInput.tsx";
@@ -26,7 +26,7 @@ const LoginForm: React.FC = () => {
   });
 
   const loginUser = async (email: string, password: string) => {
-    return await supabasClient.auth
+    return await supabaseClient.auth
       .signInWithPassword({
         email: email,
         password: password,
@@ -39,10 +39,10 @@ const LoginForm: React.FC = () => {
   };
 
   return (
-    <div className={classes.main}>
+    <div className={classes.mainAuth}>
       <h1>Zaloguj się</h1>
       <form
-        className={classes.form}
+        className={classes.authForm}
         onSubmit={handleSubmit((values: FieldValues) =>
           loginUser(values.email, values.password)
         )}
