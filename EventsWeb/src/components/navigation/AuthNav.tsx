@@ -12,7 +12,11 @@ const AuthNav: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const ownId: string = useSelector((state: any) => state.auth.loggedUserId);
-  const { user }: any = fetchSingleUser(ownId, false);
+  const { user, isLoading }: any = fetchSingleUser(ownId, true);
+
+  if (isLoading) {
+    return null;
+  }
 
   const logoutUser = async () => {
     return await supabaseClient.auth
