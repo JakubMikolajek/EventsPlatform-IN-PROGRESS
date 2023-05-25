@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./inputs.module.scss";
+import classes from "./submitInput.module.scss";
 
 interface SubmitInputProps {
   type: string;

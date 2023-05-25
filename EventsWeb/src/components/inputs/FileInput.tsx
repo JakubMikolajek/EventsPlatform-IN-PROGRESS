@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./inputs.module.scss";
+import classes from "./fileInput.module.scss";
 
 interface FileInputProps {
   url: string | undefined;

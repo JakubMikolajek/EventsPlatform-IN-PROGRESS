@@ -4,6 +4,14 @@ import { supabaseClient } from "../supabase.ts";
 export const getEventsData = async () =>
   await supabaseClient.from("events").select("*").is("archived_at", null);
 
+//Get Event Details
+export const getSingleEvent = async (id: string) =>
+  await supabaseClient
+    .from("events")
+    .select("*, event_tickets(*), comments(*)")
+    .eq("id", id)
+    .single();
+
 //Create Event
 export const createEvent = async (
   title: string,
@@ -25,5 +33,13 @@ export const createEvent = async (
       tickets_number: tickets_number,
       image_url: image_url,
     })
+    .limit(1)
+    .single();
+
+//Create Ticket
+export const createTicket = async (id: number) =>
+  await supabaseClient
+    .from("event_tickets")
+    .insert({ event_id: id })
     .limit(1)
     .single();

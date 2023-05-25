@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import classes from "./navigation.module.scss";
 import React from "react";
 import { useSelector } from "react-redux";
@@ -11,15 +11,9 @@ const MainNavigation: React.FC = () => {
   return (
     <nav className={classes.navbar}>
       <div className={classes.left}>
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? classes.active : classes.logo
-          }
-          to="/"
-          end
-        >
+        <Link className={classes.logo} to="/">
           <h1>Events App</h1>
-        </NavLink>
+        </Link>
       </div>
       <div className={classes.right}>
         {!isAuth ? <UnauthNav /> : <AuthNav />}

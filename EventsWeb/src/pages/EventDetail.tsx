@@ -1,11 +1,13 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import EventDetails from "../components/details/EventDetails.tsx";
 
 const EventDetail: React.FC = () => {
   const params = useParams();
+
   return (
     <div>
-      <h1>{params.eventId}</h1>
+      <EventDetails id={params.eventId} />
     </div>
   );
 };

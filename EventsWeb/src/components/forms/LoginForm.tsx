@@ -5,7 +5,7 @@ import { loginValidation } from "../../utils/validation/validation.ts";
 import { supabaseClient } from "../../supabase/supabase.ts";
 import { setIsAuth, setIsLoggedIn } from "../../store/reducers/authSlice.ts";
 import { useDispatch } from "react-redux";
-import classes from "./forms.module.scss";
+import classes from "./authForms.module.scss";
 import { useNavigate } from "react-router-dom";
 import FormInput from "../inputs/FormInput.tsx";
 import SubmitInput from "../inputs/SubmitInput.tsx";

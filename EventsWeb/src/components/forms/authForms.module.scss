@@ -1,0 +1,24 @@
+/*Auth Forms Styles*/
+.mainAuth{
+  width: 400px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+  border-radius: 8px;
+
+  h1{
+    color: white;
+  }
+
+  .authForm{
+    width: 350px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

@@ -3,7 +3,7 @@ import { FieldValues, useForm } from "react-hook-form";
 import { supabaseClient } from "../../supabase/supabase.ts";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerValidation } from "../../utils/validation/validation.ts";
-import classes from "./forms.module.scss";
+import classes from "./authForms.module.scss";
 import FormInput from "../inputs/FormInput.tsx";
 import SubmitInput from "../inputs/SubmitInput.tsx";
 import { useNavigate } from "react-router-dom";

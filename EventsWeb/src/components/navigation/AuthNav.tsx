@@ -1,21 +1,26 @@
 import React from "react";
 import Button from "../buttons/Button.tsx";
-import { NavLink, useNavigate } from "react-router-dom";
-import classes from "./navigation.module.scss";
+import { Link, useNavigate } from "react-router-dom";
+import classes from "./authNav.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchSingleUser } from "../../hooks/fetchSingleUser.tsx";
 import { supabaseClient } from "../../supabase/supabase.ts";
 import { setIsAuth, setIsLoggedIn } from "../../store/reducers/authSlice.ts";
 import NavButton from "../buttons/NavButton.tsx";
+import { StateProps } from "../../store/store.ts";
 
 const AuthNav: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const ownId: string = useSelector((state: any) => state.auth.loggedUserId);
-  const { user, isLoading }: any = fetchSingleUser(ownId, true);
+  const ownId = useSelector((state: StateProps) => state.auth.loggedUserId);
+  let user_data;
 
-  if (isLoading) {
-    return null;
+  if (typeof ownId !== "undefined") {
+    const { user, isLoading } = fetchSingleUser(ownId, true);
+    if (isLoading) {
+      return null;
+    }
+    user_data = user;
   }
 
   const logoutUser = async () => {
@@ -31,14 +36,16 @@ const AuthNav: React.FC = () => {
   return (
     <>
       <NavButton title="Utwórz wydarzenie" isAlt={true} path="add-event" />
-      <NavLink to="profile" style={{ textDecoration: "none" }}>
+      <Link to="profile" style={{ textDecoration: "none" }}>
         <div className={classes.profile}>
-          <img src={user?.image_url} alt="user" />
+          {user_data?.image_url && (
+            <img src={user_data?.image_url} alt="user" />
+          )}
           <p>
-            {user?.first_name} {user?.last_name}
+            {user_data?.first_name} {user_data?.last_name}
           </p>
         </div>
-      </NavLink>
+      </Link>
       <Button title="Wyloguj się" isAlt={true} onClick={logoutUser} />
     </>
   );

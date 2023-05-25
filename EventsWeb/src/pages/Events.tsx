@@ -23,11 +23,13 @@ const Events: React.FC = () => {
     return e_date >= currentDate;
   });
 
-  const close_events = events_sort_by_date.filter((event: any) => {
-    const currentDate = new Date();
-    const e_date: any = new Date(event.event_date);
-    return e_date <= currentDate;
-  });
+  // const close_events = events_sort_by_date
+  //     .filter((event: any) => {
+  //         const currentDate = new Date();
+  //         const e_date: any = new Date(event.event_date);
+  //         return e_date <= currentDate;
+  //     })
+  //     .reverse();
 
   const categories = events.map((event: any) => {
     return event.event_category;
@@ -39,7 +41,7 @@ const Events: React.FC = () => {
     <div className={classes.main}>
       <EventsList events={open_events} name="Najbliższe wydarzenia" />
       <CategoryList category={uniqueCategories} name="Kategorie" />
-      <EventsList events={close_events} name="Zakończone wydarzenia" />
+      {/*<EventsList events={close_events} name="Zakończone wydarzenia" />*/}
     </div>
   );
 };

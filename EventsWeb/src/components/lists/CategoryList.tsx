@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import classes from "./lists.module.scss";
+import classes from "./categoryList.module.scss";
 
 interface CategoryListProps {
   category: any;
@@ -7,29 +7,27 @@ interface CategoryListProps {
 }
 
 const CategoryList: React.FC<CategoryListProps> = ({ category, name }) => {
-  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [currentSlide, setCurrentSlide] = useState<number>(1);
   const elementPerPage: number = 5;
-  const totalPages: number = Math.ceil(category.length / elementPerPage);
+  const shiftAmount: number = 1;
 
   const handlePreviousPage = () => {
-    setCurrentPage((prevPage) => prevPage - 1);
+    setCurrentSlide((prevPage) => prevPage - 1);
   };
 
   const handleNextPage = () => {
-    setCurrentPage((prevPage) => prevPage + 1);
+    setCurrentSlide((prevPage) => prevPage + 1);
   };
 
-  const startIndex = (currentPage - 1) * elementPerPage;
+  const startIndex = (currentSlide - 1) * shiftAmount;
   const endIndex = startIndex + elementPerPage;
   const displayedCategories = category.slice(startIndex, endIndex);
-
-  console.log(displayedCategories);
 
   return (
     <div className={classes.mainCategories}>
       <h1 className={classes.title}>{name}:</h1>
       <div className={classes.list}>
-        {currentPage > 1 && (
+        {startIndex >= 1 && (
           <button className={classes.arrow_left} onClick={handlePreviousPage}>
             &larr;
           </button>
@@ -39,7 +37,7 @@ const CategoryList: React.FC<CategoryListProps> = ({ category, name }) => {
             <h1>{category}</h1>
           </div>
         ))}
-        {currentPage < totalPages && (
+        {endIndex < category.length && (
           <button className={classes.arrow_right} onClick={handleNextPage}>
             &rarr;
           </button>

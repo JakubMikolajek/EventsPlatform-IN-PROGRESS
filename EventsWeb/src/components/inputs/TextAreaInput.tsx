@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./inputs.module.scss";
+import classes from "./textAreaInput.module.scss";
 
 interface TextAreaInput {
   placeholder: string;

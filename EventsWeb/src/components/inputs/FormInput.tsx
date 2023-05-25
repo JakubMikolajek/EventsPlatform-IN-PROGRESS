@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./inputs.module.scss";
+import classes from "./formInput.module.scss";
 
 interface FormInputProps {
   type: string;

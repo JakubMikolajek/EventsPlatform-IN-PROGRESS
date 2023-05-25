@@ -1,0 +1,17 @@
+/*Submit Input Styles*/
+.submitInput {
+  width: 200px;
+  height: 40px;
+  border-radius: 8px;
+  border: 2px solid greenyellow;
+  color: greenyellow;
+  cursor: pointer;
+  font-size: 16px;
+  transition: .25s;
+  margin-top: 20px;
+
+  &:hover{
+    background-color: greenyellow;
+    color: white;
+  }
+}

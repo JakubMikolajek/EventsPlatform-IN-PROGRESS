@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import classes from "./buttons.module.scss";
 
 interface ButtonProps {
@@ -12,13 +12,13 @@ const NavButton: React.FC<ButtonProps> = ({ title, path, isAlt }) => {
   return (
     <>
       {isAlt ? (
-        <NavLink to={path} end>
+        <Link to={path}>
           <button className={classes.btnAlt}>{title}</button>
-        </NavLink>
+        </Link>
       ) : (
-        <NavLink to={path} end>
+        <Link to={path}>
           <button className={classes.btn}>{title}</button>
-        </NavLink>
+        </Link>
       )}
     </>
   );
