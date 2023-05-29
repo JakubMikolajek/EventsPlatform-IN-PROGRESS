@@ -6,10 +6,10 @@ import { registerValidation } from "../../utils/validation/validation.ts";
 import classes from "./authForms.module.scss";
 import FormInput from "../inputs/FormInput.tsx";
 import SubmitInput from "../inputs/SubmitInput.tsx";
-import { useNavigate } from "react-router-dom";
+import { NavigateFunction, useNavigate } from "react-router-dom";
 
 const RegisterForm: React.FC = () => {
-  const navigate = useNavigate();
+  const navigate: NavigateFunction = useNavigate();
   const {
     register,
     handleSubmit,

@@ -1,51 +1,60 @@
 /*Category List Styles*/
-.mainCategories{
+.mainCategories {
   display: flex;
   flex-direction: column;
-  height: auto;
-  width: 100%;
 
-  .title{
+  .title {
+    display: flex;
+    align-self: flex-start;
     color: white;
-    margin-left: 16px;
+    margin-left: 32px;
   }
 
-  .list{
+  .innerMainCategories {
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: 150px;
     width: 100%;
-    position: relative;
 
-    .list_element{
-      width: 20%;
-      padding: 8px 16px;
+    .list {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      border: 2px solid white;
-      border-radius: 8px;
-      margin: 8px 16px;
-      cursor: pointer;
+      justify-content: flex-start;
+      height: 150px;
+      width: 90%;
+      position: relative;
 
-      h1{
-        color: white;
+      .list_element {
+        min-width: 18%;
+        padding: 8px 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid white;
+        border-radius: 8px;
+        margin: 8px 16px;
+        text-decoration: none;
+
+        h1 {
+          color: white;
+        }
+
       }
-
     }
   }
 }
 
 /*Arrows Styles*/
 
-.arrow_left{
+.arrow_left {
   position: absolute;
+  display: flex;
+  align-self: center;
+  justify-self: center;
   left: 25px;
-  top: 50%;
-  transform: translateY(-50%);
   z-index: 999;
   width: 50px;
-  height: 50px;
   background: transparent;
   border: none;
   font-size: 32px;
@@ -53,21 +62,17 @@
   color: white;
 }
 
-.arrow_right{
+.arrow_right {
   position: absolute;
+  display: flex;
+  align-self: center;
+  justify-self: center;
   right: 25px;
-  top: 50%;
-  transform: translateY(-50%);
   z-index: 999;
   width: 50px;
-  height: 50px;
   background: transparent;
   border: none;
   font-size: 32px;
   cursor: pointer;
   color: white;
-}
-
-.textDecoration {
-  text-decoration: none;
 }

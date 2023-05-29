@@ -25,9 +25,11 @@ const EventTickets: React.FC<EventTicketsProps> = ({
   refetch,
 }) => {
   const client: QueryClient = useQueryClient();
-  const ownId = useSelector((state: StateProps) => state.auth.loggedUserId);
+  const ownId: string | undefined = useSelector(
+    (state: StateProps) => state.auth.loggedUserId
+  );
   const ownTicket = event_tickets.find(
-    (ticket: any) => ticket.ticket_owner === ownId
+    (ticket: any): boolean => ticket.ticket_owner === ownId
   );
 
   let createTicketMutation: UseMutationResult<

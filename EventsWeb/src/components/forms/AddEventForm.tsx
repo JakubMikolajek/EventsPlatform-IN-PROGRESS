@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
 import { supabaseClient } from "../../supabase/supabase.ts";
 import FileInput from "../inputs/FileInput.tsx";
 import FormInput from "../inputs/FormInput.tsx";
@@ -15,13 +14,16 @@ import {
   useQueryClient,
 } from "@tanstack/react-query";
 import { createEvent } from "../../supabase/api/events.ts";
-import { useNavigate } from "react-router-dom";
+import { NavigateFunction, useNavigate } from "react-router-dom";
 
-const AddEventForm: React.FC = () => {
+interface AddEventFormProps {
+  ownId: string | undefined;
+}
+
+const AddEventForm: React.FC<AddEventFormProps> = ({ ownId }) => {
   const [url, setUrl] = useState<string>();
-  const ownId: string = useSelector((state: any) => state.auth.loggedUserId);
   const client: QueryClient = useQueryClient();
-  const navigate = useNavigate();
+  const navigate: NavigateFunction = useNavigate();
   const {
     register,
     handleSubmit,

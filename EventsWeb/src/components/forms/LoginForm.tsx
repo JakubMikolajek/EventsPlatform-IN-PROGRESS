@@ -6,13 +6,15 @@ import { supabaseClient } from "../../supabase/supabase.ts";
 import { setIsAuth, setIsLoggedIn } from "../../store/reducers/authSlice.ts";
 import { useDispatch } from "react-redux";
 import classes from "./authForms.module.scss";
-import { useNavigate } from "react-router-dom";
+import { NavigateFunction, useNavigate } from "react-router-dom";
 import FormInput from "../inputs/FormInput.tsx";
 import SubmitInput from "../inputs/SubmitInput.tsx";
+import { AuthResponse } from "@supabase/supabase-js";
+import { Dispatch } from "redux";
 
 const LoginForm: React.FC = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const dispatch: Dispatch = useDispatch();
+  const navigate: NavigateFunction = useNavigate();
   const {
     register,
     handleSubmit,
@@ -31,7 +33,7 @@ const LoginForm: React.FC = () => {
         email: email,
         password: password,
       })
-      .then((response) => {
+      .then((response: AuthResponse) => {
         dispatch(setIsLoggedIn(response.data.user?.id));
         dispatch(setIsAuth(true));
       })

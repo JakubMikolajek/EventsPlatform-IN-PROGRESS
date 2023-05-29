@@ -1,0 +1,24 @@
+.list_element {
+  min-width: 18%;
+  margin: 8px 16px;
+
+  .imgContainer {
+    width: 100%;
+    height: 200px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  h2, h3, h4 {
+    color: white;
+  }
+
+}
+
+.textDecoration {
+  text-decoration: none;
+}

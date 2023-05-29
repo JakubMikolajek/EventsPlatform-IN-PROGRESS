@@ -8,14 +8,18 @@ import Profile from "./pages/Profile.tsx";
 import React from "react";
 import AddEvent from "./pages/AddEvent.tsx";
 import ProtectedRoute from "./components/navigation/ProtectedRoute.tsx";
+import Error from "./components/navigation/Error.tsx";
+import Category from "./pages/Category.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <Error />,
     children: [
       { index: true, element: <Events /> },
-      { path: "event/:eventId", element: <EventDetail /> },
+      { path: "categories/:categoryName", element: <Category /> },
+      { path: "events/:eventId", element: <EventDetail /> },
       { path: "login", element: <Login /> },
       { path: "register", element: <Register /> },
       {

@@ -1,16 +1,24 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { StateProps } from "../../store/store.ts";
 import { fetchSingleUser } from "../../hooks/fetchSingleUser.tsx";
 import classes from "./userInfo.module.scss";
 import Button from "../buttons/Button.tsx";
+import {
+  FetchSingleUserDataProps,
+  UserProps,
+} from "../../utils/types/types.ts";
 
-const UserInfo: React.FC = () => {
-  const ownId = useSelector((state: StateProps) => state.auth.loggedUserId);
-  let user_data;
+interface UserInfoProps {
+  ownId: string | undefined;
+}
+
+const UserInfo: React.FC<UserInfoProps> = ({ ownId }) => {
+  let user_data: UserProps | undefined | null;
 
   if (typeof ownId !== "undefined") {
-    const { user, isLoading } = fetchSingleUser(ownId, true);
+    const { user, isLoading }: FetchSingleUserDataProps = fetchSingleUser(
+      ownId,
+      true
+    );
     if (isLoading) {
       return null;
     }
@@ -19,7 +27,9 @@ const UserInfo: React.FC = () => {
 
   return (
     <div className={classes.main}>
-      {user_data?.image_url && <img src={user_data?.image_url} alt="user" />}
+      {user_data?.image_url && (
+        <img className={classes.img} src={user_data?.image_url} alt="user" />
+      )}
       <div className={classes.container}>
         <div className={classes.user}>
           <h1>

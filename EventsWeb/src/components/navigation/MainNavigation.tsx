@@ -4,9 +4,10 @@ import React from "react";
 import { useSelector } from "react-redux";
 import UnauthNav from "./UnauthNav.tsx";
 import AuthNav from "./AuthNav.tsx";
+import { StateProps } from "../../store/store.ts";
 
 const MainNavigation: React.FC = () => {
-  const isAuth: boolean = useSelector((state: any) => state.auth.isAuth);
+  const isAuth: boolean = useSelector((state: StateProps) => state.auth.isAuth);
 
   return (
     <nav className={classes.navbar}>
