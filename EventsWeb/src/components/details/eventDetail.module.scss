@@ -3,10 +3,13 @@
   position: relative;
 
   .textDecoration {
+    width: auto;
+    height: auto;
     text-decoration: none;
     color: greenyellow;
     font-size: 20px;
     margin-left: 32px;
+    cursor: pointer;
   }
 
   .event_detail {

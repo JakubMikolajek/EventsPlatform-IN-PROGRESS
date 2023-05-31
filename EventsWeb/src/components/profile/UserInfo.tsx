@@ -1,11 +1,11 @@
 import React from "react";
 import { fetchSingleUser } from "../../hooks/fetchSingleUser.tsx";
 import classes from "./userInfo.module.scss";
-import Button from "../buttons/Button.tsx";
 import {
   FetchSingleUserDataProps,
   UserProps,
 } from "../../utils/types/types.ts";
+import NavButton from "../buttons/NavButton.tsx";
 
 interface UserInfoProps {
   ownId: string | undefined;
@@ -37,10 +37,10 @@ const UserInfo: React.FC<UserInfoProps> = ({ ownId }) => {
           </h1>
           <h2>Twoje id: {user_data?.uuid}</h2>
         </div>
-        <Button
+        <NavButton
           title="Edytuj swój profil"
           isAlt={true}
-          onClick={() => console.log("Działa")}
+          path="/profile-edit"
         />
       </div>
     </div>

@@ -11,10 +11,12 @@ import classes from "./addEventForm.module.scss";
 import {
   QueryClient,
   useMutation,
+  UseMutationResult,
   useQueryClient,
 } from "@tanstack/react-query";
 import { createEvent } from "../../supabase/api/events.ts";
 import { NavigateFunction, useNavigate } from "react-router-dom";
+import { PostgrestSingleResponse } from "@supabase/supabase-js";
 
 interface AddEventFormProps {
   ownId: string | undefined;
@@ -55,7 +57,12 @@ const AddEventForm: React.FC<AddEventFormProps> = ({ ownId }) => {
     }
   };
 
-  const createEventMutation = useMutation({
+  const createEventMutation: UseMutationResult<
+    PostgrestSingleResponse<never>,
+    unknown,
+    any,
+    unknown
+  > = useMutation({
     mutationFn: (data: any) =>
       createEvent(
         data.title,
@@ -86,7 +93,11 @@ const AddEventForm: React.FC<AddEventFormProps> = ({ ownId }) => {
           createEventMutation.mutate(values);
         })}
       >
-        <FileInput url={url} handleFileChange={handleFileChange} />
+        <FileInput
+          isAlt={false}
+          url={url}
+          handleFileChange={handleFileChange}
+        />
         <div className={classes.inputContainer}>
           <div className={classes.inputLeftCol}>
             <FormInput

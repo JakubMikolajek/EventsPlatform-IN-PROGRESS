@@ -10,6 +10,7 @@ import AddEvent from "./pages/AddEvent.tsx";
 import ProtectedRoute from "./components/navigation/ProtectedRoute.tsx";
 import Error from "./components/navigation/Error.tsx";
 import Category from "./pages/Category.tsx";
+import EditProfile from "./pages/EditProfile.tsx";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,14 @@ const router = createBrowserRouter([
         element: (
           <ProtectedRoute>
             <Profile />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "profile-edit",
+        element: (
+          <ProtectedRoute>
+            <EditProfile />
           </ProtectedRoute>
         ),
       },

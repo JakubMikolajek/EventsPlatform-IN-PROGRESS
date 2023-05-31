@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import classes from "./eventsList.module.scss";
-import { formatDate } from "../../utils/functions/formatDate.ts";
 import EventListElement from "./EventListElement.tsx";
+import { EventProps } from "../../utils/types/types.ts";
 
 interface EventsListProps {
-  events: any;
+  events: EventProps[] | undefined;
   name: string;
 }
 
@@ -23,30 +23,30 @@ const EventsList: React.FC<EventsListProps> = ({ events, name }) => {
 
   const startIndex: number = (currentPage - 1) * shiftAmount;
   const endIndex: number = startIndex + elementPerPage;
-  const displayedEvents = events.slice(startIndex, endIndex);
+  const displayedEvents = events?.slice(startIndex, endIndex);
 
   return (
     <div className={classes.mainEvents}>
       <h1 className={classes.title}>{name}:</h1>
-      <div className={classes.innerMainEvents}>
-        {startIndex >= 1 && (
-          <button className={classes.arrow_left} onClick={handlePreviousPage}>
-            &larr;
-          </button>
-        )}
-        <div className={classes.list}>
-          {displayedEvents.map((event: any) => {
-            const date: string = formatDate(event);
-
-            return <EventListElement event={event} date={date} />;
-          })}
+      {events && (
+        <div className={classes.innerMainEvents}>
+          {startIndex >= 1 && (
+            <button className={classes.arrow_left} onClick={handlePreviousPage}>
+              &larr;
+            </button>
+          )}
+          <div className={classes.list}>
+            {displayedEvents?.map((event: any) => {
+              return <EventListElement event={event} />;
+            })}
+          </div>
+          {endIndex < events.length && (
+            <button className={classes.arrow_right} onClick={handleNextPage}>
+              &rarr;
+            </button>
+          )}
         </div>
-        {endIndex < events.length && (
-          <button className={classes.arrow_right} onClick={handleNextPage}>
-            &rarr;
-          </button>
-        )}
-      </div>
+      )}
     </div>
   );
 };

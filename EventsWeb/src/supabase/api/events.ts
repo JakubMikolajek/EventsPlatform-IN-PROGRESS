@@ -5,11 +5,8 @@ export const getEventsData = async () =>
   await supabaseClient.from("events").select("*").is("archived_at", null);
 
 //Get list of events with User Tickets
-export const getEventsWithTicketsData = async (id: string) =>
-  await supabaseClient
-    .from("event_tickets")
-    .select("ticket_owner, events(*)")
-    .eq("ticket_owner", id);
+export const getEventsWithTicketsData = async () =>
+  await supabaseClient.from("events").select("*, event_tickets(*)");
 
 //Get All Events of Category
 export const getEventsDataByCategory = async (category: string) =>

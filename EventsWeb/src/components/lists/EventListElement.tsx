@@ -1,13 +1,14 @@
 import React from "react";
 import classes from "./eventListElement.module.scss";
 import { Link } from "react-router-dom";
+import { formatDate } from "../../utils/functions/formatDate.ts";
 
 interface EventListElementProps {
   event: any;
-  date: string;
 }
 
-const EventListElement: React.FC<EventListElementProps> = ({ event, date }) => {
+const EventListElement: React.FC<EventListElementProps> = ({ event }) => {
+  const date: string = formatDate(event);
   return (
     <div className={classes.list_element} key={event.id}>
       <Link className={classes.textDecoration} to={`/events/${event.id}`}>

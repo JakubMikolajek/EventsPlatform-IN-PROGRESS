@@ -26,6 +26,7 @@ export interface EventProps {
   tickets_number: number | null;
   title: string | null;
 }
+
 export interface FetchEventsProps {
   events?: EventProps[] | undefined | null;
   isLoading?: boolean;

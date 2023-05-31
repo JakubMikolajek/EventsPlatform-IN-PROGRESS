@@ -46,17 +46,14 @@ const AuthNav: React.FC = () => {
   return (
     <>
       <NavButton title="Utwórz wydarzenie" isAlt={true} path="add-event" />
+      <Button title="Wyloguj się" isAlt={true} onClick={logoutUser} />
       <Link to="profile" style={{ textDecoration: "none" }}>
         <div className={classes.profile}>
           {user_data?.image_url && (
             <img src={user_data?.image_url} alt="user" />
           )}
-          <p>
-            {user_data?.first_name} {user_data?.last_name}
-          </p>
         </div>
       </Link>
-      <Button title="Wyloguj się" isAlt={true} onClick={logoutUser} />
     </>
   );
 };

@@ -19,13 +19,13 @@ const Profile: React.FC = () => {
   const { events }: FetchEventsProps = fetchEvents(false);
 
   if (typeof ownId !== "undefined") {
-    const { events } = fetchEventsWithTickets(ownId, false);
+    const { events }: FetchEventsProps = fetchEventsWithTickets(ownId, false);
     events_with_tickets = events;
   }
 
   const open_events = getOpenEvents(events);
 
-  const events_created_by_logged_user = open_events.filter(
+  const events_created_by_logged_user = open_events?.filter(
     (event: EventProps): boolean => event.creator_uuid === ownId
   );
 

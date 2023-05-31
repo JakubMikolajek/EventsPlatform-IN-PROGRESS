@@ -1,0 +1,18 @@
+.btn{
+  margin-left: 16px;
+  min-width: 100px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid greenyellow;
+  cursor: pointer;
+  font-size: 16px;
+  color: greenyellow;
+  transition: .25s;
+  padding: 8px;
+
+  &:hover {
+    border-color: lawngreen;
+    color: lawngreen;
+  }
+}

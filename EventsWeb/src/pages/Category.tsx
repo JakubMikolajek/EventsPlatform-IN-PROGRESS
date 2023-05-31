@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { fetchEventsByCategory } from "../hooks/fetchEventsByCategory.tsx";
 import Loading from "../components/others/Loading.tsx";
 import { EventProps, FetchEventsProps } from "../utils/types/types.ts";
+import EventsByCategory from "../components/category/EventsByCategory.tsx";
+import classes from "./category.module.scss";
 
 const Category: React.FC = () => {
   const params = useParams();
@@ -24,8 +26,11 @@ const Category: React.FC = () => {
 
   console.log(eventsByCategory);
   return (
-    <div>
-      <h1>Category</h1>
+    <div className={classes.main}>
+      <EventsByCategory
+        events={eventsByCategory}
+        category={params.categoryName}
+      />
     </div>
   );
 };

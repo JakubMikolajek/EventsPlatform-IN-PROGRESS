@@ -1,0 +1,27 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  .backContainer {
+    display: flex;
+    h1{
+      margin-left: 16px;
+      color: white;
+    }
+  }
+  .formContainer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .form{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .innerForm{
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}

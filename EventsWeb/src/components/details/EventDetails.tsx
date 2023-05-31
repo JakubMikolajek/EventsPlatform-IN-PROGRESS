@@ -1,7 +1,7 @@
 import React from "react";
 import { fetchEventDetail } from "../../hooks/fetchEventDetail.tsx";
 import classes from "./eventDetail.module.scss";
-import { Link } from "react-router-dom";
+import { Link, NavigateFunction, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { StateProps } from "../../store/store.ts";
 import EventTickets from "./EventTickets.tsx";
@@ -9,19 +9,22 @@ import {
   formatDate,
   formatDateToCheck,
 } from "../../utils/functions/formatDate.ts";
+import BackButton from "../buttons/BackButton.tsx";
+import Loading from "../others/Loading.tsx";
 
 interface EventDetailsProps {
   id: string | undefined;
 }
 
 const EventDetails: React.FC<EventDetailsProps> = ({ id }) => {
-  const isAuth = useSelector((state: StateProps) => state.auth.isAuth);
+  const navigate: NavigateFunction = useNavigate();
+  const isAuth: boolean = useSelector((state: StateProps) => state.auth.isAuth);
   let event_detail;
   let refetch_event;
   if (typeof id !== "undefined") {
     const { event, isLoading, refetch } = fetchEventDetail(id, true);
     if (isLoading) {
-      return <p>Loading....</p>;
+      return <Loading />;
     }
     event_detail = event;
     refetch_event = refetch;
@@ -30,17 +33,13 @@ const EventDetails: React.FC<EventDetailsProps> = ({ id }) => {
   const event_tickets: any = event_detail?.event_tickets;
   const date: string = formatDate(event_detail);
   const date_to_check: string = formatDateToCheck(event_detail);
-  const checkDate = new Date(date_to_check);
-  const currentDate = new Date();
-  const isEnded = checkDate <= currentDate;
+  const checkDate: Date = new Date(date_to_check);
+  const currentDate: Date = new Date();
+  const isEnded: boolean = checkDate <= currentDate;
 
   return (
     <div className={classes.main}>
-      <p>
-        <Link className={classes.textDecoration} to="..">
-          Powrót
-        </Link>
-      </p>
+      <BackButton onClick={() => navigate(-1)} />
       <div className={classes.event_detail}>
         <div className={classes.leftSide}>
           {event_detail?.image_url && (

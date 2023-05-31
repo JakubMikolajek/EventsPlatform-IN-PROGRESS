@@ -26,7 +26,10 @@ const Events: React.FC = () => {
     fetchEvents(true);
 
   if (typeof ownId !== "undefined") {
-    const { events, isLoading } = fetchEventsWithTickets(ownId, true);
+    const { events, isLoading }: FetchEventsProps = fetchEventsWithTickets(
+      ownId,
+      true
+    );
     events_with_tickets = events;
     tickets_isLoading = isLoading;
   }

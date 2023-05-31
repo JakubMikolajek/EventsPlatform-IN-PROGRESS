@@ -2,24 +2,47 @@ import React from "react";
 import classes from "./fileInput.module.scss";
 
 interface FileInputProps {
-  url: string | undefined;
+  url: string | undefined | null;
   handleFileChange: any;
+  isAlt: boolean;
 }
 
-const FileInput: React.FC<FileInputProps> = ({ url, handleFileChange }) => {
+const FileInput: React.FC<FileInputProps> = ({
+  url,
+  handleFileChange,
+  isAlt,
+}) => {
   return (
-    <div className={classes.mainFile}>
-      {url ? (
-        <img className={classes.img} src={url} alt="img" />
+    <>
+      {!isAlt ? (
+        <div className={classes.mainFile}>
+          {url ? (
+            <img className={classes.img} src={url} alt="img" />
+          ) : (
+            <input
+              className={classes.fileInput}
+              type="file"
+              accept="image/*"
+              onChange={handleFileChange}
+            />
+          )}
+        </div>
       ) : (
-        <input
-          className={classes.fileInput}
-          type="file"
-          accept="image/*"
-          onChange={handleFileChange}
-        />
+        <div className={classes.altMainFile}>
+          {url && (
+            <>
+              <img className={classes.img} src={url} alt="img" />
+              <input
+                className={classes.fileInput}
+                type="file"
+                accept="image/*"
+                onChange={handleFileChange}
+              />
+            </>
+          )}
+        </div>
       )}
-    </div>
+    </>
   );
 };
 

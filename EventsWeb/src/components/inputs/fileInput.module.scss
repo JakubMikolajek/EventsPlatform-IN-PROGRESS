@@ -30,3 +30,37 @@
     height: 168px;
   }
 }
+
+.altMainFile{
+  width: 500px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+
+  .fileInput{
+    width: 300px;
+    height: 40px;
+    padding: 0 10px 0 10px;
+    color: white;
+
+    &::file-selector-button{
+      border: 2px solid white;
+      cursor: pointer;
+      background-color: transparent;
+      color: white;
+      width: 150px;
+      height: 40px;
+      border-radius: 8px;
+      margin-right: 10px;
+    }
+  }
+
+  .img{
+    width: 96px;
+    height: 96px;
+    border-radius: 48px;
+    object-fit: cover;
+  }
+}
