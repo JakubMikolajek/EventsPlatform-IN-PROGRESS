@@ -46,57 +46,54 @@ const RegisterForm: React.FC = () => {
   };
 
   return (
-    <div className={classes.mainAuth}>
-      <h1>Zarejestruj się</h1>
-      <form
-        className={classes.authForm}
-        onSubmit={handleSubmit((values: FieldValues) =>
-          registerUser(
-            values.email,
-            values.password,
-            values.firstName,
-            values.lastName
-          )
-        )}
-      >
-        <FormInput
-          register={register}
-          type="email"
-          placeholder="Email"
-          name="email"
-          errors={errors.email?.message}
-        />
-        <FormInput
-          register={register}
-          type="password"
-          placeholder="Hasło"
-          name="password"
-          errors={errors.password?.message}
-        />
-        <FormInput
-          register={register}
-          type="password"
-          placeholder="Potwierdź hasło"
-          name="confirmPassword"
-          errors={errors.confirmPassword?.message}
-        />
-        <FormInput
-          register={register}
-          type="text"
-          placeholder="Imię"
-          name="firstName"
-          errors={errors.firstName?.message}
-        />
-        <FormInput
-          register={register}
-          type="text"
-          placeholder="Nazwisko"
-          name="lastName"
-          errors={errors.lastName?.message}
-        />
-        <SubmitInput type="submit" value="Zarejestruj się" />
-      </form>
-    </div>
+    <form
+      className={classes.authForm}
+      onSubmit={handleSubmit((values: FieldValues) =>
+        registerUser(
+          values.email,
+          values.password,
+          values.firstName,
+          values.lastName
+        )
+      )}
+    >
+      <FormInput
+        register={register}
+        type="email"
+        placeholder="Email"
+        name="email"
+        errors={errors.email?.message}
+      />
+      <FormInput
+        register={register}
+        type="password"
+        placeholder="Hasło"
+        name="password"
+        errors={errors.password?.message}
+      />
+      <FormInput
+        register={register}
+        type="password"
+        placeholder="Potwierdź hasło"
+        name="confirmPassword"
+        errors={errors.confirmPassword?.message}
+      />
+      <FormInput
+        register={register}
+        type="text"
+        placeholder="Imię"
+        name="firstName"
+        errors={errors.firstName?.message}
+      />
+      <FormInput
+        register={register}
+        type="text"
+        placeholder="Nazwisko"
+        name="lastName"
+        errors={errors.lastName?.message}
+      />
+      <SubmitInput type="submit" value="Zarejestruj się" />
+    </form>
   );
 };
 

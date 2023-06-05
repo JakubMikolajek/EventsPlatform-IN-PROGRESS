@@ -17,13 +17,14 @@ import {
 import { createEvent } from "../../supabase/api/events.ts";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 import { PostgrestSingleResponse } from "@supabase/supabase-js";
+import { useSelector } from "react-redux";
+import { StateProps } from "../../store/store.ts";
 
-interface AddEventFormProps {
-  ownId: string | undefined;
-}
-
-const AddEventForm: React.FC<AddEventFormProps> = ({ ownId }) => {
+const AddEventForm: React.FC = () => {
   const [url, setUrl] = useState<string>();
+  const ownId: string | undefined = useSelector(
+    (state: StateProps) => state.auth.loggedUserId
+  );
   const client: QueryClient = useQueryClient();
   const navigate: NavigateFunction = useNavigate();
   const {
@@ -85,68 +86,61 @@ const AddEventForm: React.FC<AddEventFormProps> = ({ ownId }) => {
   });
 
   return (
-    <div className={classes.mainAddEvent}>
-      <h1>Utwórz własne wydarzenie</h1>
-      <form
-        className={classes.addEventForm}
-        onSubmit={handleSubmit((values: FieldValues) => {
-          createEventMutation.mutate(values);
-        })}
-      >
-        <FileInput
-          isAlt={false}
-          url={url}
-          handleFileChange={handleFileChange}
-        />
-        <div className={classes.inputContainer}>
-          <div className={classes.inputLeftCol}>
-            <FormInput
-              register={register}
-              type="text"
-              name="title"
-              placeholder="Nazwa wydarzenia"
-              errors={errors.title?.message}
-            />
-            <TextAreaInput
-              register={register}
-              name="description"
-              placeholder="Opis wydarzenia"
-              errors={errors.description?.message}
-            />
-            <FormInput
-              register={register}
-              type="datetime-local"
-              name="event_date"
-              placeholder="Data wydarzenia"
-              errors={errors.event_date?.message}
-            />
-          </div>
-          <div className={classes.inputRightCol}>
-            <FormInput
-              register={register}
-              type="text"
-              name="event_category"
-              placeholder="Kategoria wydarzenia"
-              errors={errors.event_category?.message}
-            />
-            <TextAreaInput
-              register={register}
-              name="event_location"
-              placeholder="Lokalizacja wydarzenia"
-              errors={errors.event_location?.message}
-            />
-            <FormInput
-              register={register}
-              type="number"
-              name="tickets_number"
-              placeholder="Ilość miejsc na wydarzeniu"
-              errors={errors.tickets_number?.message}
-            />
-          </div>
+    <form
+      className={classes.addEventForm}
+      onSubmit={handleSubmit((values: FieldValues) => {
+        createEventMutation.mutate(values);
+      })}
+    >
+      <FileInput isAlt={false} url={url} handleFileChange={handleFileChange} />
+      <div className={classes.inputContainer}>
+        <div className={classes.inputLeftCol}>
+          <FormInput
+            register={register}
+            type="text"
+            name="title"
+            placeholder="Nazwa wydarzenia"
+            errors={errors.title?.message}
+          />
+          <TextAreaInput
+            register={register}
+            name="description"
+            placeholder="Opis wydarzenia"
+            errors={errors.description?.message}
+          />
+          <FormInput
+            register={register}
+            type="datetime-local"
+            name="event_date"
+            placeholder="Data wydarzenia"
+            errors={errors.event_date?.message}
+          />
         </div>
-        <SubmitInput type="submit" value="Dodaj wydarzenie" />
-      </form>
-    </div>
+        <div className={classes.inputRightCol}>
+          <FormInput
+            register={register}
+            type="text"
+            name="event_category"
+            placeholder="Kategoria wydarzenia"
+            errors={errors.event_category?.message}
+          />
+          <TextAreaInput
+            register={register}
+            name="event_location"
+            placeholder="Lokalizacja wydarzenia"
+            errors={errors.event_location?.message}
+          />
+          <FormInput
+            register={register}
+            type="number"
+            name="tickets_number"
+            placeholder="Ilość miejsc na wydarzeniu"
+            errors={errors.tickets_number?.message}
+          />
+        </div>
+      </div>
+      <SubmitInput type="submit" value="Dodaj wydarzenie" />
+    </form>
   );
 };
 

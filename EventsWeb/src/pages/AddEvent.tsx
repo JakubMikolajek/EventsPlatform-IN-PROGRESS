@@ -1,16 +1,14 @@
 import React from "react";
 import AddEventForm from "../components/forms/AddEventForm.tsx";
 import classes from "./addEvent.module.scss";
-import { useSelector } from "react-redux";
-import { StateProps } from "../store/store.ts";
 
 const AddEvent: React.FC = () => {
-  const ownId: string | undefined = useSelector(
-    (state: StateProps) => state.auth.loggedUserId
-  );
   return (
-    <div className={classes.main}>
-      <AddEventForm ownId={ownId} />
+    <div className={classes.mainContainer}>
+      <div className={classes.formContainer}>
+        <h1>Utwórz własne wydarzenie</h1>
+        <AddEventForm />
+      </div>
     </div>
   );
 };

@@ -13,11 +13,11 @@ import { fetchEvents } from "../../hooks/fetchEvents.tsx";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 
 interface DeleteEventProps {
-  id_Num: number | undefined;
+  event_detail: any;
   ownId: string | undefined;
 }
 
-const DeleteEvent: React.FC<DeleteEventProps> = ({ id_Num, ownId }) => {
+const DeleteEvent: React.FC<DeleteEventProps> = ({ event_detail, ownId }) => {
   const client: QueryClient = useQueryClient();
   const navigate: NavigateFunction = useNavigate();
   let deleteEventMutation: UseMutationResult<
@@ -26,11 +26,11 @@ const DeleteEvent: React.FC<DeleteEventProps> = ({ id_Num, ownId }) => {
     void
   >;
 
-  const { refetch }: FetchEventsProps = fetchEvents(true);
+  const { refetch }: FetchEventsProps = fetchEvents(false);
 
-  if (typeof ownId !== "undefined" && typeof id_Num !== "undefined") {
+  if (typeof ownId !== "undefined" && typeof event_detail?.id !== "undefined") {
     deleteEventMutation = useMutation({
-      mutationFn: () => deleteEvent(id_Num),
+      mutationFn: () => deleteEvent(event_detail.id),
       onError: () => {
         console.log("Error");
       },
@@ -41,12 +41,21 @@ const DeleteEvent: React.FC<DeleteEventProps> = ({ id_Num, ownId }) => {
       },
     });
   }
+
+  const event_tickets: any = event_detail?.event_tickets;
+
   return (
-    <Button
-      title="Usuń event"
-      isAlt={true}
-      onClick={() => deleteEventMutation.mutate()}
-    />
+    <>
+      <h3>
+        W wydarzeniu bierze udział: {event_tickets.length}/
+        {event_detail?.tickets_number}
+      </h3>
+      <Button
+        title="Usuń event"
+        isAlt={true}
+        onClick={() => deleteEventMutation.mutate()}
+      />
+    </>
   );
 };
 

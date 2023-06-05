@@ -41,31 +41,28 @@ const LoginForm: React.FC = () => {
   };
 
   return (
-    <div className={classes.mainAuth}>
-      <h1>Zaloguj się</h1>
-      <form
-        className={classes.authForm}
-        onSubmit={handleSubmit((values: FieldValues) =>
-          loginUser(values.email, values.password)
-        )}
-      >
-        <FormInput
-          register={register}
-          type="email"
-          placeholder="Email"
-          name="email"
-          errors={errors.email?.message}
-        />
-        <FormInput
-          register={register}
-          type="password"
-          placeholder="Hasło"
-          name="password"
-          errors={errors.password?.message}
-        />
-        <SubmitInput type="submit" value="Zaloguj się" />
-      </form>
-    </div>
+    <form
+      className={classes.authForm}
+      onSubmit={handleSubmit((values: FieldValues) =>
+        loginUser(values.email, values.password)
+      )}
+    >
+      <FormInput
+        register={register}
+        type="email"
+        placeholder="Email"
+        name="email"
+        errors={errors.email?.message}
+      />
+      <FormInput
+        register={register}
+        type="password"
+        placeholder="Hasło"
+        name="password"
+        errors={errors.password?.message}
+      />
+      <SubmitInput type="submit" value="Zaloguj się" />
+    </form>
   );
 };
 
