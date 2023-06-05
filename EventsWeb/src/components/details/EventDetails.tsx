@@ -20,17 +20,14 @@ const EventDetails: React.FC<EventDetailsProps> = ({ id }) => {
   const navigate: NavigateFunction = useNavigate();
   const isAuth: boolean = useSelector((state: StateProps) => state.auth.isAuth);
   let event_detail;
-  let refetch_event;
   if (typeof id !== "undefined") {
-    const { event, isLoading, refetch } = fetchEventDetail(id, true);
+    const { event, isLoading } = fetchEventDetail(id, true);
     if (isLoading) {
       return <Loading />;
     }
     event_detail = event;
-    refetch_event = refetch;
   }
 
-  const event_tickets: any = event_detail?.event_tickets;
   const date: string = formatDate(event_detail);
   const date_to_check: string = formatDateToCheck(event_detail);
   const checkDate: Date = new Date(date_to_check);
@@ -60,10 +57,9 @@ const EventDetails: React.FC<EventDetailsProps> = ({ id }) => {
         <div className={classes.rightSide}>
           {isAuth ? (
             <EventTickets
-              event_tickets={event_tickets}
-              tickets_number={event_detail?.tickets_number}
-              id={event_detail?.id}
-              refetch={refetch_event}
+              id_Str={id}
+              id_Num={event_detail?.id}
+              creator_uuid={event_detail?.creator_uuid}
             />
           ) : (
             <p>

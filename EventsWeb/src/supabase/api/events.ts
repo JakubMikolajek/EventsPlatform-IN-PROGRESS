@@ -55,3 +55,12 @@ export const createTicket = async (id: number) =>
     .insert({ event_id: id })
     .limit(1)
     .single();
+
+//Delete Event
+export const deleteEvent = async (id: number) =>
+  await supabaseClient
+    .from("events")
+    .update({
+      archived_at: new Date().toISOString(),
+    })
+    .eq("id", id);

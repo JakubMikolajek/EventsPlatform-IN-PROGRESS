@@ -36,7 +36,7 @@ const EventsList: React.FC<EventsListProps> = ({ events, name }) => {
             </button>
           )}
           <div className={classes.list}>
-            {displayedEvents?.map((event: any) => {
+            {displayedEvents?.map((event: EventProps) => {
               return <EventListElement event={event} />;
             })}
           </div>
