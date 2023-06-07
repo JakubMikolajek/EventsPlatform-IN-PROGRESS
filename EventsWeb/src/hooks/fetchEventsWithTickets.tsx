@@ -4,7 +4,7 @@ import { getEventsWithTicketsData } from "../supabase/api/events.ts";
 export const fetchEventsWithTickets = (ownId: string, enabled: boolean) => {
   const { data, isLoading, isFetching, refetch } = useQuery(
     ["events_tickets"],
-    () => getEventsWithTicketsData(),
+    () => getEventsWithTicketsData(ownId),
     { enabled: enabled }
   );
   const userEvents = data?.data?.filter((event: any) =>

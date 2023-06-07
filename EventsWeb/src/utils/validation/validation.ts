@@ -1,5 +1,6 @@
 import * as yup from "yup";
 
+//Register Validation
 export const registerValidation = yup.object().shape({
   email: yup
     .string()
@@ -17,6 +18,7 @@ export const registerValidation = yup.object().shape({
   lastName: yup.string().required("Nazwisko jest wymagane."),
 });
 
+//Login Validation
 export const loginValidation = yup.object().shape({
   email: yup
     .string()
@@ -28,6 +30,7 @@ export const loginValidation = yup.object().shape({
     .min(6, "Hasło musi składać się minimum z 6 znaków."),
 });
 
+//Event Validation
 export const addEventValdation = yup.object().shape({
   title: yup
     .string()
@@ -43,4 +46,10 @@ export const addEventValdation = yup.object().shape({
     .number()
     .required("Ilość miejsc na wydarzeniu wymagana.")
     .positive("Ilość biletów musi być dodatnia."),
+});
+
+//Comment Validation
+
+export const addCommentValidation = yup.object().shape({
+  comment: yup.string().required(),
 });

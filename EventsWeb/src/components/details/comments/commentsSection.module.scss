@@ -1,0 +1,10 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+
+  .commentsContainer {
+    height: 450px;
+    width: 500px;
+    overflow: auto;
+  }
+}

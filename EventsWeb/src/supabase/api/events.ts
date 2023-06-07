@@ -1,29 +1,5 @@
 import { supabaseClient } from "../supabase.ts";
 
-//Get All Events Data
-export const getEventsData = async () =>
-  await supabaseClient.from("events").select("*").is("archived_at", null);
-
-//Get list of events with User Tickets
-export const getEventsWithTicketsData = async () =>
-  await supabaseClient.from("events").select("*, event_tickets(*)");
-
-//Get All Events of Category
-export const getEventsDataByCategory = async (category: string) =>
-  await supabaseClient
-    .from("events")
-    .select("*")
-    .is("archived_at", null)
-    .eq("event_category", category);
-
-//Get Event Details
-export const getSingleEvent = async (id: string) =>
-  await supabaseClient
-    .from("events")
-    .select("*, event_tickets(*), comments(*)")
-    .eq("id", id)
-    .single();
-
 //Create Event
 export const createEvent = async (
   title: string,
@@ -48,14 +24,6 @@ export const createEvent = async (
     .limit(1)
     .single();
 
-//Create Ticket
-export const createTicket = async (id: number) =>
-  await supabaseClient
-    .from("event_tickets")
-    .insert({ event_id: id })
-    .limit(1)
-    .single();
-
 //Delete Event
 export const deleteEvent = async (id: number) =>
   await supabaseClient
@@ -64,3 +32,56 @@ export const deleteEvent = async (id: number) =>
       archived_at: new Date().toISOString(),
     })
     .eq("id", id);
+
+//Get All Events Data
+export const getEventsData = async () =>
+  await supabaseClient.from("events").select("*").is("archived_at", null);
+
+//Get All Events of Category
+export const getEventsDataByCategory = async (category: string) =>
+  await supabaseClient
+    .from("events")
+    .select("*")
+    .is("archived_at", null)
+    .eq("event_category", category);
+
+//Get Event Details
+export const getSingleEvent = async (id: string) =>
+  await supabaseClient
+    .from("events")
+    .select("*, event_tickets(*), comments(*)")
+    .eq("id", id)
+    .single();
+
+//Create Ticket
+export const createTicket = async (id: number) =>
+  await supabaseClient
+    .from("event_tickets")
+    .insert({ event_id: id })
+    .limit(1)
+    .single();
+
+//Get list of events with User Tickets
+export const getEventsWithTicketsData = async (ownId: string) =>
+  await supabaseClient
+    .from("events")
+    .select("*, event_tickets(*)")
+    .neq("creator_uuid", ownId);
+
+//Get all tickets
+export const getAllTickets = async (id: number) =>
+  await supabaseClient.from("event_tickets").select("*").eq("event_id", id);
+
+//Create Comment
+export const createComment = async (id: number, body: string) =>
+  await supabaseClient
+    .from("comments")
+    .insert({
+      body: body,
+      event_id: id,
+    })
+    .limit(1)
+    .single();
+
+export const deleteComment = async (id: number) =>
+  await supabaseClient.from("comments").delete().eq("id", id);

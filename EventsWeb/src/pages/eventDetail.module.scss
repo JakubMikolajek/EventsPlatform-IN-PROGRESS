@@ -19,6 +19,7 @@
     justify-content: flex-start;
     flex-direction: row;
     margin: 16px 32px 0 32px;
+    height: auto;
 
     .leftSide{
       margin-right: 16px;
@@ -32,6 +33,12 @@
 
     .rightSide{
       margin-left: 16px;
+
+      .innerRightSide{
+        margin-top: 8px;
+        display: flex;
+        flex-direction: row;
+      }
     }
   }
 }

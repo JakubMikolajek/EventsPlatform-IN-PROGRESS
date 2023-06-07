@@ -8,6 +8,7 @@ import {
 } from "@tanstack/react-query";
 import { PostgrestSingleResponse } from "@supabase/supabase-js";
 import { createTicket } from "../../supabase/api/events.ts";
+import classes from "./addTicket.module.scss";
 
 interface AddTicketProps {
   ownId: string | undefined;
@@ -47,13 +48,9 @@ const AddTicket: React.FC<AddTicketProps> = ({
   );
 
   return (
-    <>
-      <h3>
-        Ilość zajętych miejsc: {event_tickets.length}/
-        {event_detail?.tickets_number}
-      </h3>
+    <div className={classes.mainContainer}>
       {ownTicket ? (
-        <p>Bierzesz udział</p>
+        <h2>Bierzesz udział w wydarzeniu!!!</h2>
       ) : (
         <Button
           title="Weź udział"
@@ -61,7 +58,11 @@ const AddTicket: React.FC<AddTicketProps> = ({
           onClick={() => createTicketMutation.mutate()}
         />
       )}
-    </>
+      <h3>
+        W wydarzeniu bierze udział: {event_tickets.length}/
+        {event_detail?.tickets_number}
+      </h3>
+    </div>
   );
 };
 

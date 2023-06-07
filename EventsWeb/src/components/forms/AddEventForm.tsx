@@ -16,9 +16,9 @@ import {
 } from "@tanstack/react-query";
 import { createEvent } from "../../supabase/api/events.ts";
 import { NavigateFunction, useNavigate } from "react-router-dom";
-import { PostgrestSingleResponse } from "@supabase/supabase-js";
 import { useSelector } from "react-redux";
 import { StateProps } from "../../store/store.ts";
+import { PostgrestSingleResponse } from "@supabase/supabase-js";
 
 const AddEventForm: React.FC = () => {
   const [url, setUrl] = useState<string>();
@@ -61,8 +61,7 @@ const AddEventForm: React.FC = () => {
   const createEventMutation: UseMutationResult<
     PostgrestSingleResponse<never>,
     unknown,
-    any,
-    unknown
+    any
   > = useMutation({
     mutationFn: (data: any) =>
       createEvent(

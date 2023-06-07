@@ -1,9 +1,6 @@
 import { supabaseClient } from "../supabase.ts";
 
-//Get single User Profile Data
-export const getSingleUserData = async (uuid: string) =>
-  await supabaseClient.from("users").select("*").eq("uuid", uuid).single();
-
+//Update User Profile
 export const updateProfile = async (
   uuid: string,
   first_name: string,
@@ -19,3 +16,11 @@ export const updateProfile = async (
       image_url: image_url,
     })
     .eq("uuid", uuid);
+
+//Get single User Profile Data
+export const getSingleUserData = async (uuid: string) =>
+  await supabaseClient.from("users").select("*").eq("uuid", uuid).single();
+
+//Get all Users
+export const getAllUsers = async () =>
+  await supabaseClient.from("users").select("*");

@@ -51,13 +51,13 @@ const Events: React.FC = () => {
 
   return (
     <div className={classes.main}>
+      <EventsList events={open_events} name="Najbliższe wydarzenia" />
       {isAuth && (
         <EventsList
           events={events_with_tickets}
           name="Wydarzenia w których bierzesz udział"
         />
       )}
-      <EventsList events={open_events} name="Najbliższe wydarzenia" />
       <CategoryList category={uniqueCategories} name="Kategorie" />
       {/*<EventsList events={close_events} name="Zakończone wydarzenia" />*/}
     </div>

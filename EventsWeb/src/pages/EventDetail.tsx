@@ -16,6 +16,8 @@ import {
 } from "../utils/functions/formatDate.ts";
 import BackButton from "../components/buttons/BackButton.tsx";
 import EventTickets from "../components/details/EventTickets.tsx";
+import CommentsSection from "../components/details/comments/CommentsSection.tsx";
+import ListOfUsersWithTickets from "../components/details/users/ListOfUsersWithTickets.tsx";
 
 const EventDetail: React.FC = () => {
   const params = useParams();
@@ -63,11 +65,24 @@ const EventDetail: React.FC = () => {
         </div>
         <div className={classes.rightSide}>
           {isAuth ? (
-            <EventTickets
-              event_detail={event_detail}
-              refetch={refetch_event}
-              creator_uuid={event_detail?.creator_uuid}
-            />
+            <div>
+              <EventTickets
+                event_detail={event_detail}
+                refetch={refetch_event}
+                creator_uuid={event_detail?.creator_uuid}
+              />
+              <div className={classes.innerRightSide}>
+                <CommentsSection
+                  id={event_detail?.id}
+                  comments={event_detail?.comments}
+                  refetch={refetch_event}
+                />
+                <ListOfUsersWithTickets
+                  creator_uuid={event_detail?.creator_uuid}
+                  id={event_detail?.id}
+                />
+              </div>
+            </div>
           ) : (
             <p>
               Zaloguj się aby wziąść udział i uzyskać informację o ilości

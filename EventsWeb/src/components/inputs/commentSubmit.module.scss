@@ -1,0 +1,18 @@
+.commentSubmit {
+  width: 15%;
+  height: 40px;
+  border: none;
+  color: white;
+  border-bottom: 3px solid white;
+  font-weight: bold;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    border-bottom-color: greenyellow;
+    color: greenyellow;
+  }
+}

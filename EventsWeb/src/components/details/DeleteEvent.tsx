@@ -11,6 +11,7 @@ import { deleteEvent } from "../../supabase/api/events.ts";
 import { FetchEventsProps } from "../../utils/types/types.ts";
 import { fetchEvents } from "../../hooks/fetchEvents.tsx";
 import { NavigateFunction, useNavigate } from "react-router-dom";
+import classes from "./deleteEvent.module.scss";
 
 interface DeleteEventProps {
   event_detail: any;
@@ -45,17 +46,17 @@ const DeleteEvent: React.FC<DeleteEventProps> = ({ event_detail, ownId }) => {
   const event_tickets: any = event_detail?.event_tickets;
 
   return (
-    <>
-      <h3>
-        W wydarzeniu bierze udział: {event_tickets.length}/
-        {event_detail?.tickets_number}
-      </h3>
+    <div className={classes.mainContainer}>
       <Button
         title="Usuń event"
         isAlt={true}
         onClick={() => deleteEventMutation.mutate()}
       />
-    </>
+      <h3>
+        W wydarzeniu bierze udział: {event_tickets.length}/
+        {event_detail?.tickets_number}
+      </h3>
+    </div>
   );
 };
 

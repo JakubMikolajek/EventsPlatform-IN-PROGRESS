@@ -1,0 +1,13 @@
+.commentInput {
+  width: 85%;
+  height: 40px;
+  border: none;
+  border-bottom: 3px solid white;
+  padding: 0 8px;
+  color: white;
+
+  &:focus {
+    outline: none;
+    border-bottom-color: greenyellow;
+  }
+}
