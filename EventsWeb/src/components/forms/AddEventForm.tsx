@@ -6,7 +6,7 @@ import { FieldValues, useForm } from "react-hook-form";
 import SubmitInput from "../inputs/SubmitInput.tsx";
 import TextAreaInput from "../inputs/TextAreaInput.tsx";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { addEventValdation } from "../../utils/validation/validation.ts";
+import { addEventValidation } from "../../utils/validation/eventValidation.ts";
 import classes from "./addEventForm.module.scss";
 import {
   QueryClient,
@@ -33,7 +33,7 @@ const AddEventForm: React.FC = () => {
     formState: { errors },
     reset,
   } = useForm({
-    resolver: yupResolver(addEventValdation),
+    resolver: yupResolver(addEventValidation),
     defaultValues: {
       title: "",
       description: "",

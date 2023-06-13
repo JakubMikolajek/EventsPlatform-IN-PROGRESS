@@ -2,7 +2,7 @@ import React from "react";
 import { FieldValues, useForm } from "react-hook-form";
 import { supabaseClient } from "../../supabase/supabase.ts";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { registerValidation } from "../../utils/validation/validation.ts";
+import { registerValidation } from "../../utils/validation/registerValidation.ts";
 import classes from "./authForms.module.scss";
 import FormInput from "../inputs/FormInput.tsx";
 import SubmitInput from "../inputs/SubmitInput.tsx";

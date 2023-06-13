@@ -37,7 +37,6 @@ const Events: React.FC = () => {
   if (events_isLoading || tickets_isLoading) {
     return <Loading />;
   }
-
   const open_events = getOpenEvents(events);
   const uniqueCategories = getCategoriesOfEvents(events);
 

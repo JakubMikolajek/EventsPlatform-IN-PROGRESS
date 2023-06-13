@@ -89,6 +89,7 @@ const EditForm: React.FC = () => {
   };
   return (
     <div className={classes.formContainer}>
+      <h2>Edytuj profil</h2>
       <form
         className={classes.form}
         onSubmit={handleSubmit((values: FieldValues) => {

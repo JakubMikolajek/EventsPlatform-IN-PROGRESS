@@ -29,6 +29,7 @@ const ChangePassword: React.FC = () => {
     <div className={classes.passwordContainer}>
       <h2>Zmień hasło</h2>
       <form
+        className={classes.form}
         onSubmit={handleSubmit((values: FieldValues) => updatePassword(values))}
       >
         <FormInput

@@ -1,7 +1,7 @@
 import React from "react";
 import { FieldValues, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { loginValidation } from "../../utils/validation/validation.ts";
+import { loginValidation } from "../../utils/validation/loginValidation.ts";
 import { supabaseClient } from "../../supabase/supabase.ts";
 import { setIsAuth, setIsLoggedIn } from "../../store/reducers/authSlice.ts";
 import { useDispatch } from "react-redux";

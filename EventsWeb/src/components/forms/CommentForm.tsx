@@ -12,7 +12,7 @@ import {
 import { createComment } from "../../supabase/api/events.ts";
 import { PostgrestSingleResponse } from "@supabase/supabase-js";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { addCommentValidation } from "../../utils/validation/validation.ts";
+import { addCommentValidation } from "../../utils/validation/commentValidation.ts";
 
 interface CommentFormProps {
   id: number | undefined;

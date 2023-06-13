@@ -29,8 +29,8 @@ const Category: React.FC = () => {
   return (
     <div className={classes.mainContainer}>
       <div className={classes.categoryContainer}>
-        <h1>Kategoria: {params.categoryName}</h1>
         <BackButton onClick={() => navigate(-1)} />
+        <h1>Kategoria: {params.categoryName}</h1>
       </div>
       <div className={classes.eventsContainer}>
         {eventsByCategory?.map((event: EventProps) => (
