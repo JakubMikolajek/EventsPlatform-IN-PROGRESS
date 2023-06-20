@@ -10,10 +10,23 @@
 
   .left {
     margin-left: 25px;
+    display: flex;
+    align-items: center;
 
     .logo {
       text-decoration: none;
       color: greenyellow;
+      margin-right: 16px;
+    }
+
+    .iconLight {
+      color: #282828;
+      cursor: pointer;
+    }
+
+    .iconDark {
+      color: #ffffff;
+      cursor: pointer;
     }
   }
 

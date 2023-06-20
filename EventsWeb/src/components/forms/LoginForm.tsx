@@ -9,7 +9,6 @@ import classes from "./authForms.module.scss";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 import FormInput from "../inputs/FormInput.tsx";
 import SubmitInput from "../inputs/SubmitInput.tsx";
-import { AuthResponse } from "@supabase/supabase-js";
 import { Dispatch } from "redux";
 
 const LoginForm: React.FC = () => {
@@ -28,16 +27,18 @@ const LoginForm: React.FC = () => {
   });
 
   const loginUser = async (email: string, password: string) => {
-    return await supabaseClient.auth
-      .signInWithPassword({
-        email: email,
-        password: password,
-      })
-      .then((response: AuthResponse) => {
-        dispatch(setIsLoggedIn(response.data.user?.id));
-        dispatch(setIsAuth(true));
-      })
-      .then(() => navigate("/", { replace: true }));
+    const { data, error } = await supabaseClient.auth.signInWithPassword({
+      email: email,
+      password: password,
+    });
+
+    if (!error) {
+      dispatch(setIsLoggedIn(data.user?.id));
+      dispatch(setIsAuth(true));
+      navigate("/", { replace: true });
+    } else {
+      alert("Błędne dane. Spróbuj ponowanie");
+    }
   };
 
   return (

@@ -1,13 +1,20 @@
 import { Link } from "react-router-dom";
 import classes from "./navigation.module.scss";
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import UnauthNav from "./UnauthNav.tsx";
 import AuthNav from "./AuthNav.tsx";
 import { StateProps } from "../../store/store.ts";
+import { setIsDark } from "../../store/reducers/themeSlice.ts";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 
 const MainNavigation: React.FC = () => {
+  const dispatch = useDispatch();
   const isAuth: boolean = useSelector((state: StateProps) => state.auth.isAuth);
+  const isDark: boolean = useSelector(
+    (state: StateProps) => state.theme.isDark
+  );
 
   return (
     <nav className={classes.navbar}>
@@ -15,6 +22,12 @@ const MainNavigation: React.FC = () => {
         <Link className={classes.logo} to="/">
           <h1>Events App</h1>
         </Link>
+        <FontAwesomeIcon
+          className={isDark ? classes.iconDark : classes.iconLight}
+          icon={isDark ? faMoon : faSun}
+          onClick={() => dispatch(setIsDark(!isDark))}
+          size="xl"
+        />
       </div>
       <div className={classes.right}>
         {!isAuth ? <UnauthNav /> : <AuthNav />}

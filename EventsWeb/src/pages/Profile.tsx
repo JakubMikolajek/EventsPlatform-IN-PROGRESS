@@ -8,6 +8,7 @@ import EventsList from "../components/lists/EventsList.tsx";
 import { fetchEvents } from "../hooks/fetchEvents.tsx";
 import { getOpenEvents } from "../utils/functions/sortEvents.ts";
 import { EventProps, FetchEventsProps } from "../utils/types/types.ts";
+import { fetchFavoriteEvents } from "../hooks/fetchFavoriteEvents.tsx";
 
 const Profile: React.FC = () => {
   const ownId: string | undefined = useSelector(
@@ -15,12 +16,18 @@ const Profile: React.FC = () => {
   );
 
   let events_with_tickets;
+  let favorite_events;
 
   const { events }: FetchEventsProps = fetchEvents(false);
 
   if (typeof ownId !== "undefined") {
     const { events }: FetchEventsProps = fetchEventsWithTickets(ownId, false);
     events_with_tickets = events;
+  }
+
+  if (typeof ownId !== "undefined") {
+    const { events }: FetchEventsProps = fetchFavoriteEvents(ownId, false);
+    favorite_events = events;
   }
 
   const open_events = getOpenEvents(events);
@@ -35,10 +42,17 @@ const Profile: React.FC = () => {
       <EventsList
         events={events_with_tickets}
         name="Wydarzenia w których bierzesz udział"
+        description="Nie bierzesz jeszcze udziału w żadnym wydarzeniu"
+      />
+      <EventsList
+        events={favorite_events}
+        name="Polubione wydarzenia"
+        description="Nie polubiłeś jeszcze żadnego wydarzenia"
       />
       <EventsList
         events={events_created_by_logged_user}
         name="Wydarzenia utworzone przez ciebie"
+        description="Nie utworzyłeś jeszcze żadnego wydarzenia"
       />
     </div>
   );

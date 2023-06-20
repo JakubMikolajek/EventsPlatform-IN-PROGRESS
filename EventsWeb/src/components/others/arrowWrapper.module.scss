@@ -1,0 +1,67 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  .arrow_left_dark {
+    position: absolute;
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    left: 25px;
+    z-index: 999;
+    width: 50px;
+    background: transparent;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+    color: #ffffff;
+  }
+
+  .arrow_left_light {
+    position: absolute;
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    left: 25px;
+    z-index: 999;
+    width: 50px;
+    background: transparent;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+    color: #282828;
+  }
+
+  .arrow_right_dark {
+    position: absolute;
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    right: 25px;
+    z-index: 999;
+    width: 50px;
+    background: transparent;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+    color: #ffffff;
+  }
+
+  .arrow_right_light {
+    position: absolute;
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    right: 25px;
+    z-index: 999;
+    width: 50px;
+    background: transparent;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+    color: #282828;
+  }
+}

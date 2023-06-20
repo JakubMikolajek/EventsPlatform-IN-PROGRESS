@@ -83,5 +83,29 @@ export const createComment = async (id: number, body: string) =>
     .limit(1)
     .single();
 
+//Delete Comment
 export const deleteComment = async (id: number) =>
   await supabaseClient.from("comments").delete().eq("id", id);
+
+//Get all favorite Events
+export const getFavoriteEvents = async () =>
+  await supabaseClient.from("events").select("*, favorite_events(*)");
+
+//Get all favorite data
+export const getAllFavoriteData = async (id: string) =>
+  await supabaseClient.from("favorite_events").select("*").eq("event_id", id);
+
+export const addToFavorite = async (id: number) =>
+  await supabaseClient
+    .from("favorite_events")
+    .insert({
+      event_id: id,
+    })
+    .limit(1)
+    .single();
+
+export const removeToFavorite = async (ownId: string) =>
+  await supabaseClient
+    .from("favorite_events")
+    .delete()
+    .eq("creator_uuid", ownId);

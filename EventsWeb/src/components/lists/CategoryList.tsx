@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import classes from "./categoryList.module.scss";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { StateProps } from "../../store/store.ts";
+import ArrowsWrapper from "../others/ArrowsWrapper.tsx";
 
 interface CategoryListProps {
   category: any;
@@ -9,6 +12,7 @@ interface CategoryListProps {
 
 const CategoryList: React.FC<CategoryListProps> = ({ category, name }) => {
   const [currentSlide, setCurrentSlide] = useState<number>(1);
+  const isDark = useSelector((state: StateProps) => state.theme.isDark);
   const elementPerPage: number = 5;
   const shiftAmount: number = 1;
 
@@ -25,18 +29,23 @@ const CategoryList: React.FC<CategoryListProps> = ({ category, name }) => {
   const displayedCategories = category.slice(startIndex, endIndex);
 
   return (
-    <div className={classes.mainCategories}>
-      <h1 className={classes.title}>{name}:</h1>
-      <div className={classes.innerMainCategories}>
-        {startIndex >= 1 && (
-          <button className={classes.arrow_left} onClick={handlePreviousPage}>
-            &larr;
-          </button>
-        )}
+    <div className={classes.main_categories}>
+      <h1 className={isDark ? classes.title_dark : classes.title_light}>
+        {name}:
+      </h1>
+      <ArrowsWrapper
+        elementLength={category.length}
+        endIndex={endIndex}
+        startIndex={startIndex}
+        handleNextPage={handleNextPage}
+        handlePreviousPage={handlePreviousPage}
+      >
         <div className={classes.list}>
           {displayedCategories.map((category: any) => (
             <Link
-              className={classes.list_element}
+              className={
+                isDark ? classes.list_element_dark : classes.list_element_light
+              }
               key={category}
               to={`categories/${category}`}
             >
@@ -44,12 +53,7 @@ const CategoryList: React.FC<CategoryListProps> = ({ category, name }) => {
             </Link>
           ))}
         </div>
-        {endIndex < category.length && (
-          <button className={classes.arrow_right} onClick={handleNextPage}>
-            &rarr;
-          </button>
-        )}
-      </div>
+      </ArrowsWrapper>
     </div>
   );
 };

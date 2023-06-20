@@ -18,23 +18,43 @@ import BackButton from "../components/buttons/BackButton.tsx";
 import EventTickets from "../components/details/EventTickets.tsx";
 import CommentsSection from "../components/details/comments/CommentsSection.tsx";
 import ListOfUsersWithTickets from "../components/details/users/ListOfUsersWithTickets.tsx";
+import { fetchFavoriteData } from "../hooks/fetchFavoriteData.tsx";
 
 const EventDetail: React.FC = () => {
   const params = useParams();
   const navigate: NavigateFunction = useNavigate();
   const isAuth: boolean = useSelector((state: StateProps) => state.auth.isAuth);
   let event_detail;
+  let detail_isLoading;
   let refetch_event: any;
+  let favorite_data;
+  let favorite_isLoading;
+  let refetch_favorite: any;
+
   if (typeof params.eventId !== "undefined") {
     const { event, isLoading, refetch } = fetchEventDetail(
       params.eventId,
       true
     );
-    if (isLoading) {
-      return <Loading />;
-    }
+
     event_detail = event;
+    detail_isLoading = isLoading;
     refetch_event = refetch;
+  }
+
+  if (typeof params.eventId !== "undefined") {
+    const { postFavoriteData, isLoading, refetch } = fetchFavoriteData(
+      params.eventId,
+      true
+    );
+
+    favorite_data = postFavoriteData;
+    favorite_isLoading = isLoading;
+    refetch_favorite = refetch;
+  }
+
+  if (detail_isLoading || favorite_isLoading) {
+    return <Loading />;
   }
 
   const date: string = formatDate(event_detail);
@@ -68,7 +88,9 @@ const EventDetail: React.FC = () => {
             <div>
               <EventTickets
                 event_detail={event_detail}
-                refetch={refetch_event}
+                refetch_event={refetch_event}
+                favorite_data={favorite_data}
+                refetch_favorite={refetch_favorite}
                 creator_uuid={event_detail?.creator_uuid}
               />
               <div className={classes.innerRightSide}>

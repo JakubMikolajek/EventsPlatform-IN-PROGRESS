@@ -1,64 +1,44 @@
-/*Events List Styles*/
+@import "/src/utils/scss_variables/colors";
 
 .mainEvents {
   display: flex;
   flex-direction: column;
 
-  .title {
+  .title_dark {
     display: flex;
     align-self: flex-start;
-    color: white;
+    color: $main-light;
     margin-left: 32px;
   }
 
-  .innerMainEvents {
+  .title_light {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 270px;
-    width: 100%;
+    align-self: flex-start;
+    color: $main-dark;
+    margin-left: 32px;
+  }
 
-    .list {
-      display: flex;
-      justify-content: flex-start;
-      height: 270px;
-      width: 90%;
-      position: relative;
-    }
+  .description_dark {
+    color: $main-light;
+    font-size: 16px;
+    display: flex;
+    align-self: flex-start;
+    margin: 64px 128px;
+  }
+
+  .description_light{
+    color: $main-dark;
+    font-size: 16px;
+    display: flex;
+    align-self: flex-start;
+    margin: 64px 128px;
+  }
+
+  .list {
+    display: flex;
+    justify-content: flex-start;
+    height: 270px;
+    width: 90%;
+    position: relative;
   }
 }
-
-/*Arrows Styles*/
-
-.arrow_left {
-  position: absolute;
-  display: flex;
-  align-self: center;
-  justify-self: center;
-  left: 25px;
-  z-index: 999;
-  width: 50px;
-  background: transparent;
-  border: none;
-  font-size: 32px;
-  cursor: pointer;
-  color: white;
-}
-
-.arrow_right {
-  position: absolute;
-  display: flex;
-  align-self: center;
-  justify-self: center;
-  right: 25px;
-  z-index: 999;
-  width: 50px;
-  background: transparent;
-  border: none;
-  font-size: 32px;
-  cursor: pointer;
-  color: white;
-}
-
-

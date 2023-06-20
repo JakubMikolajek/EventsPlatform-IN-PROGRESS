@@ -12,6 +12,7 @@ import {
 } from "../utils/functions/sortEvents.ts";
 import Loading from "../components/others/Loading.tsx";
 import { FetchEventsProps } from "../utils/types/types.ts";
+import { fetchFavoriteEvents } from "../hooks/fetchFavoriteEvents.tsx";
 
 const Events: React.FC = () => {
   const isAuth: boolean = useSelector((state: StateProps) => state.auth.isAuth);
@@ -21,6 +22,7 @@ const Events: React.FC = () => {
 
   let events_with_tickets;
   let tickets_isLoading;
+  let favorite_isLoading;
 
   const { events, isLoading: events_isLoading }: FetchEventsProps =
     fetchEvents(true);
@@ -34,7 +36,12 @@ const Events: React.FC = () => {
     tickets_isLoading = isLoading;
   }
 
-  if (events_isLoading || tickets_isLoading) {
+  if (typeof ownId !== "undefined") {
+    const { isLoading }: FetchEventsProps = fetchFavoriteEvents(ownId, true);
+    favorite_isLoading = isLoading;
+  }
+
+  if (events_isLoading || tickets_isLoading || favorite_isLoading) {
     return <Loading />;
   }
   const open_events = getOpenEvents(events);
@@ -55,6 +62,7 @@ const Events: React.FC = () => {
         <EventsList
           events={events_with_tickets}
           name="Wydarzenia w których bierzesz udział"
+          description="Nie bierzesz jeszcze udziału w żadnym wydarzeniu"
         />
       )}
       <CategoryList category={uniqueCategories} name="Kategorie" />

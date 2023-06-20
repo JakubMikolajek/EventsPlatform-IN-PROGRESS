@@ -31,18 +31,22 @@ const RegisterForm: React.FC = () => {
     first_name: string,
     last_name: string
   ) => {
-    return await supabaseClient.auth
-      .signUp({
-        email: email,
-        password: password,
-        options: {
-          data: {
-            first_name: first_name,
-            last_name: last_name,
-          },
+    const { error } = await supabaseClient.auth.signUp({
+      email: email,
+      password: password,
+      options: {
+        data: {
+          first_name: first_name,
+          last_name: last_name,
         },
-      })
-      .then(() => navigate("/login", { replace: true }));
+      },
+    });
+
+    if (!error) {
+      navigate("/login", { replace: true });
+    } else {
+      alert("Spróbuj jeszcze raz");
+    }
   };
 
   return (

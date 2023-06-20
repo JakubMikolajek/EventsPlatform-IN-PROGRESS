@@ -34,13 +34,15 @@ const AuthNav: React.FC = () => {
   }
 
   const logoutUser = async () => {
-    return await supabaseClient.auth
-      .signOut()
-      .then(() => {
-        dispatch(setIsAuth(false));
-        dispatch(setIsLoggedIn(""));
-      })
-      .then(() => navigate("/", { replace: true }));
+    const { error } = await supabaseClient.auth.signOut();
+
+    if (!error) {
+      dispatch(setIsAuth(false));
+      dispatch(setIsLoggedIn(""));
+      navigate("/", { replace: true });
+    } else {
+      alert("Wystąpił błąd. Spróbuj ponownie.");
+    }
   };
 
   return (
