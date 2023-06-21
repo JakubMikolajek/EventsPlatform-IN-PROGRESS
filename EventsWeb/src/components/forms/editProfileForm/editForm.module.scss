@@ -1,20 +1,29 @@
-.formContainer{
+@import "/src/utils/variables/colors";
+
+.form_container_dark, .form_container_light {
   min-width: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  color: white;
 
-  .form{
+  .form {
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    .innerForm{
+    .inner_form {
       display: flex;
       align-items: center;
       flex-direction: column;
     }
   }
+}
+
+.form_container_dark {
+  color: $main-light;
+}
+
+.form_container_light {
+  color: $main-dark;
 }

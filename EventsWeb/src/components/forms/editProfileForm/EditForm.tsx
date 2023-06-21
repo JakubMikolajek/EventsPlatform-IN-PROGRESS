@@ -22,6 +22,7 @@ import { useSelector } from "react-redux";
 import { StateProps } from "../../../store/store.ts";
 
 const EditForm: React.FC = () => {
+  const isDark = useSelector((state: StateProps) => state.theme.isDark);
   const ownId: string | undefined = useSelector(
     (state: StateProps) => state.auth.loggedUserId
   );
@@ -88,7 +89,11 @@ const EditForm: React.FC = () => {
     }
   };
   return (
-    <div className={classes.formContainer}>
+    <div
+      className={
+        isDark ? classes.form_container_dark : classes.form_container_light
+      }
+    >
       <h2>Edytuj profil</h2>
       <form
         className={classes.form}
@@ -96,7 +101,7 @@ const EditForm: React.FC = () => {
           updateProfileMutation.mutate(values);
         })}
       >
-        <div className={classes.innerForm}>
+        <div className={classes.inner_form}>
           <FileInput
             url={url}
             handleFileChange={handleFileChange}

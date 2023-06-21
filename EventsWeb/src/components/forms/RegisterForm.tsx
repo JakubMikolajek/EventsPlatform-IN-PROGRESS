@@ -51,7 +51,7 @@ const RegisterForm: React.FC = () => {
 
   return (
     <form
-      className={classes.authForm}
+      className={classes.auth_form}
       onSubmit={handleSubmit((values: FieldValues) =>
         registerUser(
           values.email,

@@ -50,7 +50,7 @@ const CommentForm: React.FC<CommentFormProps> = ({ id, refetch }) => {
 
   return (
     <form
-      className={classes.commentForm}
+      className={classes.comment_form}
       onSubmit={handleSubmit((values: FieldValues) =>
         addCommentMutation.mutate(values)
       )}

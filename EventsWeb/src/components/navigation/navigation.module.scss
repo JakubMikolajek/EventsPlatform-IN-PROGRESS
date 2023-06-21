@@ -1,4 +1,6 @@
-.navbar {
+@import "/src/utils/variables/colors";
+
+.navbar_dark, .navbar_light {
   position: sticky;
   height: 10vh;
   top: 0;
@@ -15,17 +17,10 @@
 
     .logo {
       text-decoration: none;
-      color: greenyellow;
       margin-right: 16px;
     }
 
-    .iconLight {
-      color: #282828;
-      cursor: pointer;
-    }
-
-    .iconDark {
-      color: #ffffff;
+    .icon {
       cursor: pointer;
     }
   }
@@ -37,6 +32,34 @@
 
     button {
       margin-right: 25px;
+    }
+  }
+}
+
+.navbar_dark {
+  background-color: $main-dark;
+
+  .left {
+    .logo {
+      color: $main-green;
+    }
+
+    .icon {
+      color: $main-light;
+    }
+  }
+}
+
+.navbar_light {
+  background-color: $main-light;
+
+  .left {
+    .logo {
+      color: $main-blue;
+    }
+
+    .icon {
+      color: $main-dark;
     }
   }
 }

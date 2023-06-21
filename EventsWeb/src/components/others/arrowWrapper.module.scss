@@ -1,3 +1,5 @@
+@import "/src/utils/variables/colors";
+
 .container {
   display: flex;
   flex-direction: column;
@@ -5,7 +7,7 @@
   align-items: center;
   width: 100%;
 
-  .arrow_left_dark {
+  .arrow_left_dark, .arrow_left_light {
     position: absolute;
     display: flex;
     align-self: center;
@@ -17,51 +19,35 @@
     border: none;
     font-size: 32px;
     cursor: pointer;
-    color: #ffffff;
+  }
+
+  .arrow_left_dark {
+    color: $main-light;
   }
 
   .arrow_left_light {
+    color: $main-dark;
+  }
+
+  .arrow_right_dark, .arrow_right_light {
     position: absolute;
     display: flex;
     align-self: center;
     justify-self: center;
-    left: 25px;
+    right: 25px;
     z-index: 999;
     width: 50px;
     background: transparent;
     border: none;
     font-size: 32px;
     cursor: pointer;
-    color: #282828;
   }
 
   .arrow_right_dark {
-    position: absolute;
-    display: flex;
-    align-self: center;
-    justify-self: center;
-    right: 25px;
-    z-index: 999;
-    width: 50px;
-    background: transparent;
-    border: none;
-    font-size: 32px;
-    cursor: pointer;
-    color: #ffffff;
+    color: $main-light;
   }
 
   .arrow_right_light {
-    position: absolute;
-    display: flex;
-    align-self: center;
-    justify-self: center;
-    right: 25px;
-    z-index: 999;
-    width: 50px;
-    background: transparent;
-    border: none;
-    font-size: 32px;
-    cursor: pointer;
-    color: #282828;
+    color: $main-dark;
   }
 }

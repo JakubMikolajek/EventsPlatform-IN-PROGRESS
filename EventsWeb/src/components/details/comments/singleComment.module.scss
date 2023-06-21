@@ -1,40 +1,79 @@
-.mainContainer{
+@import "/src/utils/variables/colors";
+
+.main_container {
   display: flex;
   flex-direction: row;
   align-items: center;
   min-height: 50px;
 
-  img{
+  img {
     width: 48px;
     height: 48px;
     object-fit: cover;
     border-radius: 24px;
   }
 
-  .textContainer{
+  .text_container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-left: 8px;
     width: 100%;
 
-    .column{
+    .column_dark, .column_light {
       display: flex;
       flex-direction: column;
 
-      h2{
+      h2 {
         font-size: 14px;
         font-weight: 500;
       }
-      h1{
+
+      h1 {
         font-size: 18px;
       }
     }
 
-    h3{
-      margin-right: 8px;
-      cursor: pointer;
+    .column_dark {
+      h2 {
+        color: $main-light;
+      }
+
+      h1 {
+        color: $main-light;
+      }
     }
 
+    .column_light {
+      h2 {
+        color: $main-dark;
+      }
+
+      h1 {
+        color: $main-dark;
+      }
+    }
+
+    .icon_dark, .icon_light {
+      margin-right: 8px;
+      cursor: pointer;
+      transition: .25s;
+    }
+
+    .icon_dark {
+      color: $main-light;
+
+      &:hover {
+        color: $hover-green;
+      }
+    }
+
+    .icon_light {
+      color: $main-dark;
+
+      &:hover {
+        color: $hover-blue;
+      }
+    }
   }
 }

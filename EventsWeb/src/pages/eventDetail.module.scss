@@ -1,17 +1,14 @@
-.mainContainer{
+@import "/src/utils/variables/colors";
+
+.main_container_dark, .main_container_light {
   width: 100%;
-  height: 90vh;
-  color: white;
+  min-height: 90vh;
   position: relative;
 
-  .textDecoration {
+  .text_decoration {
     width: auto;
     height: auto;
     text-decoration: none;
-    color: greenyellow;
-    font-size: 20px;
-    margin-left: 32px;
-    cursor: pointer;
   }
 
   .event_detail {
@@ -21,7 +18,7 @@
     margin: 16px 32px 0 32px;
     height: auto;
 
-    .leftSide{
+    .left_side {
       margin-right: 16px;
 
       img {
@@ -31,13 +28,89 @@
       }
     }
 
-    .rightSide{
+    .right_side {
       margin-left: 16px;
 
-      .innerRightSide{
+      .inner_right_side {
         margin-top: 8px;
         display: flex;
         flex-direction: row;
+      }
+    }
+  }
+}
+
+.main_container_dark {
+  color: $main-light;
+
+  .text_decoration {
+    color: $main-green;
+
+    &:hover {
+      color: $hover-green;
+    }
+  }
+
+  .event_detail {
+    .left_side {
+      h1 {
+        color: $main-light;
+      }
+
+      h2 {
+        color: $main-light;
+      }
+
+      h3 {
+        color: $main-light;
+      }
+
+      p {
+        color: $main-light;
+      }
+    }
+
+    .right_side {
+      p {
+        color: $main-light;
+      }
+    }
+  }
+}
+
+.main_container_light {
+  color: $main-light;
+
+  .text_decoration {
+    color: $main-blue;
+
+    &:hover {
+      color: $hover-blue;
+    }
+  }
+
+  .event_detail {
+    .left_side {
+      h1 {
+        color: $main-dark;
+      }
+
+      h2 {
+        color: $main-dark;
+      }
+
+      h3 {
+        color: $main-dark;
+      }
+
+      p {
+        color: $main-dark;
+      }
+    }
+
+    .right_side {
+      p {
+        color: $main-dark;
       }
     }
   }

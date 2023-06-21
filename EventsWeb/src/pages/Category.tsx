@@ -6,8 +6,11 @@ import { EventProps, FetchEventsProps } from "../utils/types/types.ts";
 import classes from "./category.module.scss";
 import BackButton from "../components/buttons/BackButton.tsx";
 import EventListElement from "../components/lists/EventListElement.tsx";
+import { useSelector } from "react-redux";
+import { StateProps } from "../store/store.ts";
 
 const Category: React.FC = () => {
+  const isDark = useSelector((state: StateProps) => state.theme.isDark);
   const params = useParams();
   const navigate: NavigateFunction = useNavigate();
   let eventsByCategory: EventProps[] | null | undefined;
@@ -27,12 +30,14 @@ const Category: React.FC = () => {
   }
 
   return (
-    <div className={classes.mainContainer}>
-      <div className={classes.categoryContainer}>
+    <div className={classes.main_container}>
+      <div className={classes.category_container}>
         <BackButton onClick={() => navigate(-1)} />
-        <h1>Kategoria: {params.categoryName}</h1>
+        <h1 className={isDark ? classes.text_dark : classes.text_light}>
+          Kategoria: {params.categoryName}
+        </h1>
       </div>
-      <div className={classes.eventsContainer}>
+      <div className={classes.events_container}>
         {eventsByCategory?.map((event: EventProps) => (
           <EventListElement event={event} />
         ))}

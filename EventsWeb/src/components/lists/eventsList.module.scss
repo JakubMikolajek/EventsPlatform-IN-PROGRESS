@@ -1,37 +1,36 @@
-@import "/src/utils/scss_variables/colors";
+@import "/src/utils/variables/colors";
 
 .mainEvents {
   display: flex;
   flex-direction: column;
 
-  .title_dark {
+  .title_dark, .title_light {
     display: flex;
     align-self: flex-start;
-    color: $main-light;
     margin-left: 32px;
   }
 
+  .title_dark {
+    color: $main-light;
+  }
+
   .title_light {
+    color: $main-dark;
+  }
+
+  .description_dark, .description_light {
+    font-size: 16px;
     display: flex;
     align-self: flex-start;
-    color: $main-dark;
-    margin-left: 32px;
+    margin: 64px 128px;
   }
 
   .description_dark {
     color: $main-light;
-    font-size: 16px;
-    display: flex;
-    align-self: flex-start;
-    margin: 64px 128px;
   }
 
-  .description_light{
+  .description_light {
     color: $main-dark;
-    font-size: 16px;
-    display: flex;
-    align-self: flex-start;
-    margin: 64px 128px;
   }
 
   .list {

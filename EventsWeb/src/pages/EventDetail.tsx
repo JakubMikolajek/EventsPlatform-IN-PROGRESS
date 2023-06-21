@@ -21,6 +21,7 @@ import ListOfUsersWithTickets from "../components/details/users/ListOfUsersWithT
 import { fetchFavoriteData } from "../hooks/fetchFavoriteData.tsx";
 
 const EventDetail: React.FC = () => {
+  const isDark = useSelector((state: StateProps) => state.theme.isDark);
   const params = useParams();
   const navigate: NavigateFunction = useNavigate();
   const isAuth: boolean = useSelector((state: StateProps) => state.auth.isAuth);
@@ -64,10 +65,14 @@ const EventDetail: React.FC = () => {
   const isEnded: boolean = checkDate <= currentDate;
 
   return (
-    <div className={classes.mainContainer}>
+    <div
+      className={
+        isDark ? classes.main_container_dark : classes.main_container_light
+      }
+    >
       <BackButton onClick={() => navigate(-1)} />
       <div className={classes.event_detail}>
-        <div className={classes.leftSide}>
+        <div className={classes.left_side}>
           {event_detail?.image_url && (
             <img src={event_detail?.image_url} alt="event_img" />
           )}
@@ -78,12 +83,15 @@ const EventDetail: React.FC = () => {
           <h2>{event_detail?.description}</h2>
           <p>
             Kategoria:{" "}
-            <Link to={`/categories/${event_detail?.event_category}`}>
+            <Link
+              className={classes.text_decoration}
+              to={`/categories/${event_detail?.event_category}`}
+            >
               {event_detail?.event_category}
             </Link>
           </p>
         </div>
-        <div className={classes.rightSide}>
+        <div className={classes.right_side}>
           {isAuth ? (
             <div>
               <EventTickets
@@ -93,7 +101,7 @@ const EventDetail: React.FC = () => {
                 refetch_favorite={refetch_favorite}
                 creator_uuid={event_detail?.creator_uuid}
               />
-              <div className={classes.innerRightSide}>
+              <div className={classes.inner_right_side}>
                 <CommentsSection
                   id={event_detail?.id}
                   comments={event_detail?.comments}

@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { StateProps } from "../../store/store.ts";
 import AddTicket from "./AddTicket.tsx";
 import DeleteEvent from "./DeleteEvent.tsx";
-import Button from "../buttons/Button.tsx";
 import {
   QueryClient,
   useMutation,
@@ -12,6 +11,10 @@ import {
 } from "@tanstack/react-query";
 import { addToFavorite, removeToFavorite } from "../../supabase/api/events.ts";
 import { PostgrestSingleResponse } from "@supabase/supabase-js";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar as FullStar } from "@fortawesome/free-solid-svg-icons";
+import { faStar as EmptyStar } from "@fortawesome/free-regular-svg-icons";
+import classes from "./eventTickets.module.scss";
 
 interface EventTicketsProps {
   creator_uuid: string | null | undefined;
@@ -28,6 +31,7 @@ const EventTickets: React.FC<EventTicketsProps> = ({
   favorite_data,
   refetch_favorite,
 }) => {
+  const isDark = useSelector((state: StateProps) => state.theme.isDark);
   const client: QueryClient = useQueryClient();
   const ownId: string | undefined = useSelector(
     (state: StateProps) => state.auth.loggedUserId
@@ -69,18 +73,24 @@ const EventTickets: React.FC<EventTicketsProps> = ({
   }
 
   return (
-    <div style={{ display: "flex" }}>
-      <div style={{ marginRight: "16px" }}>
+    <div className={classes.main_container}>
+      <div
+        className={
+          isDark ? classes.inner_container_dark : classes.inner_container_light
+        }
+      >
         {addedToFavorite ? (
-          <Button
-            title="Usuń z ulubionych"
-            isAlt={true}
+          <FontAwesomeIcon
+            className={classes.full_icon}
+            icon={FullStar}
+            size="2xl"
             onClick={() => removeToFavoriteMutation.mutate()}
           />
         ) : (
-          <Button
-            title="Dodaj do ulubionych"
-            isAlt={true}
+          <FontAwesomeIcon
+            className={classes.empty_icon}
+            icon={EmptyStar}
+            size="2xl"
             onClick={() => addToFavoriteMutation.mutate()}
           />
         )}

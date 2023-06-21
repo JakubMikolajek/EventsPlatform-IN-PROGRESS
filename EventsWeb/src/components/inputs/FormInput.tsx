@@ -1,5 +1,7 @@
 import React from "react";
 import classes from "./formInput.module.scss";
+import { useSelector } from "react-redux";
+import { StateProps } from "../../store/store.ts";
 
 interface FormInputProps {
   type: string;
@@ -16,15 +18,18 @@ const FormInput: React.FC<FormInputProps> = ({
   register,
   errors,
 }) => {
+  const isDark = useSelector((state: StateProps) => state.theme.isDark);
   return (
-    <div className={classes.mainForm}>
+    <div className={classes.main_form}>
       <input
-        className={classes.formInput}
+        className={isDark ? classes.form_input_dark : classes.form_input_light}
         {...register(name)}
         type={type}
         placeholder={placeholder}
       />
-      <p className={classes.error}>{errors}</p>
+      <p className={isDark ? classes.error_dark : classes.error_light}>
+        {errors}
+      </p>
     </div>
   );
 };

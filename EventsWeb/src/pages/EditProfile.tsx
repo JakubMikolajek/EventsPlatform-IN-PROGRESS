@@ -8,11 +8,11 @@ import ChangePassword from "../components/forms/editProfileForm/ChangePassword.t
 const EditProfile: React.FC = () => {
   const navigate: NavigateFunction = useNavigate();
   return (
-    <div className={classes.mainContainer}>
+    <div className={classes.main_container}>
       <div>
         <BackButton onClick={() => navigate(-1)} />
       </div>
-      <div className={classes.innerContainer}>
+      <div className={classes.inner_container}>
         <EditForm />
         <ChangePassword />
       </div>

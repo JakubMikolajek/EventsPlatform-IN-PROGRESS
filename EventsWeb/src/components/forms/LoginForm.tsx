@@ -43,7 +43,7 @@ const LoginForm: React.FC = () => {
 
   return (
     <form
-      className={classes.authForm}
+      className={classes.auth_form}
       onSubmit={handleSubmit((values: FieldValues) =>
         loginUser(values.email, values.password)
       )}

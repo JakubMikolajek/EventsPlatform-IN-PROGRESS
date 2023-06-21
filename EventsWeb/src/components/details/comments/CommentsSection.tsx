@@ -15,8 +15,8 @@ const CommentsSection: React.FC<CommentsSectionProps> = ({
   refetch,
 }) => {
   return (
-    <div className={classes.mainContainer}>
-      <div className={classes.commentsContainer}>
+    <div className={classes.main_container}>
+      <div className={classes.comments_container}>
         {comments.map((comment: any) => {
           return <SingleComment comment={comment} refetch={refetch} id={id} />;
         })}

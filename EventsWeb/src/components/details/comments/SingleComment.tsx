@@ -7,6 +7,10 @@ import {
   useQueryClient,
 } from "@tanstack/react-query";
 import { deleteComment } from "../../../supabase/api/events.ts";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
+import { StateProps } from "../../../store/store.ts";
 
 interface SingleCommentProps {
   comment: any;
@@ -19,6 +23,7 @@ const SingleComment: React.FC<SingleCommentProps> = ({
   refetch,
   id,
 }) => {
+  const isDark = useSelector((state: StateProps) => state.theme.isDark);
   const client: QueryClient = useQueryClient();
   const { user, isLoading } = fetchSingleUser(comment?.creator_uuid, true);
 
@@ -38,7 +43,7 @@ const SingleComment: React.FC<SingleCommentProps> = ({
   });
 
   return (
-    <div className={classes.mainContainer}>
+    <div className={classes.main_container}>
       {user?.image_url && (
         <img
           className={classes.img}
@@ -46,14 +51,19 @@ const SingleComment: React.FC<SingleCommentProps> = ({
           alt={user?.image_url}
         />
       )}
-      <div className={classes.textContainer}>
-        <div className={classes.column}>
+      <div className={classes.text_container}>
+        <div className={isDark ? classes.column_dark : classes.column_light}>
           <h2>
             {user?.first_name} {user?.last_name}:
           </h2>
           <h1>{comment.body}</h1>
         </div>
-        <h3 onClick={() => deleteCommentMutation.mutate()}>X</h3>
+        <FontAwesomeIcon
+          icon={faTrashCan}
+          onClick={() => deleteCommentMutation.mutate()}
+          size="lg"
+          className={isDark ? classes.icon_dark : classes.icon_light}
+        />
       </div>
     </div>
   );

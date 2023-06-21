@@ -1,17 +1,17 @@
-  .addEventForm {
+  .add_event_form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    .inputContainer {
+    .input_container {
       display: flex;
 
-      .inputLeftCol {
+      .input_left_col {
         margin-right: 8px;
       }
 
-      .inputRightCol {
+      .input_right_col {
         margin-left: 8px;
       }
     }

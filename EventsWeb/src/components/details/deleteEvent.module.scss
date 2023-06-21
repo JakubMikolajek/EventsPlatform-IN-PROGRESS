@@ -1,8 +1,20 @@
-.mainContainer{
-display: flex;
-  align-items: center;
+@import "/src/utils/variables/colors";
 
-  h3{
+.main_container_dark, .main_container_light {
+  display: flex;
+  align-items: center;
+}
+
+.main_container_dark {
+  h3 {
     margin-left: 32px;
+    color: $main-light;
+  }
+}
+
+.main_container_light {
+  h3 {
+    margin-left: 32px;
+    color: $main-dark;
   }
 }

@@ -1,20 +1,21 @@
-/*Category List Styles*/
+@import "/src/utils/variables/colors";
+
 .main_categories {
   display: flex;
   flex-direction: column;
 
-  .title_dark {
+  .title_dark, .title_light {
     display: flex;
     align-self: flex-start;
-    color: #ffffff;
     margin-left: 32px;
   }
 
+  .title_dark {
+    color: $main-light;
+  }
+
   .title_light {
-    display: flex;
-    align-self: flex-start;
-    color: #282828;
-    margin-left: 32px;
+    color: $main-dark;
   }
 
   .list {
@@ -24,38 +25,31 @@
     width: 90%;
     position: relative;
 
-    .list_element_dark {
+    .list_element_dark, .list_element_light {
       min-width: 18%;
       padding: 8px 16px;
       display: flex;
       justify-content: center;
       align-items: center;
-      border: 2px solid #ffffff;
       border-radius: 8px;
       margin: 8px 16px;
       text-decoration: none;
+    }
+
+    .list_element_dark {
+      border: 2px solid $main-light;
 
       h1 {
-        color: #ffffff;
+        color: $main-light;
       }
-
     }
 
     .list_element_light {
-      min-width: 18%;
-      padding: 8px 16px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: 2px solid #282828;
-      border-radius: 8px;
-      margin: 8px 16px;
-      text-decoration: none;
+      border: 2px solid $main-dark;
 
       h1 {
-        color: #282828;
+        color: $main-dark;
       }
-
     }
   }
 }

@@ -9,6 +9,8 @@ import {
 import { PostgrestSingleResponse } from "@supabase/supabase-js";
 import { createTicket } from "../../supabase/api/events.ts";
 import classes from "./addTicket.module.scss";
+import { useSelector } from "react-redux";
+import { StateProps } from "../../store/store.ts";
 
 interface AddTicketProps {
   ownId: string | undefined;
@@ -21,8 +23,8 @@ const AddTicket: React.FC<AddTicketProps> = ({
   event_detail,
   refetch,
 }) => {
+  const isDark = useSelector((state: StateProps) => state.theme.isDark);
   const client: QueryClient = useQueryClient();
-
   let createTicketMutation: UseMutationResult<
     PostgrestSingleResponse<never>,
     unknown,
@@ -37,6 +39,8 @@ const AddTicket: React.FC<AddTicketProps> = ({
       },
       onSuccess: async () => {
         await client.invalidateQueries(["events", event_detail.id]);
+        await client.invalidateQueries(["users"]);
+        await client.invalidateQueries(["tickets"]);
         await refetch();
       },
     });
@@ -48,7 +52,11 @@ const AddTicket: React.FC<AddTicketProps> = ({
   );
 
   return (
-    <div className={classes.mainContainer}>
+    <div
+      className={
+        isDark ? classes.main_container_dark : classes.main_container_light
+      }
+    >
       {ownTicket ? (
         <h2>Bierzesz udział w wydarzeniu!!!</h2>
       ) : (

@@ -1,36 +1,61 @@
-.btn {
+@import "/src/utils/variables/colors";
+
+.btn_dark, .btn_light {
   min-width: 150px;
   height: 40px;
-  background-color: greenyellow;
   border-radius: 8px;
   border-color: transparent;
   cursor: pointer;
   font-size: 16px;
-  color: black;
   transition: .25s;
   padding: 8px;
-
-  &:hover {
-    background-color: lawngreen;
-  }
-
 }
 
-.btnAlt {
+.btn_dark {
+  background-color: $main-green;
+  color: $main-dark;
+
+  &:hover {
+    background-color: $hover-green;
+  }
+}
+
+.btn_light {
+  background-color: $main-blue;
+  color: $main-dark;
+
+  &:hover {
+    background-color: $hover-blue;
+  }
+}
+
+.btn_alt_dark, .btn_alt_light {
   min-width: 150px;
   height: 40px;
   background-color: transparent;
   border-radius: 8px;
-  border: 2px solid greenyellow;
   cursor: pointer;
   font-size: 16px;
-  color: white;
   transition: .25s;
   padding: 8px;
+}
+
+.btn_alt_dark {
+  border: 2px solid $main-green;
+  color: $main-light;
 
   &:hover {
-    border-color: lawngreen;
-    color: lawngreen;
+    border-color: $hover-green;
+    color: $hover-green;
   }
+}
 
+.btn_alt_light {
+  border: 2px solid $main-blue;
+  color: $main-dark;
+
+  &:hover {
+    border-color: $hover-blue;
+    color: $hover-blue;
+  }
 }

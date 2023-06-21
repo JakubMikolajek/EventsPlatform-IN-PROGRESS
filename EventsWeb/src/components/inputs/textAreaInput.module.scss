@@ -1,5 +1,6 @@
-/*Textarea Input Styles*/
-.mainTextarea{
+@import "/src/utils/variables/colors";
+
+.main_textarea {
   width: 300px;
   display: flex;
   justify-content: center;
@@ -7,18 +8,34 @@
   flex-direction: column;
   margin: 10px 0;
 
-  .textareaInput{
+  .textarea_input_dark, .textarea_input_light {
     width: 300px;
     resize: none;
     border-radius: 8px;
-    border: 2px solid white;
     padding: 5px 10px;
-    color: white;
+    background-color: transparent;
   }
 
-  .error{
+  .textarea_input_dark {
+    border: 2px solid $main-light;
+    color: $main-light;
+  }
+
+  .textarea_input_light {
+    border: 2px solid $main-dark;
+    color: $main-dark;
+  }
+
+  .error_dark, .error_light {
     margin: 2px 0 2px 0;
-    color: white;
     font-size: 16px;
+  }
+
+  .error_dark {
+    color: $main-light;
+  }
+
+  .error_light {
+    color: $main-dark;
   }
 }

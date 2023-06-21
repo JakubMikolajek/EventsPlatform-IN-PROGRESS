@@ -1,5 +1,7 @@
 import React from "react";
 import classes from "./textAreaInput.module.scss";
+import { useSelector } from "react-redux";
+import { StateProps } from "../../store/store.ts";
 
 interface TextAreaInput {
   placeholder: string;
@@ -14,15 +16,20 @@ const TextAreaInput: React.FC<TextAreaInput> = ({
   register,
   errors,
 }) => {
+  const isDark = useSelector((state: StateProps) => state.theme.isDark);
   return (
-    <div className={classes.mainTextarea}>
+    <div className={classes.main_textarea}>
       <textarea
-        className={classes.textareaInput}
+        className={
+          isDark ? classes.textarea_input_dark : classes.textarea_input_light
+        }
         {...register(name)}
         placeholder={placeholder}
         rows={5}
       />
-      <p className={classes.error}>{errors}</p>
+      <p className={isDark ? classes.error_dark : classes.error_light}>
+        {errors}
+      </p>
     </div>
   );
 };

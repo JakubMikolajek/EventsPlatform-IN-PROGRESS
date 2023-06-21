@@ -17,13 +17,13 @@ const MainNavigation: React.FC = () => {
   );
 
   return (
-    <nav className={classes.navbar}>
+    <nav className={isDark ? classes.navbar_dark : classes.navbar_light}>
       <div className={classes.left}>
         <Link className={classes.logo} to="/">
           <h1>Events App</h1>
         </Link>
         <FontAwesomeIcon
-          className={isDark ? classes.iconDark : classes.iconLight}
+          className={classes.icon}
           icon={isDark ? faMoon : faSun}
           onClick={() => dispatch(setIsDark(!isDark))}
           size="xl"

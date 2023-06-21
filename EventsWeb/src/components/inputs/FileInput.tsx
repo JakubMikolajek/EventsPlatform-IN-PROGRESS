@@ -1,5 +1,7 @@
 import React from "react";
 import classes from "./fileInput.module.scss";
+import { useSelector } from "react-redux";
+import { StateProps } from "../../store/store.ts";
 
 interface FileInputProps {
   url: string | undefined | null;
@@ -12,15 +14,18 @@ const FileInput: React.FC<FileInputProps> = ({
   handleFileChange,
   isAlt,
 }) => {
+  const isDark = useSelector((state: StateProps) => state.theme.isDark);
   return (
     <>
       {!isAlt ? (
-        <div className={classes.mainFile}>
+        <div className={classes.main_file}>
           {url ? (
             <img className={classes.img} src={url} alt="img" />
           ) : (
             <input
-              className={classes.fileInput}
+              className={
+                isDark ? classes.file_input_dark : classes.file_input_light
+              }
               type="file"
               accept="image/*"
               onChange={handleFileChange}
@@ -28,12 +33,16 @@ const FileInput: React.FC<FileInputProps> = ({
           )}
         </div>
       ) : (
-        <div className={classes.altMainFile}>
+        <div className={classes.alt_main_file}>
           {url && (
             <>
-              <img className={classes.img} src={url} alt="img" />
+              <img className={classes.alt_img} src={url} alt="img" />
               <input
-                className={classes.fileInput}
+                className={
+                  isDark
+                    ? classes.alt_file_input_dark
+                    : classes.alt_file_input_light
+                }
                 type="file"
                 accept="image/*"
                 onChange={handleFileChange}

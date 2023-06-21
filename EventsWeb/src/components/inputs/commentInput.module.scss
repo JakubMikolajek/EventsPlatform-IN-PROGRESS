@@ -1,13 +1,33 @@
-.commentInput {
+@import "/src/utils/variables/colors";
+
+.comment_input_dark, .comment_input_light {
   width: 85%;
   height: 40px;
   border: none;
-  border-bottom: 3px solid white;
   padding: 0 8px;
-  color: white;
+  background-color: transparent;
 
   &:focus {
     outline: none;
-    border-bottom-color: greenyellow;
+  }
+}
+
+.comment_input_dark {
+  border-bottom: 3px solid $main-light;
+  color: $main-light;
+
+  &:focus {
+    outline: none;
+    border-bottom-color: $hover-green;
+  }
+}
+
+.comment_input_light {
+  border-bottom: 3px solid $main-dark;
+  color: $main-dark;
+
+  &:focus {
+    outline: none;
+    border-bottom-color: $hover-blue;
   }
 }

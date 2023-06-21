@@ -4,6 +4,8 @@ import { fetchAllTickets } from "../../../hooks/fetchAllTickets.tsx";
 import UserListElement from "./UserListElement.tsx";
 import classes from "./listOfUserWithTickets.module.scss";
 import { sortByName } from "../../../utils/functions/sortUsers.ts";
+import { useSelector } from "react-redux";
+import { StateProps } from "../../../store/store.ts";
 
 interface ListOfUsersWithTicketsProps {
   id: number | undefined;
@@ -14,6 +16,7 @@ const ListOfUsersWithTickets: React.FC<ListOfUsersWithTicketsProps> = ({
   id,
   creator_uuid,
 }) => {
+  const isDark = useSelector((state: StateProps) => state.theme.isDark);
   let ticketsData;
   let isLoadingTickets;
   let usersWithTickets: any = [];
@@ -37,7 +40,11 @@ const ListOfUsersWithTickets: React.FC<ListOfUsersWithTicketsProps> = ({
   usersWithTickets.sort(sortByName);
 
   return (
-    <div className={classes.mainContainer}>
+    <div
+      className={
+        isDark ? classes.main_container_dark : classes.main_container_light
+      }
+    >
       {usersWithTickets.map((user: any) => {
         return <UserListElement creator_uuid={creator_uuid} user={user} />;
       })}

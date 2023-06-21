@@ -1,18 +1,34 @@
-/*Submit Input Styles*/
-.submitInput {
+@import "/src/utils/variables/colors";
+
+.submit_input_dark, .submit_input_light {
   width: 200px;
   height: 40px;
   border-radius: 8px;
-  border: 2px solid greenyellow;
-  background-color: transparent;
-  color: greenyellow;
   cursor: pointer;
   font-size: 16px;
   transition: .25s;
   margin-top: 20px;
+  background-color: transparent;
+}
 
-  &:hover{
-    background-color: greenyellow;
-    color: white;
+.submit_input_dark {
+  border: 2px solid $main-green;
+  color: $main-green;
+
+  &:hover {
+    background-color: $hover-green;
+    color: $main-light;
+    border-color: $hover-green;
+  }
+}
+
+.submit_input_light {
+  border: 2px solid $main-blue;
+  color: $main-blue;
+
+  &:hover {
+    background-color: $hover-blue;
+    color: $main-dark;
+    border-color: $hover-blue;
   }
 }

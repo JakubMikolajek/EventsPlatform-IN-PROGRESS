@@ -12,6 +12,8 @@ import { FetchEventsProps } from "../../utils/types/types.ts";
 import { fetchEvents } from "../../hooks/fetchEvents.tsx";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 import classes from "./deleteEvent.module.scss";
+import { useSelector } from "react-redux";
+import { StateProps } from "../../store/store.ts";
 
 interface DeleteEventProps {
   event_detail: any;
@@ -19,6 +21,7 @@ interface DeleteEventProps {
 }
 
 const DeleteEvent: React.FC<DeleteEventProps> = ({ event_detail, ownId }) => {
+  const isDark = useSelector((state: StateProps) => state.theme.isDark);
   const client: QueryClient = useQueryClient();
   const navigate: NavigateFunction = useNavigate();
   let deleteEventMutation: UseMutationResult<
@@ -46,7 +49,11 @@ const DeleteEvent: React.FC<DeleteEventProps> = ({ event_detail, ownId }) => {
   const event_tickets: any = event_detail?.event_tickets;
 
   return (
-    <div className={classes.mainContainer}>
+    <div
+      className={
+        isDark ? classes.main_container_dark : classes.main_container_light
+      }
+    >
       <Button
         title="Usuń event"
         isAlt={true}

@@ -1,5 +1,6 @@
-/*File Input Styles*/
-.mainFile{
+@import "/src/utils/variables/colors";
+
+.main_file {
   width: 300px;
   height: 180px;
   display: flex;
@@ -7,17 +8,14 @@
   align-items: center;
   flex-direction: column;
 
-  .fileInput{
+  .file_input_dark, .file_input_light {
     width: 300px;
     height: 40px;
     padding: 0 10px 0 10px;
-    color: white;
 
-    &::file-selector-button{
-      border: 2px solid white;
+    &::file-selector-button {
       cursor: pointer;
       background-color: transparent;
-      color: white;
       width: 150px;
       height: 40px;
       border-radius: 8px;
@@ -25,13 +23,31 @@
     }
   }
 
-  .img{
+  .file_input_dark {
+    color: $main-light;
+
+    &::file-selector-button {
+      border: 2px solid $main-light;
+      color: $main-light;
+    }
+  }
+
+  .file_input_light {
+    color: $main-dark;
+
+    &::file-selector-button {
+      border: 2px solid $main-dark;
+      color: $main-dark;
+    }
+  }
+
+  .img {
     width: 300px;
     height: 168px;
   }
 }
 
-.altMainFile{
+.alt_main_file {
   width: 500px;
   height: 200px;
   display: flex;
@@ -39,17 +55,14 @@
   align-items: center;
   flex-direction: row;
 
-  .fileInput{
+  .alt_file_input_dark, .alt_file_input_light {
     width: 300px;
     height: 40px;
     padding: 0 10px 0 10px;
-    color: white;
 
-    &::file-selector-button{
-      border: 2px solid white;
+    &::file-selector-button {
       cursor: pointer;
       background-color: transparent;
-      color: white;
       width: 150px;
       height: 40px;
       border-radius: 8px;
@@ -57,7 +70,25 @@
     }
   }
 
-  .img{
+  .alt_file_input_dark {
+    color: $main-light;
+
+    &::file-selector-button {
+      border: 2px solid $main-light;
+      color: $main-light;
+    }
+  }
+
+  .alt_file_input_light {
+    color: $main-dark;
+
+    &::file-selector-button {
+      border: 2px solid $main-dark;
+      color: $main-dark;
+    }
+  }
+
+  .alt_img {
     width: 96px;
     height: 96px;
     border-radius: 48px;

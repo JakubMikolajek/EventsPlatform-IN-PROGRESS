@@ -4,8 +4,11 @@ import FormInput from "../../inputs/FormInput.tsx";
 import { FieldValues, useForm } from "react-hook-form";
 import SubmitInput from "../../inputs/SubmitInput.tsx";
 import { supabaseClient } from "../../../supabase/supabase.ts";
+import { useSelector } from "react-redux";
+import { StateProps } from "../../../store/store.ts";
 
 const ChangePassword: React.FC = () => {
+  const isDark = useSelector((state: StateProps) => state.theme.isDark);
   const {
     register,
     handleSubmit,
@@ -26,7 +29,13 @@ const ChangePassword: React.FC = () => {
   };
 
   return (
-    <div className={classes.passwordContainer}>
+    <div
+      className={
+        isDark
+          ? classes.password_container_dark
+          : classes.password_container_light
+      }
+    >
       <h2>Zmień hasło</h2>
       <form
         className={classes.form}

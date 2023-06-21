@@ -1,0 +1,33 @@
+@import "/src/utils/variables/colors";
+
+.main_container {
+  display: flex;
+
+  .inner_container_dark, .inner_container_light {
+    margin-right: 16px;
+  }
+
+  .inner_container_dark {
+    .full_icon, .empty_icon {
+      color: $main-green;
+      cursor: pointer;
+      transition: .25s;
+
+      &:hover {
+        color: $hover-green;
+      }
+    }
+  }
+
+  .inner_container_light {
+    .full_icon, .empty_icon {
+      color: $main-blue;
+      cursor: pointer;
+      transition: .25s;
+
+      &:hover {
+        color: $hover-blue;
+      }
+    }
+  }
+}

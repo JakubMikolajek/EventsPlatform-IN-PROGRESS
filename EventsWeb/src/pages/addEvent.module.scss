@@ -1,26 +1,39 @@
-.mainContainer{
-  width: 100%;
-  height: 90vh;
+@import "/src/utils/variables/colors";
 
-  .innerContainer{
+.main_container {
+  width: 100%;
+  min-height: 90vh;
+
+  .inner_container {
     width: 100%;
     height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
 
-    .formContainer{
+    .form_container_dark, .form_container_light {
       width: 800px;
       height: 600px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      border: 2px solid white;
       border-radius: 8px;
+    }
+
+    .form_container_dark {
+      border: 2px solid $main-light;
 
       h1 {
-        color: white;
+        color: $main-light;
+      }
+    }
+
+    .form_container_light {
+      border: 2px solid $main-dark;
+
+      h1 {
+        color: $main-dark;
       }
     }
   }

@@ -86,14 +86,14 @@ const AddEventForm: React.FC = () => {
 
   return (
     <form
-      className={classes.addEventForm}
+      className={classes.add_event_form}
       onSubmit={handleSubmit((values: FieldValues) => {
         createEventMutation.mutate(values);
       })}
     >
       <FileInput isAlt={false} url={url} handleFileChange={handleFileChange} />
-      <div className={classes.inputContainer}>
-        <div className={classes.inputLeftCol}>
+      <div className={classes.input_container}>
+        <div className={classes.input_left_col}>
           <FormInput
             register={register}
             type="text"
@@ -115,7 +115,7 @@ const AddEventForm: React.FC = () => {
             errors={errors.event_date?.message}
           />
         </div>
-        <div className={classes.inputRightCol}>
+        <div className={classes.input_right_col}>
           <FormInput
             register={register}
             type="text"

@@ -1,22 +1,36 @@
-.mainContainer{
+@import "/src/utils/variables/colors";
+
+.main_container {
   width: 100%;
-  height: 90vh;
+  min-height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  .formContainer{
+  .form_container_dark, .form_container_light {
     width: 400px;
     height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px solid white;
     border-radius: 8px;
 
-    h1{
-      color: white;
+  }
+
+  .form_container_dark {
+    border: 2px solid $main-light;
+
+    h1 {
+      color: $main-light;
+    }
+  }
+
+  .form_container_light {
+    border: 2px solid $main-dark;
+
+    h1 {
+      color: $main-dark;
     }
   }
 }

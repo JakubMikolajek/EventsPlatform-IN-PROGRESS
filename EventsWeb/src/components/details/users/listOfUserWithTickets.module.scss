@@ -1,21 +1,40 @@
-::-webkit-scrollbar{
+@import "/src/utils/variables/colors";
+
+.main_container_dark::-webkit-scrollbar{
   width: 10px;
 }
 
-::-webkit-scrollbar-track {
+.main_container_dark::-webkit-scrollbar-track {
   background: none;
 }
 
-::-webkit-scrollbar-thumb {
-  background: greenyellow;
+.main_container_dark::-webkit-scrollbar-thumb {
+  background: $main-green;
   border-radius: 8px;
 
   &:hover{
-    background: lawngreen;
+    background: $hover-green;
   }
 }
 
-.mainContainer{
+.main_container_light::-webkit-scrollbar{
+  width: 10px;
+}
+
+.main_container_light::-webkit-scrollbar-track {
+  background: none;
+}
+
+.main_container_light::-webkit-scrollbar-thumb {
+  background: $main-blue;
+  border-radius: 8px;
+
+  &:hover{
+    background: $hover-blue;
+  }
+}
+
+.main_container_dark, .main_container_light{
   height: 450px;
   width: 250px;
   overflow: auto;

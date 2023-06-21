@@ -1,29 +1,47 @@
-.mainContainer{
+@import "/src/utils/variables/colors";
+
+.main_container {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   margin: 4px 8px;
 
-  img{
+  img {
     width: 48px;
     height: 48px;
     border-radius: 24px;
     object-fit: cover;
   }
 
-  .innerContainer{
+  .inner_container_dark {
     margin-left: 8px;
 
-    h1{
+    h1 {
       font-size: 20px;
       font-weight: 500;
+      color: $main-light;
     }
 
-    p{
+    p {
       font-size: 16px;
       font-weight: 500;
+      color: $main-light;
     }
   }
 
+  .inner_container_light {
+    margin-left: 8px;
 
+    h1 {
+      font-size: 20px;
+      font-weight: 500;
+      color: $main-dark;
+    }
+
+    p {
+      font-size: 16px;
+      font-weight: 500;
+      color: $main-dark;
+    }
+  }
 }

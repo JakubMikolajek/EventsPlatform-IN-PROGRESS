@@ -1,30 +1,39 @@
-.main{
+@import "/src/utils/variables/colors";
+
+.main_dark, .main_light {
   width: 100%;
   height: 14vh;
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 16px 32px;
-  color: white;
 
-  .img{
+  .img {
     width: 96px;
     height: 96px;
     border-radius: 48px;
     object-fit: cover;
   }
 
-  .container{
+  .container {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    .user{
+    .user {
       display: flex;
       flex-direction: column;
       justify-content: center;
       margin-left: 8px;
     }
   }
+}
+
+.main_dark {
+  color: $main-light;
+}
+
+.main_light {
+  color: $main-dark;
 }

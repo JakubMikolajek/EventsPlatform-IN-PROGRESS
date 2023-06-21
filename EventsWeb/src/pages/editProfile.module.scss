@@ -1,8 +1,8 @@
-.mainContainer {
+.main_container {
   width: 100%;
-  height: 90vh;
+  min-height: 90vh;
 
-  .innerContainer {
+  .inner_container {
     width: 100%;
     height: 80vh;
     display: flex;
