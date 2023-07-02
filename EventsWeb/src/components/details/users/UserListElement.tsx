@@ -23,9 +23,9 @@ const UserListElement: React.FC<UserListElementProps> = ({
           isDark ? classes.inner_container_dark : classes.inner_container_light
         }
       >
-        <h1>
+        <h2>
           {user.first_name} {user.last_name}
-        </h1>
+        </h2>
         {administrator && <p>Organizator</p>}
       </div>
     </div>

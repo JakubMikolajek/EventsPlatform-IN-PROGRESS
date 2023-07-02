@@ -7,7 +7,8 @@
   .title_dark, .title_light {
     display: flex;
     align-self: flex-start;
-    margin-left: 32px;
+    margin-left: 16px;
+    font-size: 20px;
   }
 
   .title_dark {
@@ -20,13 +21,13 @@
 
   .list {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     height: 150px;
     width: 90%;
     position: relative;
 
     .list_element_dark, .list_element_light {
-      min-width: 18%;
+      min-width: 80%;
       padding: 8px 16px;
       display: flex;
       justify-content: center;
@@ -54,3 +55,21 @@
   }
 }
 
+@media only screen and (min-width: 1200px) {
+  .main_categories {
+    .title_dark, .title_light {
+      margin-left: 32px;
+      font-size: 32px;
+    }
+
+    .list {
+      justify-content: flex-start;
+      height: 150px;
+      width: 90%;
+
+      .list_element_dark, .list_element_light {
+        min-width: 18%;
+      }
+    }
+  }
+}

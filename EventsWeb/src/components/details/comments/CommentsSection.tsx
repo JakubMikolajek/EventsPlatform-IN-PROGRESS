@@ -17,9 +17,9 @@ const CommentsSection: React.FC<CommentsSectionProps> = ({
   return (
     <div className={classes.main_container}>
       <div className={classes.comments_container}>
-        {comments.map((comment: any) => {
-          return <SingleComment comment={comment} refetch={refetch} id={id} />;
-        })}
+        {comments.map((comment: any) => (
+          <SingleComment comment={comment} refetch={refetch} id={id} />
+        ))}
       </div>
       <CommentForm id={id} refetch={refetch} />
     </div>

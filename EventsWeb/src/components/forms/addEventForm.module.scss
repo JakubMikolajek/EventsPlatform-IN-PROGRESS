@@ -1,19 +1,56 @@
-  .add_event_form {
+.add_event_form {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 32px;
+
+  .input_container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+
+    .input_left_col {
+      margin-bottom: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .input_right_col {
+      //margin-left: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  @media only screen and (min-width: 600px) {
+    width: 400px;
+    margin-top: 48px;
 
     .input_container {
       display: flex;
+      flex-direction: row;
 
       .input_left_col {
         margin-right: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
 
       .input_right_col {
         margin-left: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
     }
   }
+
+  @media only screen and (min-width: 1200px) {
+    width: 800px;
+  }
+}
 

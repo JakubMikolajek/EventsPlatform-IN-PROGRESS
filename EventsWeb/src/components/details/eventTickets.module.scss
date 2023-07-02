@@ -2,16 +2,24 @@
 
 .main_container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
 
   .inner_container_dark, .inner_container_light {
     margin-right: 16px;
+    position: absolute;
+    top: 11vh;
+    right: 0;
+
+    .full_icon, .empty_icon {
+      cursor: pointer;
+      transition: .25s;
+    }
   }
 
   .inner_container_dark {
     .full_icon, .empty_icon {
       color: $main-green;
-      cursor: pointer;
-      transition: .25s;
 
       &:hover {
         color: $hover-green;
@@ -22,12 +30,21 @@
   .inner_container_light {
     .full_icon, .empty_icon {
       color: $main-blue;
-      cursor: pointer;
-      transition: .25s;
 
       &:hover {
         color: $hover-blue;
       }
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .main_container {
+    flex-direction: row;
+
+    .inner_container_dark, .inner_container_light {
+      position: relative;
+      top: 0;
     }
   }
 }

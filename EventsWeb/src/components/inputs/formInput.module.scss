@@ -1,15 +1,15 @@
 @import "/src/utils/variables/colors";
 
 .main_form {
-  width: 300px;
-  height: 60px;
+  width: 200px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 
   .form_input_dark, .form_input_light {
-    width: 300px;
+    width: 200px;
     height: 40px;
     border-radius: 8px;
     padding: 0 10px 0 10px;
@@ -28,7 +28,7 @@
 
   .error_dark, .error_light {
     margin: 2px 0 2px 0;
-    font-size: 16px;
+    font-size: 12px;
   }
 
   .error_dark {
@@ -37,5 +37,18 @@
 
   .error_light {
     color: $main-dark;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    width: 300px;
+    height: 50px;
+    .form_input_dark, .form_input_light {
+      width: 300px;
+    }
+
+    .error_dark, .error_light {
+      margin: 2px 0 2px 0;
+      font-size: 16px;
+    }
   }
 }

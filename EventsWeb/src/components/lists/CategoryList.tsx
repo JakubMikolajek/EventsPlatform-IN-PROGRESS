@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./categoryList.module.scss";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -12,8 +12,27 @@ interface CategoryListProps {
 
 const CategoryList: React.FC<CategoryListProps> = ({ category, name }) => {
   const [currentSlide, setCurrentSlide] = useState<number>(1);
+  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
   const isDark = useSelector((state: StateProps) => state.theme.isDark);
-  const elementPerPage: number = 5;
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [window.innerWidth]);
+
+  let elementPerPage: number;
+
+  if (windowWidth < 600) {
+    elementPerPage = 1;
+  } else {
+    elementPerPage = 5;
+  }
+
   const shiftAmount: number = 1;
 
   const handlePreviousPage = () => {

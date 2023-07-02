@@ -1,20 +1,35 @@
 @import "/src/utils/variables/colors";
+@import "/src/utils/variables/sizes";
 
 .main_container_dark, .main_container_light {
   display: flex;
+  flex-direction: column;
   align-items: center;
+
+  h3 {
+    font-size: $text-2xs;
+  }
 }
 
 .main_container_dark {
   h3 {
-    margin-left: 32px;
     color: $main-light;
   }
 }
 
 .main_container_light {
   h3 {
-    margin-left: 32px;
     color: $main-dark;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .main_container_dark, .main_container_light {
+    flex-direction: row;
+
+    h3 {
+      margin-left: 32px;
+      font-size: $text-s;
+    }
   }
 }

@@ -11,13 +11,14 @@
   z-index: 999;
 
   .left {
-    margin-left: 25px;
+    margin-left: 15px;
     display: flex;
     align-items: center;
 
     .logo {
       text-decoration: none;
-      margin-right: 16px;
+      margin-right: 8px;
+      font-size: 12px;
     }
 
     .icon {
@@ -29,9 +30,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+}
 
-    button {
-      margin-right: 25px;
+@media only screen and (min-width: 1200px) {
+  .navbar_dark, .navbar_light {
+    .left{
+      .logo{
+        font-size: 16px;
+        margin-right: 16px;
+      }
     }
   }
 }

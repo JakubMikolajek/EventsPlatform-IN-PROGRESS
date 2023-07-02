@@ -12,7 +12,7 @@ interface ButtonProps {
 const Button: React.FC<ButtonProps> = ({ title, onClick, isAlt }) => {
   const isDark = useSelector((state: StateProps) => state.theme.isDark);
   return (
-    <>
+    <div className={classes.btn_container}>
       {isAlt ? (
         <button
           onClick={onClick}
@@ -28,7 +28,7 @@ const Button: React.FC<ButtonProps> = ({ title, onClick, isAlt }) => {
           {title}
         </button>
       )}
-    </>
+    </div>
   );
 };
 

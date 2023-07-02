@@ -58,7 +58,7 @@ const AddTicket: React.FC<AddTicketProps> = ({
       }
     >
       {ownTicket ? (
-        <h2>Bierzesz udział w wydarzeniu!!!</h2>
+        <h3>Bierzesz udział w wydarzeniu!!!</h3>
       ) : (
         <Button
           title="Weź udział"

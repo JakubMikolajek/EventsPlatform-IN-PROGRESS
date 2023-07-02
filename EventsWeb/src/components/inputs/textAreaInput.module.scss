@@ -1,7 +1,7 @@
 @import "/src/utils/variables/colors";
 
 .main_textarea {
-  width: 300px;
+  width: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,7 +9,7 @@
   margin: 10px 0;
 
   .textarea_input_dark, .textarea_input_light {
-    width: 300px;
+    width: 200px;
     resize: none;
     border-radius: 8px;
     padding: 5px 10px;
@@ -37,5 +37,20 @@
 
   .error_light {
     color: $main-dark;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .main_textarea {
+    width: 300px;
+
+    .textarea_input_dark, .textarea_input_light {
+      width: 300px;
+    }
+
+    .error_dark, .error_light {
+      margin: 2px 0 2px 0;
+      font-size: 16px;
+    }
   }
 }

@@ -1,14 +1,16 @@
 @import "/src/utils/variables/colors";
+@import "src/utils/variables/sizes";
 
 .main_container {
   display: flex;
   flex-direction: row;
   align-items: center;
   min-height: 50px;
+  position: relative;
 
   img {
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
     object-fit: cover;
     border-radius: 24px;
   }
@@ -18,19 +20,19 @@
     flex-direction: row;
     justify-content: space-between;
     margin-left: 8px;
-    width: 100%;
+    min-width: 80%;
 
     .column_dark, .column_light {
       display: flex;
       flex-direction: column;
 
       h2 {
-        font-size: 14px;
+        font-size: $text-3xs;
         font-weight: 500;
       }
 
       h1 {
-        font-size: 18px;
+        font-size: $text-xs;
       }
     }
 
@@ -55,7 +57,8 @@
     }
 
     .icon_dark, .icon_light {
-      margin-right: 8px;
+      position: absolute;
+      right: 0;
       cursor: pointer;
       transition: .25s;
     }
@@ -74,6 +77,15 @@
       &:hover {
         color: $hover-blue;
       }
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .main_container {
+    img {
+      width: 48px;
+      height: 48px;
     }
   }
 }

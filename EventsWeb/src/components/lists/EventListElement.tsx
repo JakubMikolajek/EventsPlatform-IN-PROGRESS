@@ -21,9 +21,9 @@ const EventListElement: React.FC<EventListElementProps> = ({ event }) => {
         <h2 className={isDark ? classes.text_dark : classes.text_light}>
           {event.title}
         </h2>
-        <h3 className={isDark ? classes.text_dark : classes.text_light}>
+        <p className={isDark ? classes.text_dark : classes.text_light}>
           {event.event_location}, {date}
-        </h3>
+        </p>
       </Link>
     </div>
   );

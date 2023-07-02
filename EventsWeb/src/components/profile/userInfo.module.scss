@@ -2,9 +2,9 @@
 
 .main_dark, .main_light {
   width: 100%;
-  height: 14vh;
+  height: auto;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   padding: 16px 32px;
 
@@ -18,14 +18,52 @@
   .container {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
 
     .user {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      margin-left: 8px;
+      align-items: center;
+      margin-left: 0;
+      margin-bottom: 8px;
+
+      h1 {
+        font-size: 28px;
+      }
+
+      h2 {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .main_dark, .main_light {
+    height: 14vh;
+    flex-direction: row;
+
+    .container {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: row;
+
+      .user {
+        margin-bottom: 0;
+        margin-left: 8px;
+        align-items: flex-start;
+
+        h1{
+          font-size: 32px;
+        }
+        h2{
+          font-size: 28px;
+        }
+      }
     }
   }
 }

@@ -1,7 +1,7 @@
 @import "/src/utils/variables/colors";
 
 .main_file {
-  width: 300px;
+  width: 250px;
   height: 180px;
   display: flex;
   justify-content: center;
@@ -9,14 +9,14 @@
   flex-direction: column;
 
   .file_input_dark, .file_input_light {
-    width: 300px;
+    width: 250px;
     height: 40px;
-    padding: 0 10px 0 10px;
+    padding: 0 10px;
 
     &::file-selector-button {
       cursor: pointer;
       background-color: transparent;
-      width: 150px;
+      width: 100px;
       height: 40px;
       border-radius: 8px;
       margin-right: 10px;
@@ -42,28 +42,50 @@
   }
 
   .img {
+    width: 200px;
+    height: 140px;
+    object-fit: cover;
+  }
+}
+
+@media only screen and (min-width: 1200px){
+  .main_file {
     width: 300px;
-    height: 168px;
+    height: 180px;
+
+    .file_input_dark, .file_input_light {
+      width: 300px;
+      height: 40px;
+
+      &::file-selector-button {
+        width: 150px;
+      }
+    }
+
+    .img {
+      width: 300px;
+      height: 168px;
+    }
   }
 }
 
 .alt_main_file {
-  width: 500px;
+  width: 250px;
   height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
+  flex-direction: column;
 
   .alt_file_input_dark, .alt_file_input_light {
-    width: 300px;
+    width: 250px;
     height: 40px;
     padding: 0 10px 0 10px;
 
     &::file-selector-button {
       cursor: pointer;
       background-color: transparent;
-      width: 150px;
+      width: 100px;
       height: 40px;
       border-radius: 8px;
       margin-right: 10px;
@@ -89,9 +111,36 @@
   }
 
   .alt_img {
-    width: 96px;
-    height: 96px;
+    margin-bottom: 16px;
+    width: 80px;
+    height: 80px;
     border-radius: 48px;
     object-fit: cover;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .alt_main_file {
+    width: 500px;
+    height: 200px;
+    flex-direction: row;
+
+    .alt_file_input_dark, .alt_file_input_light {
+      width: 300px;
+      height: 40px;
+      padding: 0 10px 0 10px;
+
+      &::file-selector-button {
+        width: 150px;
+        height: 40px;
+      }
+    }
+
+    .alt_img {
+      width: 96px;
+      height: 96px;
+      border-radius: 48px;
+      object-fit: cover;
+    }
   }
 }

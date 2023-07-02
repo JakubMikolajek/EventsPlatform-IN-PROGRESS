@@ -1,28 +1,38 @@
 @import "/src/utils/variables/colors";
+@import "/src/utils/variables/sizes";
 
 .main_container_dark, .main_container_light {
   display: flex;
+  flex-direction: column;
   align-items: center;
-}
-
-.main_container_dark{
-  h2{
-    color: $main-light;
-  }
 
   h3 {
-    margin-left: 32px;
-    color: $main-light;
+    font-size: $text-3xs;
   }
 }
 
-.main_container_light{
-  h2{
+.main_container_dark {
+  h3 {
+    color: $main-light;
+  }
+}
+
+.main_container_light {
+  h3 {
     color: $main-dark;
   }
+}
 
-  h3 {
-    margin-left: 32px;
-    color: $main-dark;
+@media only screen and (min-width: 1200px) {
+  .main_container_dark, .main_container_light {
+    flex-direction: row;
+
+    h3 {
+      font-size: $text-l;
+    }
+
+    h3:last-child {
+      margin-left: 16px;
+    }
   }
 }

@@ -1,4 +1,11 @@
-.comment_form{
-  width: 500px;
-  margin-top: 8px;
+.comment_form {
+  width: 300px;
+  margin-top: 4px;
+}
+
+@media only screen and (min-width: 1200px) {
+  .comment_form {
+    width: 500px;
+    margin-top: 8px;
+  }
 }

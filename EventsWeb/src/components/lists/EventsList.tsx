@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./eventsList.module.scss";
 import EventListElement from "./EventListElement.tsx";
 import { EventProps } from "../../utils/types/types.ts";
@@ -18,9 +18,29 @@ const EventsList: React.FC<EventsListProps> = ({
   description,
 }) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
   const isDark = useSelector((state: StateProps) => state.theme.isDark);
 
-  const elementPerPage: number = 5;
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [window.innerWidth]);
+
+  console.log(windowWidth);
+
+  let elementPerPage: number;
+
+  if (windowWidth < 600) {
+    elementPerPage = 1;
+  } else {
+    elementPerPage = 5;
+  }
+
   const shiftAmount: number = 1;
 
   const handlePreviousPage = () => {

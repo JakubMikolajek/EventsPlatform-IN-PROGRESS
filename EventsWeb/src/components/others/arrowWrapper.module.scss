@@ -10,15 +10,14 @@
   .arrow_left_dark, .arrow_left_light {
     position: absolute;
     display: flex;
-    align-self: center;
+    align-self: flex-start;
     justify-self: center;
-    left: 25px;
-    z-index: 999;
-    width: 50px;
+    left: 10px;
     background: transparent;
     border: none;
     font-size: 32px;
     cursor: pointer;
+    z-index: 1;
   }
 
   .arrow_left_dark {
@@ -34,13 +33,12 @@
     display: flex;
     align-self: center;
     justify-self: center;
-    right: 25px;
-    z-index: 999;
-    width: 50px;
+    right: 10px;
     background: transparent;
     border: none;
     font-size: 32px;
     cursor: pointer;
+    z-index: 1;
   }
 
   .arrow_right_dark {
@@ -49,5 +47,17 @@
 
   .arrow_right_light {
     color: $main-dark;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .container {
+    .arrow_left_dark, .arrow_left_light {
+      left: 25px;
+    }
+
+    .arrow_right_dark, .arrow_right_light {
+      right: 25px;
+    }
   }
 }

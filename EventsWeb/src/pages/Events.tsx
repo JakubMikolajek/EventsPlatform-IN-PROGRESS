@@ -41,9 +41,8 @@ const Events: React.FC = () => {
     favorite_isLoading = isLoading;
   }
 
-  if (events_isLoading || tickets_isLoading || favorite_isLoading) {
-    return <Loading />;
-  }
+  const isLoading = events_isLoading || tickets_isLoading || favorite_isLoading;
+
   const open_events = getOpenEvents(events);
   const uniqueCategories = getCategoriesOfEvents(events);
 
@@ -56,18 +55,24 @@ const Events: React.FC = () => {
   //     .reverse();
 
   return (
-    <div className={classes.main}>
-      <EventsList events={open_events} name="Najbliższe wydarzenia" />
-      {isAuth && (
-        <EventsList
-          events={events_with_tickets}
-          name="Wydarzenia w których bierzesz udział"
-          description="Nie bierzesz jeszcze udziału w żadnym wydarzeniu"
-        />
+    <>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <div className={classes.main}>
+          <EventsList events={open_events} name="Najbliższe wydarzenia" />
+          {isAuth && (
+            <EventsList
+              events={events_with_tickets}
+              name="Wydarzenia w których bierzesz udział"
+              description="Nie bierzesz jeszcze udziału w żadnym wydarzeniu"
+            />
+          )}
+          <CategoryList category={uniqueCategories} name="Kategorie" />
+          {/*<EventsList events={close_events} name="Zakończone wydarzenia" />*/}
+        </div>
       )}
-      <CategoryList category={uniqueCategories} name="Kategorie" />
-      {/*<EventsList events={close_events} name="Zakończone wydarzenia" />*/}
-    </div>
+    </>
   );
 };
 

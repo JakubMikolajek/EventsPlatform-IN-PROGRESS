@@ -26,5 +26,29 @@
   .events_container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .main_container {
+    width: 100%;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+
+    .category_container {
+      margin-bottom: 8px;
+
+      .text_dark, .text_light {
+        margin-left: 16px;
+        margin-bottom: 8px;
+      }
+    }
+
+    .events_container {
+      display: flex;
+      flex-wrap: wrap;
+    }
   }
 }

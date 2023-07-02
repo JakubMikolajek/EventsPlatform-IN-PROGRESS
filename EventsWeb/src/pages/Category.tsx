@@ -25,24 +25,26 @@ const Category: React.FC = () => {
     eventsByCategoryIsLoading = isLoading;
   }
 
-  if (eventsByCategoryIsLoading) {
-    return <Loading />;
-  }
-
   return (
-    <div className={classes.main_container}>
-      <div className={classes.category_container}>
-        <BackButton onClick={() => navigate(-1)} />
-        <h1 className={isDark ? classes.text_dark : classes.text_light}>
-          Kategoria: {params.categoryName}
-        </h1>
-      </div>
-      <div className={classes.events_container}>
-        {eventsByCategory?.map((event: EventProps) => (
-          <EventListElement event={event} />
-        ))}
-      </div>
-    </div>
+    <>
+      {eventsByCategoryIsLoading ? (
+        <Loading />
+      ) : (
+        <div className={classes.main_container}>
+          <div className={classes.category_container}>
+            <BackButton onClick={() => navigate(-1)} />
+            <h1 className={isDark ? classes.text_dark : classes.text_light}>
+              Kategoria: {params.categoryName}
+            </h1>
+          </div>
+          <div className={classes.events_container}>
+            {eventsByCategory?.map((event: EventProps) => (
+              <EventListElement event={event} />
+            ))}
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

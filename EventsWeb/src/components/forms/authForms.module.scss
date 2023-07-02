@@ -1,8 +1,15 @@
 .auth_form {
-  width: 350px;
-  height: 400px;
+  width: 250px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 32px;
+}
+
+@media only screen and (min-width: 1200px) {
+  .auth_form {
+    width: 350px;
+    margin-top: 48px;
+  }
 }

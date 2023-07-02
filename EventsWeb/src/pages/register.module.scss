@@ -8,13 +8,17 @@
   align-items: center;
 
   .form_container_dark, .form_container_light {
-    width: 400px;
-    height: 600px;
+    width: 250px;
+    height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 8px;
+
+    h1{
+      font-size: 24px;
+    }
   }
 
   .form_container_dark {
@@ -30,6 +34,17 @@
 
     h1 {
       color: $main-dark;
+    }
+  }
+
+  @media only screen and (min-width: 1200px) {
+    .form_container_dark, .form_container_light {
+      width: 400px;
+      height: 600px;
+
+      h1{
+        font-size: 32px;
+      }
     }
   }
 }

@@ -10,20 +10,6 @@
     top: 25px;
   }
 
-  .profile {
-    //margin-right: 25px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-
-    img {
-      width: 96px;
-      height: 96px;
-      border-radius: 48px;
-      object-fit: cover;
-    }
-  }
-
   .web {
     display: none;
   }
@@ -58,7 +44,6 @@
 
       .element {
         margin-top: 16px;
-        display: flex;
       }
 
       .element:first-child {
@@ -82,19 +67,8 @@
 
 @media only screen and (min-width: 1200px) {
   .container_dark, .container_light {
-    .profile {
-      margin-right: 25px;
-
-      img {
-        width: 48px;
-        height: 48px;
-        border-radius: 24px;
-      }
-    }
-
     .web {
       display: flex;
-      align-items: center;
     }
 
     .mobile {

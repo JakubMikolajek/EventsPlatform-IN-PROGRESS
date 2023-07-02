@@ -27,9 +27,8 @@ const ListOfUsersWithTickets: React.FC<ListOfUsersWithTicketsProps> = ({
     isLoadingTickets = isLoading;
   }
 
-  if (isLoadingUsers || isLoadingTickets) {
-    return null;
-  }
+  const isLoading = isLoadingUsers || isLoadingTickets;
+
   ticketsData?.forEach((ticket: any) => {
     const matchUser = users?.find(
       (user: any) => user.uuid === ticket.ticket_owner
@@ -40,15 +39,20 @@ const ListOfUsersWithTickets: React.FC<ListOfUsersWithTicketsProps> = ({
   usersWithTickets.sort(sortByName);
 
   return (
-    <div
-      className={
-        isDark ? classes.main_container_dark : classes.main_container_light
-      }
-    >
-      {usersWithTickets.map((user: any) => {
-        return <UserListElement creator_uuid={creator_uuid} user={user} />;
-      })}
-    </div>
+    <>
+      {isLoading ? null : (
+        <div
+          className={
+            isDark ? classes.main_container_dark : classes.main_container_light
+          }
+        >
+          <h1>Lista uczestników:</h1>
+          {usersWithTickets.map((user: any) => (
+            <UserListElement creator_uuid={creator_uuid} user={user} />
+          ))}
+        </div>
+      )}
+    </>
   );
 };
 

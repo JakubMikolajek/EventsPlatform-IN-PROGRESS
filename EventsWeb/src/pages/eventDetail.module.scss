@@ -1,40 +1,123 @@
 @import "/src/utils/variables/colors";
+@import "/src/utils/variables/sizes";
 
 .main_container_dark, .main_container_light {
   width: 100%;
   min-height: 90vh;
-  position: relative;
 
   .text_decoration {
     width: auto;
     height: auto;
     text-decoration: none;
+    font-size: 14px;
   }
 
   .event_detail {
     display: flex;
-    justify-content: flex-start;
-    flex-direction: row;
-    margin: 16px 32px 0 32px;
+    flex-direction: column;
+    margin: 8px 16px 0 16px;
     height: auto;
 
     .left_side {
-      margin-right: 16px;
+      margin-right: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      h1 {
+        font-size: 20px;
+      }
+
+      h2 {
+        font-size: 18px;
+      }
+
+      h3 {
+        font-size: 16px;
+      }
+
+      p {
+        font-size: 14px;
+      }
 
       img {
-        width: 800px;
-        height: 450px;
+        width: 300px;
+        height: 170px;
         object-fit: cover;
       }
     }
 
     .right_side {
-      margin-left: 16px;
+      margin-top: 8px;
+      margin-left: 0;
+      display: flex;
+      justify-content: center;
+
+      p {
+        font-size: 14px;
+      }
 
       .inner_right_side {
         margin-top: 8px;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .main_container_dark, .main_container_light {
+    .text_decoration {
+      font-size: 20px;
+    }
+
+    .event_detail {
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: row;
+      margin: 16px 32px 0 32px;
+      height: auto;
+
+      .left_side {
+        margin-right: 16px;
+
+        h1 {
+          font-size: 32px;
+        }
+
+        h2 {
+          font-size: 28px;
+        }
+
+        h3 {
+          font-size: 24px;
+        }
+
+        p {
+          font-size: 20px;
+        }
+
+        img {
+          width: 800px;
+          height: 450px;
+          object-fit: cover;
+        }
+      }
+
+      .right_side {
+        margin-left: 16px;
+        margin-top: 0;
+
+        p {
+          font-size: 20px;
+        }
+
+        .inner_right_side {
+          margin-top: 8px;
+          display: flex;
+          flex-direction: row;
+        }
       }
     }
   }
