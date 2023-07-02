@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getEventsData } from "../supabase/api/events.ts";
+import { getEventsData } from "../supabase/requests/events.ts";
 
 export const fetchEvents = (enabled: boolean) => {
   const { data, isLoading, isFetching, refetch } = useQuery(

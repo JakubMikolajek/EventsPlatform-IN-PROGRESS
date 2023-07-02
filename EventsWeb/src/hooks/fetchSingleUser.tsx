@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getSingleUserData } from "../supabase/api/user.ts";
+import { getSingleUserData } from "../supabase/requests/user.ts";
 
 export const fetchSingleUser = (uuid: string, enabled: boolean) => {
   const { data, isLoading, isFetching, refetch } = useQuery(

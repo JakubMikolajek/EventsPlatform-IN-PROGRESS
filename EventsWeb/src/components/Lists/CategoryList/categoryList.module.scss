@@ -1,0 +1,44 @@
+@import "/src/utils/variables/colors";
+
+.main_categories {
+  display: flex;
+  flex-direction: column;
+
+  .title_dark, .title_light {
+    display: flex;
+    align-self: flex-start;
+    margin-left: 16px;
+    font-size: 20px;
+  }
+
+  .title_dark {
+    color: $main-light;
+  }
+
+  .title_light {
+    color: $main-dark;
+  }
+
+  .list {
+    display: flex;
+    justify-content: center;
+    height: 150px;
+    width: 90%;
+    position: relative;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .main_categories {
+    .title_dark, .title_light {
+      margin-left: 32px;
+      font-size: 32px;
+    }
+
+    .list {
+      justify-content: flex-start;
+      height: 150px;
+      width: 90%;
+    }
+  }
+}

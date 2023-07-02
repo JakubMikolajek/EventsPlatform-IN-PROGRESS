@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getEventsDataByCategory } from "../supabase/api/events.ts";
+import { getEventsDataByCategory } from "../supabase/requests/events.ts";
 
 export const fetchEventsByCategory = (category: string, enabled: boolean) => {
   const { data, isLoading, isFetching, refetch } = useQuery(

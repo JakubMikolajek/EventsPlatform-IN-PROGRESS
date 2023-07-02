@@ -1,0 +1,72 @@
+@import "/src/utils/variables/colors";
+@import "/src/utils/variables/sizes";
+
+.main_container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 4px;
+
+  img {
+    width: 40px;
+    height: 40px;
+    border-radius: 24px;
+    object-fit: cover;
+  }
+
+  .inner_container_dark, .inner_container_light {
+    margin-left: 8px;
+
+    h2 {
+      font-size: $text-2xs;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: $text-3xs;
+      font-weight: 500;
+    }
+  }
+
+  .inner_container_dark {
+    h1 {
+      color: $main-light;
+    }
+
+    p {
+      color: $main-light;
+    }
+  }
+
+  .inner_container_light {
+    h1 {
+      color: $main-dark;
+    }
+
+    p {
+      color: $main-dark;
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .main_container {
+    margin: 4px 8px;
+
+    img {
+      width: 48px;
+      height: 48px;
+    }
+
+    .inner_container_dark, .inner_container_light {
+      h2 {
+        font-size: $text-m;
+        font-weight: 600;
+      }
+
+      p {
+        font-size: $text-xs;
+      }
+    }
+  }
+}

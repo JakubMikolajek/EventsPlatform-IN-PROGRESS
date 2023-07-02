@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getAllUsers } from "../supabase/api/user.ts";
+import { getAllUsers } from "../supabase/requests/user.ts";
 
 export const fetchAllUsers = (enabled: boolean) => {
   const { data, isLoading, isFetching, refetch } = useQuery(

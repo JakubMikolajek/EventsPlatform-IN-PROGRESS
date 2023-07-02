@@ -1,4 +1,5 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+
 import authReducer from "./reducers/authSlice.ts";
 import themeReducer from "./reducers/themeSlice.ts";
 
@@ -12,9 +13,11 @@ export interface StateProps {
   };
 }
 
+const reducers = combineReducers({
+  auth: authReducer,
+  theme: themeReducer,
+});
+
 export const store = configureStore({
-  reducer: {
-    auth: authReducer,
-    theme: themeReducer,
-  },
+  reducer: reducers,
 });

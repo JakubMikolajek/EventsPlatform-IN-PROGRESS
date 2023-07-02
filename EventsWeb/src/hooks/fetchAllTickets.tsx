@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getAllTickets } from "../supabase/api/events.ts";
+import { getAllTickets } from "../supabase/requests/events.ts";
 
 export const fetchAllTickets = (id: number, enabled: boolean) => {
   const { data, isLoading, isFetching, refetch } = useQuery(

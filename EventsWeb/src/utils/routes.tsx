@@ -1,18 +1,19 @@
 import { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
-import Root from "../components/navigation/Root.tsx";
-import Events from "../pages/Events.tsx";
-import EventDetail from "../pages/EventDetail.tsx";
-import ProtectedRoute from "../components/navigation/ProtectedRoute.tsx";
-import Error from "../components/navigation/Error.tsx";
-import Category from "../pages/Category.tsx";
-import Loading from "../components/others/Loading.tsx";
 
-const Register = lazy(() => import("../pages/Register.tsx"));
-const Login = lazy(() => import("../pages/Login.tsx"));
-const Profile = lazy(() => import("../pages/Profile.tsx"));
-const EditProfile = lazy(() => import("../pages/EditProfile.tsx"));
-const AddEvent = lazy(() => import("../pages/AddEvent.tsx"));
+import Root from "../components/Navigation/Root/Root.tsx";
+import Events from "../pages/Events/Events.tsx";
+import EventDetail from "../pages/EventDetail/EventDetail.tsx";
+import ProtectedRoute from "../components/Navigation/ProtectedRoute/ProtectedRoute.tsx";
+import Error from "../components/Navigation/Error/Error.tsx";
+import Category from "../pages/Category/Category.tsx";
+import Loading from "../components/Navigation/Loading/Loading.tsx";
+
+const Register = lazy(() => import("../pages/Register/Register.tsx"));
+const Login = lazy(() => import("../pages/Login/Login.tsx"));
+const Profile = lazy(() => import("../pages/Profile/Profile.tsx"));
+const EditProfile = lazy(() => import("../pages/EditProfile/EditProfile.tsx"));
+const AddEvent = lazy(() => import("../pages/AddEvent/AddEvent.tsx"));
 
 export const router = createBrowserRouter([
   {
@@ -50,7 +51,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "profile-edit",
+        path: "Profile-edit",
         element: (
           <ProtectedRoute>
             <Suspense fallback={<Loading />}>

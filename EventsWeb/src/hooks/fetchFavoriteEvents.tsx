@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getFavoriteEvents } from "../supabase/api/events.ts";
+import { getFavoriteEvents } from "../supabase/requests/events.ts";
 
 export const fetchFavoriteEvents = (ownId: string, enabled: boolean) => {
   const { data, isLoading, isFetching, refetch } = useQuery(

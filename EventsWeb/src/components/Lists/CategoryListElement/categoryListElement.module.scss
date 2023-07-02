@@ -1,0 +1,35 @@
+@import "/src/utils/variables/colors";
+
+.list_element_dark, .list_element_light {
+  width: 80%;
+  padding: 8px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  margin: 8px 16px;
+  text-decoration: none;
+}
+
+.list_element_dark {
+  border: 2px solid $main-light;
+
+  h1 {
+    color: $main-light;
+  }
+}
+
+.list_element_light {
+  border: 2px solid $main-dark;
+
+  h1 {
+    color: $main-dark;
+  }
+}
+
+
+@media only screen and (min-width: 1200px) {
+  .list_element_dark, .list_element_light {
+   width: 18%;
+  }
+}

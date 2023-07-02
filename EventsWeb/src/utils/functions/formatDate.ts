@@ -1,4 +1,5 @@
 import * as moment from "moment/moment";
+
 import { EventProps } from "../types/types.ts";
 
 export const formatDate = (event: EventProps | undefined | null) => {
