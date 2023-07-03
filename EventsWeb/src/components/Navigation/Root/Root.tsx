@@ -10,6 +10,7 @@ import { StateProps } from "../../../store/store.ts";
 
 const Root: React.FC = () => {
   const isDark = useSelector((state: StateProps) => state.theme.isDark);
+
   return (
     <div className={isDark ? classes.dark : classes.light}>
       <MainNavigation />

@@ -5,9 +5,13 @@ interface InitialStateProps {
   loggedUserId: string | undefined;
 }
 
+const data = localStorage.getItem("sb-jydvcrgomskcwastsjqh-auth-token");
+
+const user_data = data && JSON.parse(data);
+
 const initialState: InitialStateProps = {
-  isAuth: false,
-  loggedUserId: undefined,
+  isAuth: !!user_data,
+  loggedUserId: user_data ? user_data.user.id : undefined,
 };
 
 const authSlice = createSlice({
