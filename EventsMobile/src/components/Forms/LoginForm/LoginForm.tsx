@@ -43,8 +43,10 @@ const LoginForm: React.FC = () => {
                        keyboardType="email-address"/>
             <FormInput placeholder="Hasło" name="password" control={control} errors={errors.password}
                        secureTextEntry={true}/>
-            <CustomButton isAlt={false} title="Zaloguj się"
-                          onPress={handleSubmit((values: FieldValues) => loginUser(values.email, values.password))}/>
+            <CustomButton title="Zaloguj się"
+                          onPress={handleSubmit((values: FieldValues) => loginUser(values.email, values.password))}
+                          isAlt={false}
+            />
         </View>
     )
 }
