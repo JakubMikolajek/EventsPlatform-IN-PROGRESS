@@ -1,5 +1,5 @@
 import React from "react";
-import {StyleSheet, Text, View} from 'react-native'
+import {StyleSheet, View} from 'react-native'
 import {useSelector} from "react-redux";
 import {StateProps} from "../../store/store";
 import {SafeAreaView} from "react-native-safe-area-context";
@@ -7,11 +7,16 @@ import {useFetchSingleUser} from "../../hooks/useFetchSingleUser";
 import User from "../../components/User/User";
 import {UserProps} from "../../utils/types/types";
 import Loading from "../../components/Loading/Loading";
+import {useFetchEventWithTickets} from "../../hooks/useFetchEventWithTickets";
+import EventsList from "../../components/Lists/EventsList/EventsList";
 
 const ProfileScreen: React.FC = () => {
     const ownId = useSelector((state: StateProps) => state.auth.loggedUserId)
     let user_data: UserProps | undefined | null
     let isUserLoading
+
+    let events_with_tickets
+    let isEventsWithTicketsLoading
 
     if (typeof ownId!== "undefined") {
         const {user, isLoading} = useFetchSingleUser(ownId, true)
@@ -20,18 +25,25 @@ const ProfileScreen: React.FC = () => {
         isUserLoading = isLoading
     }
 
-    if (isUserLoading) {
-        return <Text>Loading...</Text>
+
+    if (typeof ownId !== "undefined") {
+        const {events, isLoading} = useFetchEventWithTickets(ownId, true)
+
+        events_with_tickets = events
+        isEventsWithTicketsLoading = isLoading
     }
 
-    console.log(user_data)
+    const isLoading = isEventsWithTicketsLoading || isUserLoading
+
+    console.log(events_with_tickets)
 
     return (
         <SafeAreaView style={styles.container}>
-            {isUserLoading ? <Loading/> :
+            {isLoading ? <Loading/> :
                 <View>
                     <User first_name={user_data?.first_name} last_name={user_data?.last_name}
                           image_url={user_data?.image_url}/>
+                    <EventsList events={events_with_tickets} name="Wydarzenia w których bierzesz udział"/>
                 </View>}
         </SafeAreaView>
     )

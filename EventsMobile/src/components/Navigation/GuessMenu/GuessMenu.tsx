@@ -8,6 +8,7 @@ import EventsScreen from "../../../screens/EventsScreen/EventsScreen";
 import {createStackNavigator} from "@react-navigation/stack";
 import Icon from "../../Others/Icon/Icon";
 import {globalStyles} from "../../../utils/variables/globalStyles";
+import EventDetailScreen from "../../../screens/EventDetailScreen/EventDetailScreen";
 
 const Tabs = createBottomTabNavigator<ParamListBase>()
 const Stack = createStackNavigator<ParamListBase>()
@@ -21,9 +22,9 @@ const AccountMenu = () => {
     )
 }
 
-const GuessMenu = () => {
+const TabsMenu = () => {
     return (
-        <Tabs.Navigator initialRouteName="Events" screenOptions={{
+        <Tabs.Navigator initialRouteName="Event" screenOptions={{
             headerShown: false,
             tabBarShowLabel: false,
             tabBarActiveTintColor: globalStyles.colors.light.main_blue,
@@ -35,6 +36,18 @@ const GuessMenu = () => {
                 tabBarIcon: ({size, color}) => <Icon name="account-circle" size={size} color={color}/>
             }}/>
         </Tabs.Navigator>
+    )
+}
+
+const GuessMenu = () => {
+    return (
+        <Stack.Navigator initialRouteName="Tabs" screenOptions={{
+            headerShown: false,
+        }}>
+            <Stack.Screen name="Tabs" component={TabsMenu}/>
+            <Stack.Screen name="EventDetail" component={EventDetailScreen}
+                          options={{headerTransparent: true, title: ""}}/>
+        </Stack.Navigator>
     )
 }
 
