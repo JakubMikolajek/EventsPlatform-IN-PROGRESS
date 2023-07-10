@@ -31,7 +31,7 @@ const GuessMenu = () => {
             <Tabs.Screen name="Events" component={EventsScreen} options={{
                 tabBarIcon: ({size, color}) => <Icon name="event" size={size} color={color}/>
             }}/>
-            <Tabs.Screen name="Account" component={AccountMenu} options={{
+            <Tabs.Screen name="Auth" component={AccountMenu} options={{
                 tabBarIcon: ({size, color}) => <Icon name="account-circle" size={size} color={color}/>
             }}/>
         </Tabs.Navigator>

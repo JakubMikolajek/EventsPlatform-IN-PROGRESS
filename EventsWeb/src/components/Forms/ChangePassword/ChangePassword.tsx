@@ -25,7 +25,7 @@ const ChangePassword: React.FC = () => {
   });
 
   const updatePassword = async (data: any) => {
-    return supabaseClient.auth
+    return await supabaseClient.auth
       .updateUser({ password: data.password })
       .then(() => alert("Hasło zostało zmienione"))
       .then(() => reset());

@@ -1,33 +1,38 @@
 import React from "react";
-import {Alert, StyleSheet, Text} from 'react-native'
-import {useDispatch, useSelector} from "react-redux";
+import {StyleSheet, Text, View} from 'react-native'
+import {useSelector} from "react-redux";
 import {StateProps} from "../../store/store";
 import {SafeAreaView} from "react-native-safe-area-context";
-import CustomButton from "../../components/Buttons/CustomButton/CustomButton";
-import {supabaseClient} from "../../supabase/supabase";
-import {Dispatch} from "redux";
-import {setIsAuth, setIsLoggedIn} from "../../store/reducers/authSlice";
+import {useFetchSingleUser} from "../../hooks/useFetchSingleUser";
+import User from "../../components/User/User";
+import {UserProps} from "../../utils/types/types";
+import Loading from "../../components/Loading/Loading";
 
 const ProfileScreen: React.FC = () => {
-    const dispatch: Dispatch = useDispatch()
     const ownId = useSelector((state: StateProps) => state.auth.loggedUserId)
+    let user_data: UserProps | undefined | null
+    let isUserLoading
 
-    const logoutUser = async () => {
-        const {error} = await supabaseClient.auth.signOut()
+    if (typeof ownId!== "undefined") {
+        const {user, isLoading} = useFetchSingleUser(ownId, true)
 
-        if (!error) {
-            dispatch(setIsAuth(false))
-            dispatch(setIsLoggedIn(""))
-        } else {
-            return Alert.alert("Wystąpił błąd", "Spróbuj ponownie później")
-        }
+        user_data = user
+        isUserLoading = isLoading
     }
+
+    if (isUserLoading) {
+        return <Text>Loading...</Text>
+    }
+
+    console.log(user_data)
 
     return (
         <SafeAreaView style={styles.container}>
-            <Text>ProfileScreen</Text>
-            <Text>{ownId}</Text>
-            <CustomButton isAlt={false} title="Wyloguj się" onPress={logoutUser}/>
+            {isUserLoading ? <Loading/> :
+                <View>
+                    <User first_name={user_data?.first_name} last_name={user_data?.last_name}
+                          image_url={user_data?.image_url}/>
+                </View>}
         </SafeAreaView>
     )
 }
@@ -38,6 +43,10 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: "center",
-        justifyContent: "center"
+    },
+    image: {
+        width: 92,
+        height: 92,
+        borderRadius: 48
     }
 })

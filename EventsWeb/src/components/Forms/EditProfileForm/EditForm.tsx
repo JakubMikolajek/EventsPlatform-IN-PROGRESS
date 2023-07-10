@@ -32,6 +32,10 @@ const EditForm: React.FC = () => {
   const client: QueryClient = useQueryClient();
   let user_data: UserProps | undefined | null;
 
+  const [url, setUrl] = useState<string | undefined | null>(
+    user_data?.image_url
+  );
+
   if (typeof ownId !== "undefined") {
     const { user, isLoading }: FetchSingleUserDataProps = fetchSingleUser(
       ownId,
@@ -42,10 +46,6 @@ const EditForm: React.FC = () => {
     }
     user_data = user;
   }
-
-  const [url, setUrl] = useState<string | undefined | null>(
-    user_data?.image_url
-  );
 
   const {
     register,
