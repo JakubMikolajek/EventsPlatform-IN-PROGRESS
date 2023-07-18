@@ -15,17 +15,9 @@
     left: 10px;
     background: transparent;
     border: none;
-    font-size: 32px;
+    font-size: 2rem;
     cursor: pointer;
     z-index: 1;
-  }
-
-  .arrow_left_dark {
-    color: $main-light;
-  }
-
-  .arrow_left_light {
-    color: $main-dark;
   }
 
   .arrow_right_dark, .arrow_right_light {
@@ -36,16 +28,16 @@
     right: 10px;
     background: transparent;
     border: none;
-    font-size: 32px;
+    font-size: 2rem;
     cursor: pointer;
     z-index: 1;
   }
 
-  .arrow_right_dark {
+  .arrow_left_dark, .arrow_right_dark {
     color: $main-light;
   }
 
-  .arrow_right_light {
+  .arrow_left_light, .arrow_right_light {
     color: $main-dark;
   }
 }

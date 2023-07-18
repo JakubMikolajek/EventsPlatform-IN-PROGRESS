@@ -11,14 +11,14 @@
   z-index: 999;
 
   .left {
-    margin-left: 15px;
+    margin-left: 1rem;
     display: flex;
     align-items: center;
 
     .logo {
       text-decoration: none;
-      margin-right: 8px;
-      font-size: 12px;
+      margin-right: .5rem;
+      font-size: .75rem;
     }
 
     .icon {
@@ -37,8 +37,8 @@
   .navbar_dark, .navbar_light {
     .left{
       .logo{
-        font-size: 16px;
-        margin-right: 16px;
+        font-size: 1rem;
+        margin-right: 1rem;
       }
     }
   }

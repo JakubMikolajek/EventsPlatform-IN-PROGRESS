@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin: 4px;
+  margin: .25rem;
 
   img {
     width: 40px;
@@ -15,7 +15,7 @@
   }
 
   .inner_container_dark, .inner_container_light {
-    margin-left: 8px;
+    margin-left: .5rem;
 
     h2 {
       font-size: $text-2xs;
@@ -51,7 +51,7 @@
 
 @media only screen and (min-width: 1200px) {
   .main_container {
-    margin: 4px 8px;
+    margin: .25rem .5rem;
 
     img {
       width: 48px;

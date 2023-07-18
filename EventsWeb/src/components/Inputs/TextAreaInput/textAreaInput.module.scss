@@ -6,13 +6,13 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin: 10px 0;
+  margin: .75rem 0;
 
   .textarea_input_dark, .textarea_input_light {
     width: 200px;
     resize: none;
     border-radius: 8px;
-    padding: 5px 10px;
+    padding: .25rem .5rem;
     background-color: transparent;
   }
 
@@ -28,7 +28,7 @@
 
   .error_dark, .error_light {
     margin: 2px 0 2px 0;
-    font-size: 16px;
+    font-size: 1rem;
   }
 
   .error_dark {
@@ -50,7 +50,7 @@
 
     .error_dark, .error_light {
       margin: 2px 0 2px 0;
-      font-size: 16px;
+      font-size: 1rem;
     }
   }
 }

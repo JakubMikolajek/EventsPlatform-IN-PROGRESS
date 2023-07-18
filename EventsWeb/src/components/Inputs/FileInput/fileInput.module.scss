@@ -11,15 +11,15 @@
   .file_input_dark, .file_input_light {
     width: 250px;
     height: 40px;
-    padding: 0 10px;
+    padding: 0 .75rem;
 
     &::file-selector-button {
       cursor: pointer;
       background-color: transparent;
       width: 100px;
       height: 40px;
-      border-radius: 8px;
-      margin-right: 10px;
+      border-radius: .5rem;
+      margin-right: .75rem;
     }
   }
 
@@ -48,7 +48,7 @@
   }
 }
 
-@media only screen and (min-width: 1200px){
+@media only screen and (min-width: 1200px) {
   .main_file {
     width: 300px;
     height: 180px;
@@ -80,15 +80,15 @@
   .alt_file_input_dark, .alt_file_input_light {
     width: 250px;
     height: 40px;
-    padding: 0 10px 0 10px;
+    padding: 0 .75rem;
 
     &::file-selector-button {
       cursor: pointer;
       background-color: transparent;
       width: 100px;
       height: 40px;
-      border-radius: 8px;
-      margin-right: 10px;
+      border-radius: .5rem;
+      margin-right: .75rem;
     }
   }
 
@@ -111,7 +111,7 @@
   }
 
   .alt_img {
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
     width: 80px;
     height: 80px;
     border-radius: 48px;
@@ -128,7 +128,7 @@
     .alt_file_input_dark, .alt_file_input_light {
       width: 300px;
       height: 40px;
-      padding: 0 10px 0 10px;
+      padding: 0 .75rem;
 
       &::file-selector-button {
         width: 150px;

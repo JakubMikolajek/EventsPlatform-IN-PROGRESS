@@ -2,29 +2,25 @@
 
 .list_element {
   width: 80%;
-  margin: 8px 16px;
+  margin: 1rem 2rem;
 
-  .img_container {
-    width: auto;
-    height: 200px;
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+  img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
   }
 
-  h2{
+  h2 {
     display: flex;
     justify-content: center;
-    font-size: 18px;
+    font-size: 1.2rem;
   }
 
-  p{
+  p {
     display: flex;
     justify-content: center;
-    font-size: 16px;
+    font-size: 1.2rem;
   }
 
   .text_dark {
@@ -44,14 +40,12 @@
 @media only screen and (min-width: 600px) {
   .list_element {
     width: 45%;
-    margin: 8px 16px;
   }
 }
 
 @media only screen and (min-width: 992px) {
   .list_element {
     max-width: 30%;
-    margin: 8px 16px;
   }
 }
 
@@ -59,21 +53,15 @@
 @media only screen and (min-width: 1200px) {
   .list_element {
     width: 18%;
-    margin: 8px 16px;
+    margin: .5rem 1rem;
 
-    .img_container {
-      width: 100%;
+    img {
       height: 200px;
-
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
     }
-    h2{
+
+    h2 {
       justify-content: flex-start;
-      font-size: 28px;
+      font-size: 1.75rem;
       display: -webkit-box;
       -webkit-line-clamp: 1;
       -webkit-box-orient: vertical;
@@ -81,9 +69,9 @@
       text-overflow: ellipsis;
     }
 
-    p{
+    p {
       justify-content: flex-start;
-      font-size: 20px;
+      font-size: 1.25rem;
     }
   }
 }

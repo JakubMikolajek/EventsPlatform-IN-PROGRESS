@@ -2,7 +2,7 @@
 @import "/src/utils/variables/sizes";
 
 .btn_container {
-  margin: 0 4px;
+  margin: 0 .25rem;
 
   .btn_dark, .btn_light {
     min-width: 150px;
@@ -13,7 +13,7 @@
     font-size: $text-3xs;
     font-weight: 500;
     transition: .25s;
-    padding: 8px;
+    padding: .5rem;
   }
 
   .btn_dark {
@@ -43,7 +43,7 @@
     font-size: $text-3xs;
     font-weight: 500;
     transition: .25s;
-    padding: 8px;
+    padding: .5rem;
   }
 
   .btn_alt_dark {
@@ -69,7 +69,7 @@
 
 @media only screen and (min-width: 600px) {
   .btn_container {
-    margin: 0 4px;
+    margin: 0 .25rem;
 
     .btn_dark, .btn_light {
       font-size: $text-2xs;

@@ -57,12 +57,12 @@
       }
 
       .element {
-        margin-top: 16px;
+        margin-top: 1rem;
         display: flex;
       }
 
       .element:first-child {
-        margin-top: 64px;
+        margin-top: 4rem;
       }
     }
   }
@@ -83,7 +83,7 @@
 @media only screen and (min-width: 1200px) {
   .container_dark, .container_light {
     .profile {
-      margin-right: 25px;
+      margin-right: 1.5rem;
 
       img {
         width: 48px;

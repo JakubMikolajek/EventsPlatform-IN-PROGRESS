@@ -1,11 +1,11 @@
 .comment_form {
   width: 300px;
-  margin-top: 4px;
+  margin-top: .25rem;
 }
 
 @media only screen and (min-width: 1200px) {
   .comment_form {
-    width: 500px;
-    margin-top: 8px;
+    width: 25vw;
+    margin-top: .5rem;
   }
 }

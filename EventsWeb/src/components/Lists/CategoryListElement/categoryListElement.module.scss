@@ -2,12 +2,12 @@
 
 .list_element_dark, .list_element_light {
   width: 80%;
-  padding: 8px 16px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  margin: 8px 16px;
+  padding: .5rem 1rem;
+  margin: .5rem 1rem;
   text-decoration: none;
 }
 
@@ -30,6 +30,6 @@
 
 @media only screen and (min-width: 1200px) {
   .list_element_dark, .list_element_light {
-   width: 18%;
+    width: 18%;
   }
 }

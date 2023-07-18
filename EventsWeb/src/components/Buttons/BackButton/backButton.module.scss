@@ -2,7 +2,7 @@
 @import "/src/utils/variables/sizes";
 
 .btn_dark, .btn_light {
-  margin-left: 16px;
+  margin-left: 1rem;
   min-width: 100px;
   height: 40px;
   background-color: transparent;
@@ -10,7 +10,7 @@
   cursor: pointer;
   font-size: $text-2xs;
   transition: .25s;
-  padding: 8px;
+  padding: .5rem;
 }
 
 .btn_dark {

@@ -17,9 +17,7 @@ const EventListElement: React.FC<EventListElementProps> = ({ event }) => {
   return (
     <div className={classes.list_element} key={event.id}>
       <Link className={classes.text_decoration} to={`/events/${event.id}`}>
-        <div className={classes.img_container}>
-          <img src={event.image_url} alt={event.image_url} />
-        </div>
+        <img src={event.image_url} alt={event.image_url} />
         <h2 className={isDark ? classes.text_dark : classes.text_light}>
           {event.title}
         </h2>

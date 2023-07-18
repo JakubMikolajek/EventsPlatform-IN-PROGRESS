@@ -6,7 +6,7 @@
   align-items: center;
 
   .inner_container_dark, .inner_container_light {
-    margin-right: 16px;
+    margin-right: 1rem;
     position: absolute;
     top: 11vh;
     right: 0;
@@ -41,6 +41,7 @@
 @media only screen and (min-width: 1200px) {
   .main_container {
     flex-direction: row;
+    width: 50vw;
 
     .inner_container_dark, .inner_container_light {
       position: relative;

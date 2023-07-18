@@ -47,8 +47,8 @@
 
 @media only screen and (min-width: 1200px) {
   .main_container_dark, .main_container_light {
-    margin-left: 16px;
-    width: 300px;
+    padding-left: 1rem;
+    width: 25vw;
 
     h1 {
       font-size: $text-xl;

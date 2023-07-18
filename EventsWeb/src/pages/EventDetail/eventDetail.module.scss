@@ -9,14 +9,13 @@
     width: auto;
     height: auto;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 1rem;
   }
 
   .event_detail {
     display: flex;
     flex-direction: column;
-    margin: 8px 16px 0 16px;
-    height: auto;
+    margin: .5rem 1rem;
 
     .left_side {
       margin-right: 0;
@@ -25,42 +24,42 @@
       align-items: center;
 
       h1 {
-        font-size: 20px;
+        font-size: 1.25rem;
       }
 
       h2 {
-        font-size: 18px;
+        font-size: 1.1rem;
       }
 
       h3 {
-        font-size: 16px;
+        font-size: 1rem;
       }
 
       p {
-        font-size: 14px;
+        font-size: .85rem;
       }
 
       img {
         width: 300px;
-        height: 170px;
+        height: 250px;
         object-fit: cover;
       }
     }
 
     .right_side {
-      margin-top: 8px;
-      margin-left: 0;
       display: flex;
       justify-content: center;
+      margin-top: .5rem;
+      margin-left: 0;
 
       p {
-        font-size: 14px;
+        font-size: .85rem;
       }
 
       .inner_right_side {
-        margin-top: 8px;
         display: flex;
         flex-direction: column;
+        margin-top: .5rem;
       }
     }
   }
@@ -69,54 +68,54 @@
 @media only screen and (min-width: 1200px) {
   .main_container_dark, .main_container_light {
     .text_decoration {
-      font-size: 20px;
+      font-size: 1.25rem;
     }
 
     .event_detail {
       display: flex;
       justify-content: flex-start;
       flex-direction: row;
-      margin: 16px 32px 0 32px;
-      height: auto;
+      padding: .5rem 1rem;
 
       .left_side {
-        margin-right: 16px;
+        width: 50vw;
+        padding-right: 1rem;
 
         h1 {
-          font-size: 32px;
+          font-size: 2.2rem;
         }
 
         h2 {
-          font-size: 28px;
+          font-size: 2rem;
         }
 
         h3 {
-          font-size: 24px;
+          font-size: 1.8rem;
         }
 
         p {
-          font-size: 20px;
+          font-size: 1.25rem;
         }
 
         img {
-          width: 800px;
+          width: 100%;
           height: 450px;
           object-fit: cover;
         }
       }
 
       .right_side {
-        margin-left: 16px;
+        padding-left: 1rem;
         margin-top: 0;
 
         p {
-          font-size: 20px;
+          font-size: 1.25rem;
         }
 
         .inner_right_side {
-          margin-top: 8px;
           display: flex;
           flex-direction: row;
+          margin-top: .5rem;
         }
       }
     }
@@ -136,19 +135,7 @@
 
   .event_detail {
     .left_side {
-      h1 {
-        color: $main-light;
-      }
-
-      h2 {
-        color: $main-light;
-      }
-
-      h3 {
-        color: $main-light;
-      }
-
-      p {
+      h1, h2, h3, p {
         color: $main-light;
       }
     }
@@ -174,19 +161,7 @@
 
   .event_detail {
     .left_side {
-      h1 {
-        color: $main-dark;
-      }
-
-      h2 {
-        color: $main-dark;
-      }
-
-      h3 {
-        color: $main-dark;
-      }
-
-      p {
+      h1, h2, h3, p {
         color: $main-dark;
       }
     }
