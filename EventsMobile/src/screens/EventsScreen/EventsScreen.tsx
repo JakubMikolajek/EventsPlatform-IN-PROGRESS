@@ -1,14 +1,18 @@
 import React from "react";
-import {ScrollView, StyleSheet, View} from 'react-native'
+import {ScrollView, View} from 'react-native'
 import {SafeAreaView} from "react-native-safe-area-context";
-import {useFetchEvent} from "../../hooks/useFetchEvent";
+import {useSelector} from "react-redux";
+
 import Loading from "../../components/Loading/Loading";
-import {getCategoriesOfEvents, getOpenEvents} from "../../utils/functions/sortEvents";
 import CategoryList from "../../components/Lists/CategoryList/CategoryList";
 import EventsList from "../../components/Lists/EventsList/EventsList";
-import {useSelector} from "react-redux";
-import {StateProps} from "../../store/store";
+
+import {styles} from "./styles";
+import {useFetchEvent} from "../../hooks/useFetchEvent";
 import {useFetchEventWithTickets} from "../../hooks/useFetchEventWithTickets";
+import {getCategoriesOfEvents, getOpenEvents} from "../../utils/functions/sortEvents";
+import {StateProps} from "../../store/store";
+
 
 const EventsScreen: React.FC = () => {
     const ownId = useSelector((state: StateProps) => state.auth.loggedUserId)
@@ -43,10 +47,3 @@ const EventsScreen: React.FC = () => {
 }
 
 export default EventsScreen
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: "center"
-    },
-})

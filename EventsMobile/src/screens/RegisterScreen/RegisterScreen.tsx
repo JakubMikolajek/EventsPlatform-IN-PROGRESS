@@ -1,8 +1,11 @@
 import React from "react";
-import {Keyboard, KeyboardAvoidingView, Platform, StyleSheet, TouchableWithoutFeedback} from 'react-native'
+import {Keyboard, KeyboardAvoidingView, Platform, TouchableWithoutFeedback} from 'react-native'
 import {SafeAreaView} from "react-native-safe-area-context";
+
 import Header from "../../components/Header/Header";
 import RegisterForm from "../../components/Forms/RegisterForm/RegisterForm";
+
+import {styles} from "./styles";
 
 const RegisterScreen: React.FC = () => {
     return (
@@ -19,13 +22,3 @@ const RegisterScreen: React.FC = () => {
 
 export default RegisterScreen
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1
-    },
-    innerContainer: {
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "center"
-    }
-})

@@ -1,8 +1,10 @@
 import React from "react";
-import {FlatList, StyleSheet, View} from 'react-native'
+import {FlatList, View} from 'react-native'
+
 import CategoryListElement from "../CategoryListElement/CategoryListElement";
 import Header from "../../Header/Header";
-import {globalStyles} from "../../../utils/variables/globalStyles";
+
+import {styles} from "./styles";
 
 interface CategoryListProps {
     category: any
@@ -26,11 +28,3 @@ const CategoryList: React.FC<CategoryListProps> = ({category}) => {
 
 export default CategoryList
 
-const styles = StyleSheet.create({
-    container:{
-        marginBottom: globalStyles.spacing.md
-    },
-    headerContainer:{
-        marginHorizontal: globalStyles.spacing.md
-    }
-})

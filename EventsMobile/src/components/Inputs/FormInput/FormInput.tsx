@@ -1,8 +1,8 @@
 import React from "react";
-import {KeyboardTypeOptions, StyleSheet, Text, TextInput, View} from 'react-native'
-import {screenWidth} from "../../../utils/variables/dimension";
+import {KeyboardTypeOptions, Text, TextInput, View} from 'react-native'
 import {Controller} from "react-hook-form";
-import {globalStyles} from "../../../utils/variables/globalStyles";
+
+import {styles} from "./styles";
 
 interface FormInputProps {
     placeholder: string
@@ -30,26 +30,3 @@ const FormInput: React.FC<FormInputProps> = ({placeholder, name, control, errors
 }
 
 export default FormInput
-
-const styles = StyleSheet.create({
-    container: {
-        marginVertical: globalStyles.spacing.sm,
-        alignItems: "center"
-    },
-    input: {
-        borderColor: globalStyles.colors.light.main_dark,
-        borderRadius: 4,
-        borderWidth: 1.5,
-        height: 40,
-        fontSize: globalStyles.sizes.body_md,
-        width: screenWidth * 0.8,
-        justifyContent: "center",
-        paddingHorizontal: globalStyles.spacing.sm
-    },
-    inputError: {
-        borderColor: globalStyles.colors.light.error
-    },
-    errorMessage: {
-        color: globalStyles.colors.light.main_dark
-    }
-})

@@ -1,7 +1,7 @@
 import React from "react";
-import {Image, StyleSheet, View} from 'react-native'
+import {Image, View} from 'react-native'
 import Header from "../Header/Header";
-import {globalStyles} from "../../utils/variables/globalStyles";
+import {styles} from "./styles";
 
 interface UserProps {
     first_name: string | null | undefined
@@ -19,15 +19,3 @@ const User: React.FC<UserProps> = ({first_name, last_name, image_url}) => {
 }
 
 export default User
-
-const styles = StyleSheet.create({
-    container: {
-        alignItems: "center",
-        marginTop: globalStyles.spacing.xl
-    },
-    image: {
-        width: 92,
-        height: 92,
-        borderRadius: 48
-    }
-})

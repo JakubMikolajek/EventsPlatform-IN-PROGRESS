@@ -1,17 +1,19 @@
 import React, {useState} from "react";
-import {StyleSheet, View} from 'react-native'
+import {View} from 'react-native'
 import * as ImagePicker from "expo-image-picker";
 import {QueryClient, useMutation, UseMutationResult, useQueryClient} from "@tanstack/react-query";
 import {FieldValues, useForm} from "react-hook-form";
+import {decode} from "base64-arraybuffer";
+import {NavigationProp, ParamListBase, useNavigation} from "@react-navigation/native";
+import {PostgrestSingleResponse} from "@supabase/supabase-js";
+
 import User from "../../User/User";
 import CustomButton from "../../Buttons/CustomButton/CustomButton";
-import {supabaseClient} from "../../../supabase/supabase";
-import {decode} from "base64-arraybuffer";
 import FormInput from "../../Inputs/FormInput/FormInput";
-import {globalStyles} from "../../../utils/variables/globalStyles";
-import {PostgrestSingleResponse} from "@supabase/supabase-js";
+
+import {styles} from "./styles";
+import {supabaseClient} from "../../../supabase/supabase";
 import {updateProfile} from "../../../supabase/requests/users";
-import {NavigationProp, ParamListBase, useNavigation} from "@react-navigation/native";
 
 interface EditProfileFormProps {
     first_name: string | null | undefined
@@ -95,11 +97,3 @@ const EditProfileForm: React.FC<EditProfileFormProps> = ({first_name, last_name,
 }
 
 export default EditProfileForm
-
-const styles = StyleSheet.create({
-    container: {
-        alignItems: "center",
-        justifyContent: "center",
-        marginVertical: globalStyles.spacing.xl
-    }
-})

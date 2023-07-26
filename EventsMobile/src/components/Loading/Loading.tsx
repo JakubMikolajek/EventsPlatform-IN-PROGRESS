@@ -1,7 +1,10 @@
 import React from "react";
-import {ActivityIndicator, StyleSheet, View} from 'react-native'
-import {globalStyles} from "../../utils/variables/globalStyles";
+import {ActivityIndicator, View} from 'react-native'
+
 import Header from "../Header/Header";
+
+import {styles} from "./styles";
+import {globalStyles} from "../../utils/variables/globalStyles";
 
 const Loading: React.FC = () => {
     return (
@@ -13,11 +16,3 @@ const Loading: React.FC = () => {
 }
 
 export default Loading
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "center"
-    }
-})

@@ -1,14 +1,17 @@
 import React from "react";
-import {Keyboard, KeyboardAvoidingView, Platform, StyleSheet, TouchableWithoutFeedback} from 'react-native'
+import {Keyboard, KeyboardAvoidingView, Platform, TouchableWithoutFeedback} from 'react-native'
 import {SafeAreaView} from "react-native-safe-area-context";
 import {useSelector} from "react-redux";
-import {StateProps} from "../../store/store";
-import {UserProps} from "../../utils/types/types";
-import {useFetchSingleUser} from "../../hooks/useFetchSingleUser";
-import EditProfileForm from "../../components/Forms/EditProfileForm/EditProfileForm";
-import Header from "../../components/Header/Header";
 
-const EditProfileScreen = () => {
+import Header from "../../components/Header/Header";
+import EditProfileForm from "../../components/Forms/EditProfileForm/EditProfileForm";
+
+import {styles} from "./styles";
+import {useFetchSingleUser} from "../../hooks/useFetchSingleUser";
+import {UserProps} from "../../utils/types/types";
+import {StateProps} from "../../store/store";
+
+const EditProfileScreen: React.FC = () => {
     const ownId = useSelector((state: StateProps) => state.auth.loggedUserId)
     let user_data: UserProps | undefined | null
     let refetch_user_data
@@ -34,14 +37,3 @@ const EditProfileScreen = () => {
 }
 
 export default EditProfileScreen
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1
-    },
-    innerContainer: {
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "center"
-    }
-})

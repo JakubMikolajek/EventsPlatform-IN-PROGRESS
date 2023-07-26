@@ -1,15 +1,17 @@
 import React from "react";
-import {Alert, StyleSheet, View} from 'react-native'
+import {Alert, View} from 'react-native'
 import {FieldValues, useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
-import {registerValidation} from "../../../utils/validation/registerValidation";
-import {supabaseClient} from "../../../supabase/supabase";
 import {NavigationProp, ParamListBase, useNavigation} from "@react-navigation/native";
-import {globalStyles} from "../../../utils/variables/globalStyles";
+
 import FormInput from "../../Inputs/FormInput/FormInput";
 import CustomButton from "../../Buttons/CustomButton/CustomButton";
 
-const RegisterForm = () => {
+import {styles} from "./styles";
+import {registerValidation} from "../../../utils/validation/registerValidation";
+import {supabaseClient} from "../../../supabase/supabase";
+
+const RegisterForm: React.FC = () => {
     const navigation: NavigationProp<ParamListBase> = useNavigation()
 
     const {control, handleSubmit, reset, formState: {errors}} = useForm({
@@ -63,11 +65,3 @@ const RegisterForm = () => {
 }
 
 export default RegisterForm
-
-const styles = StyleSheet.create({
-    container: {
-        alignItems: "center",
-        justifyContent: "center",
-        marginVertical: globalStyles.spacing.xl
-    }
-})

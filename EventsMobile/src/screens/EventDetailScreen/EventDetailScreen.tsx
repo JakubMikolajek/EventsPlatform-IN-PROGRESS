@@ -1,10 +1,13 @@
 import React from "react";
-import {StyleSheet, View} from 'react-native'
+import {View} from 'react-native'
 import {SafeAreaView} from "react-native-safe-area-context";
-import {useFetchEventDetails} from "../../hooks/useFetchEventDetails";
+
 import Loading from "../../components/Loading/Loading";
-import {formatDate} from "../../utils/functions/formatDate";
 import EventDetail from "../../components/Details/EventDetail/EventDetail";
+
+import {styles} from "./styles";
+import {formatDate} from "../../utils/functions/formatDate";
+import {useFetchEventDetails} from "../../hooks/useFetchEventDetails";
 
 interface EventDetailScreenProps {
     route: any
@@ -34,9 +37,3 @@ const EventDetailScreen: React.FC<EventDetailScreenProps> = ({route}) => {
 }
 
 export default EventDetailScreen
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    }
-})

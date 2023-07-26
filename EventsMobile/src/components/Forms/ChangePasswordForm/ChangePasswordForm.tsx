@@ -1,15 +1,17 @@
 import React from "react";
-import {Alert, StyleSheet, View} from 'react-native'
+import {Alert, View} from 'react-native'
 import {FieldValues, useForm} from "react-hook-form";
-import {supabaseClient} from "../../../supabase/supabase";
 import {NavigationProp, ParamListBase, useNavigation} from "@react-navigation/native";
-import {globalStyles} from "../../../utils/variables/globalStyles";
+import {yupResolver} from "@hookform/resolvers/yup";
+
 import FormInput from "../../Inputs/FormInput/FormInput";
 import CustomButton from "../../Buttons/CustomButton/CustomButton";
-import {yupResolver} from "@hookform/resolvers/yup";
+
+import {styles} from "./styles";
+import {supabaseClient} from "../../../supabase/supabase";
 import {changePasswordValidation} from "../../../utils/validation/changePasswordValidation";
 
-const ChangePasswordForm = () => {
+const ChangePasswordForm: React.FC = () => {
     const navigation: NavigationProp<ParamListBase> = useNavigation()
 
     const {control, handleSubmit, reset, formState: {errors}} = useForm({
@@ -43,11 +45,3 @@ const ChangePasswordForm = () => {
 }
 
 export default ChangePasswordForm
-
-const styles = StyleSheet.create({
-    container: {
-        alignItems: "center",
-        justifyContent: "center",
-        marginVertical: globalStyles.spacing.xl
-    }
-})

@@ -1,8 +1,9 @@
 import React from "react";
-import {Image, StyleSheet, View} from 'react-native'
+import {Image, View} from 'react-native'
+
 import Header from "../../Header/Header";
-import {globalStyles} from "../../../utils/variables/globalStyles";
-import {screenWidth} from "../../../utils/variables/dimension";
+
+import {styles} from "./styles";
 
 interface EventDetailProps {
     image_url: string | undefined | null
@@ -35,14 +36,3 @@ const EventDetail: React.FC<EventDetailProps> = (
 }
 
 export default EventDetail
-
-const styles = StyleSheet.create({
-    container: {
-        marginTop: globalStyles.spacing.sm,
-        alignItems: "center",
-    },
-    image: {
-        width: screenWidth * .75,
-        height: screenWidth * .75
-    }
-})

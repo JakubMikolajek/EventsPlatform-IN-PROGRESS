@@ -1,14 +1,17 @@
 import React from "react";
-import {StyleSheet, View} from 'react-native'
+import {View} from 'react-native'
 import {useSelector} from "react-redux";
-import {StateProps} from "../../store/store";
 import {SafeAreaView} from "react-native-safe-area-context";
-import {useFetchSingleUser} from "../../hooks/useFetchSingleUser";
+
 import User from "../../components/User/User";
-import {UserProps} from "../../utils/types/types";
 import Loading from "../../components/Loading/Loading";
-import {useFetchEventWithTickets} from "../../hooks/useFetchEventWithTickets";
 import EventsList from "../../components/Lists/EventsList/EventsList";
+
+import {useFetchSingleUser} from "../../hooks/useFetchSingleUser";
+import {useFetchEventWithTickets} from "../../hooks/useFetchEventWithTickets";
+import {styles} from "./styles";
+import {StateProps} from "../../store/store";
+import {UserProps} from "../../utils/types/types";
 
 const ProfileScreen: React.FC = () => {
     const ownId = useSelector((state: StateProps) => state.auth.loggedUserId)
@@ -46,15 +49,3 @@ const ProfileScreen: React.FC = () => {
 }
 
 export default ProfileScreen
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: "center",
-    },
-    image: {
-        width: 92,
-        height: 92,
-        borderRadius: 48
-    }
-})

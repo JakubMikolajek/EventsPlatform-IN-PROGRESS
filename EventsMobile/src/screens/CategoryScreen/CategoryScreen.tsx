@@ -1,11 +1,13 @@
 import React from "react";
-import {StyleSheet, Text, View} from 'react-native'
+import {View} from 'react-native'
 import {SafeAreaView} from "react-native-safe-area-context";
+
 import Header from "../../components/Header/Header";
-import {globalStyles} from "../../utils/variables/globalStyles";
-import {useFetchEventsByCategory} from "../../hooks/useFetchEventsByCategory";
 import Loading from "../../components/Loading/Loading";
 import EventsListV2 from "../../components/Lists/EventsListV2/EventsListV2";
+
+import {styles} from "./styles";
+import {useFetchEventsByCategory} from "../../hooks/useFetchEventsByCategory";
 
 interface CategoryScreenProps {
     route: any
@@ -31,14 +33,3 @@ const CategoryScreen: React.FC<CategoryScreenProps> = ({route}) => {
 }
 
 export default CategoryScreen
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-    headerContainer: {
-        alignItems: "center",
-        marginTop: globalStyles.spacing.sm,
-        marginBottom: globalStyles.spacing.lg
-    }
-})

@@ -1,8 +1,8 @@
 import React from "react";
-import {Image, StyleSheet, Text, TouchableOpacity} from 'react-native'
-import {screenWidth} from "../../../utils/variables/dimension";
-import {globalStyles} from "../../../utils/variables/globalStyles";
+import {Image, Text, TouchableOpacity} from 'react-native'
 import {NavigationProp, ParamListBase, useNavigation} from "@react-navigation/native";
+
+import {styles} from "./styles";
 
 interface EventsListElementProps {
     date: string
@@ -30,23 +30,3 @@ const EventsListElement: React.FC<EventsListElementProps> = ({date, image_url, t
 }
 
 export default EventsListElement
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        width: screenWidth,
-        height: screenWidth * 0.75,
-        alignItems: "center"
-    },
-    image: {
-        width: screenWidth * 0.9,
-        height: screenWidth * 0.5
-    },
-    title: {
-        fontSize: globalStyles.sizes.h5,
-        fontWeight: "500"
-    },
-    description: {
-        fontSize: globalStyles.sizes.body_lg
-    }
-})

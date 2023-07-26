@@ -1,15 +1,17 @@
 import React from "react";
-import {Alert, StyleSheet, View} from 'react-native'
+import {Alert, View} from 'react-native'
 import {FieldValues, useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
-import {loginValidation} from "../../../utils/validation/loginValidation";
 import {Dispatch} from "redux";
 import {useDispatch} from "react-redux";
+
 import FormInput from "../../Inputs/FormInput/FormInput";
 import CustomButton from "../../Buttons/CustomButton/CustomButton";
+
+import {styles} from "./styles";
+import {loginValidation} from "../../../utils/validation/loginValidation";
 import {supabaseClient} from "../../../supabase/supabase";
 import {setIsAuth, setIsLoggedIn} from "../../../store/reducers/authSlice";
-import {globalStyles} from "../../../utils/variables/globalStyles";
 
 const LoginForm: React.FC = () => {
     const dispatch: Dispatch = useDispatch()
@@ -52,11 +54,3 @@ const LoginForm: React.FC = () => {
 }
 
 export default LoginForm
-
-const styles = StyleSheet.create({
-    container: {
-        alignItems: "center",
-        justifyContent: "center",
-        marginVertical: globalStyles.spacing.xl
-    }
-})

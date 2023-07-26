@@ -1,9 +1,11 @@
 import React from "react";
-import {FlatList, StyleSheet, View} from 'react-native'
-import {formatDate} from "../../../utils/functions/formatDate";
-import EventsListElement from "../EventsListElement/EventsListElement";
+import {FlatList, View} from 'react-native'
+
 import Header from "../../Header/Header";
-import {globalStyles} from "../../../utils/variables/globalStyles";
+import EventsListElement from "../EventsListElement/EventsListElement";
+
+import {styles} from "./styles";
+import {formatDate} from "../../../utils/functions/formatDate";
 
 interface EventsListPropsV2 {
     events: any
@@ -27,7 +29,7 @@ const EventsListV2: React.FC<EventsListPropsV2> = ({events, name}) => {
     }
 
     return (
-        <View style={styles.container}>
+        <View>
             {name && <View style={styles.headerContainer}>
                 <Header variant="h5">{name}:</Header>
             </View>}
@@ -39,11 +41,3 @@ const EventsListV2: React.FC<EventsListPropsV2> = ({events, name}) => {
 
 export default EventsListV2
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 7
-    },
-    headerContainer: {
-        marginHorizontal: globalStyles.spacing.md
-    }
-})

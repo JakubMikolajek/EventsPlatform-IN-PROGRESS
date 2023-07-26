@@ -3,14 +3,16 @@ import {
     Keyboard,
     KeyboardAvoidingView,
     Platform,
-    StyleSheet,
     TouchableWithoutFeedback,
 } from 'react-native'
 import {SafeAreaView} from "react-native-safe-area-context";
 import {NavigationProp, ParamListBase} from "@react-navigation/native";
+
 import LoginForm from "../../components/Forms/LoginForm/LoginForm";
 import CustomButton from "../../components/Buttons/CustomButton/CustomButton";
 import Header from "../../components/Header/Header";
+
+import {styles} from "./styles";
 
 interface LoginScreenProps {
     navigation: NavigationProp<ParamListBase>
@@ -31,14 +33,3 @@ const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
 }
 
 export default LoginScreen
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1
-    },
-    innerContainer: {
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "center"
-    }
-})
