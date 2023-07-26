@@ -7,7 +7,7 @@ import {globalStyles} from "../../../utils/variables/globalStyles";
 
 interface EventsListPropsV2 {
     events: any
-    name: string
+    name?: string
 }
 
 const EventsListV2: React.FC<EventsListPropsV2> = ({events, name}) => {
@@ -28,9 +28,9 @@ const EventsListV2: React.FC<EventsListPropsV2> = ({events, name}) => {
 
     return (
         <View style={styles.container}>
-            <View style={styles.headerContainer}>
+            {name && <View style={styles.headerContainer}>
                 <Header variant="h5">{name}:</Header>
-            </View>
+            </View>}
             <FlatList data={events} keyExtractor={(item: any) => item.id} renderItem={renderElement}
                       showsVerticalScrollIndicator={false}/>
         </View>

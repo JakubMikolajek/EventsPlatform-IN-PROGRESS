@@ -12,3 +12,19 @@ export const getEventsWithTicketsData = async (ownId: string) =>
         .from("events")
         .select("*, event_tickets(*)")
         .neq("creator_uuid", ownId);
+
+//Get Events Details
+export const getEventsDetailsData = async (id: number) =>
+    await supabaseClient
+        .from("events")
+        .select("*, event_tickets(*), comments(*)")
+        .eq("id", id)
+        .single()
+
+//Get Events by Category
+export const getEventsByCategoryData = async (category: string) =>
+    await supabaseClient
+        .from("events")
+        .select("*")
+        .is("archived_at", null)
+        .eq("event_category", category);

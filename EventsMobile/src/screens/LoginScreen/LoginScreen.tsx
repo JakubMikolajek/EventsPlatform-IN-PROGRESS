@@ -7,14 +7,16 @@ import {
     TouchableWithoutFeedback,
 } from 'react-native'
 import {SafeAreaView} from "react-native-safe-area-context";
-import {NavigationProp, ParamListBase, useNavigation} from "@react-navigation/native";
+import {NavigationProp, ParamListBase} from "@react-navigation/native";
 import LoginForm from "../../components/Forms/LoginForm/LoginForm";
 import CustomButton from "../../components/Buttons/CustomButton/CustomButton";
 import Header from "../../components/Header/Header";
 
-const LoginScreen: React.FC = () => {
-    const navigation: NavigationProp<ParamListBase> = useNavigation()
+interface LoginScreenProps {
+    navigation: NavigationProp<ParamListBase>
+}
 
+const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
     return (
         <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={styles.container}>
             <TouchableWithoutFeedback onPress={Keyboard.dismiss}>

@@ -27,8 +27,8 @@ const CategoryList: React.FC<CategoryListProps> = ({category}) => {
 export default CategoryList
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 2,
+    container:{
+        marginBottom: globalStyles.spacing.md
     },
     headerContainer:{
         marginHorizontal: globalStyles.spacing.md

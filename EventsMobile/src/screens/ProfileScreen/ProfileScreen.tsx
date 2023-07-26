@@ -16,9 +16,8 @@ const ProfileScreen: React.FC = () => {
     let isUserLoading
 
     let events_with_tickets
-    let isEventsWithTicketsLoading
 
-    if (typeof ownId!== "undefined") {
+    if (typeof ownId !== "undefined") {
         const {user, isLoading} = useFetchSingleUser(ownId, true)
 
         user_data = user
@@ -27,15 +26,12 @@ const ProfileScreen: React.FC = () => {
 
 
     if (typeof ownId !== "undefined") {
-        const {events, isLoading} = useFetchEventWithTickets(ownId, true)
+        const {events} = useFetchEventWithTickets(ownId, false)
 
         events_with_tickets = events
-        isEventsWithTicketsLoading = isLoading
     }
 
-    const isLoading = isEventsWithTicketsLoading || isUserLoading
-
-    console.log(events_with_tickets)
+    const isLoading = isUserLoading
 
     return (
         <SafeAreaView style={styles.container}>

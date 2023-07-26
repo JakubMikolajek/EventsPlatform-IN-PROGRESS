@@ -28,7 +28,7 @@ const EventsList: React.FC<EventsListProps> = ({events, name}) => {
     }
 
     return (
-        <View style={styles.container}>
+        <View>
             <View style={styles.headerContainer}>
                 <Header variant="h5">{name}:</Header>
             </View>
@@ -41,9 +41,6 @@ const EventsList: React.FC<EventsListProps> = ({events, name}) => {
 export default EventsList
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1
-    },
     headerContainer: {
         marginHorizontal: globalStyles.spacing.md
     }

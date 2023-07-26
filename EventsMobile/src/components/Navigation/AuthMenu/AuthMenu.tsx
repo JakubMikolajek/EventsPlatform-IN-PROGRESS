@@ -11,6 +11,7 @@ import SettingScreen from "../../../screens/SettingScreen/SettingScreen";
 import EditProfileScreen from "../../../screens/EditProfileScreen/EditProfileScreen";
 import ResetPasswordScreen from "../../../screens/ResetPasswordScreen/ResetPasswordScreen";
 import EventDetailScreen from "../../../screens/EventDetailScreen/EventDetailScreen";
+import CategoryScreen from "../../../screens/CategoryScreen/CategoryScreen";
 
 const Tabs = createBottomTabNavigator<ParamListBase>()
 const Stack = createStackNavigator<ParamListBase>()
@@ -50,6 +51,10 @@ const AuthMenu: React.FC = () => {
                 headerShown: false
             }}/>
             <Stack.Screen name="EventDetail" component={EventDetailScreen} options={{
+                headerTransparent: true,
+                title: ""
+            }}/>
+            <Stack.Screen name="Category" component={CategoryScreen} options={{
                 headerTransparent: true,
                 title: ""
             }}/>
